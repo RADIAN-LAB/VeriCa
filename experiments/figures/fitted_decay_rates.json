@@ -1,0 +1,192 @@
+{
+  "per_oracle": {
+    "base.pkl": {
+      "traffic_analysis": {
+        "lambda_fitted": 0.10369268463423172,
+        "lambda_hand_set": 0.05,
+        "half_life_s": 6.68462951851397,
+        "samples": 2410,
+        "observed_failures": 2370,
+        "censored": 40,
+        "censored_fraction": 0.016597510373443983,
+        "median_lifetime_s": 5.0,
+        "mean_lifetime_s": 7.618565400843882,
+        "max_deviation": 0.14644427808585314,
+        "mean_deviation": 0.07196636890303855
+      },
+      "hazard_detection": {
+        "lambda_fitted": 0.04951030057413036,
+        "lambda_hand_set": 0.2,
+        "half_life_s": 14.000060038458377,
+        "samples": 2410,
+        "observed_failures": 2199,
+        "censored": 211,
+        "censored_fraction": 0.087551867219917,
+        "median_lifetime_s": 6,
+        "mean_lifetime_s": 8.68349249658936,
+        "max_deviation": 0.30920850990148774,
+        "mean_deviation": 0.2009804625773932
+      },
+      "route_optimization": {
+        "lambda_fitted": 0.2577854671280277,
+        "lambda_hand_set": 0.02,
+        "half_life_s": 2.6888528212325395,
+        "samples": 2410,
+        "observed_failures": 2384,
+        "censored": 26,
+        "censored_fraction": 0.010788381742738589,
+        "median_lifetime_s": 1.0,
+        "mean_lifetime_s": 2.5704697986577183,
+        "max_deviation": 0.3563877463441062,
+        "mean_deviation": 0.16977666872223615
+      },
+      "sensor_processing": {
+        "lambda_fitted": 0.030054109829589778,
+        "lambda_hand_set": 0.1,
+        "half_life_s": 23.06330763047612,
+        "samples": 23384,
+        "observed_failures": 19340,
+        "censored": 4044,
+        "censored_fraction": 0.17293876154635648,
+        "median_lifetime_s": 5.0,
+        "mean_lifetime_s": 8.181282316442607,
+        "max_deviation": 0.4841816086499795,
+        "mean_deviation": 0.3077486901128827
+      },
+      "environment_perception": {
+        "lambda_fitted": 0.4116334934797529,
+        "lambda_hand_set": 0.01,
+        "half_life_s": 1.6838940259705548,
+        "samples": 2410,
+        "observed_failures": 2399,
+        "censored": 11,
+        "censored_fraction": 0.004564315352697096,
+        "median_lifetime_s": 2,
+        "mean_lifetime_s": 1.8791162984576908,
+        "max_deviation": 0.3370160929425795,
+        "mean_deviation": 0.12544199496784453
+      },
+      "content_delivery": {
+        "lambda_fitted": 0.0,
+        "lambda_hand_set": 0.005,
+        "half_life_s": Infinity,
+        "samples": 2410,
+        "observed_failures": 0,
+        "censored": 2410,
+        "censored_fraction": 1.0,
+        "median_lifetime_s": NaN,
+        "mean_lifetime_s": NaN,
+        "max_deviation": NaN,
+        "mean_deviation": NaN
+      },
+      "parking_search": {
+        "lambda_fitted": 0.04951030057413036,
+        "lambda_hand_set": 0.08,
+        "half_life_s": 14.000060038458377,
+        "samples": 2410,
+        "observed_failures": 2199,
+        "censored": 211,
+        "censored_fraction": 0.087551867219917,
+        "median_lifetime_s": 6,
+        "mean_lifetime_s": 8.68349249658936,
+        "max_deviation": 0.30920850990148774,
+        "mean_deviation": 0.2009804625773932
+      }
+    }
+  },
+  "merged": {
+    "traffic_analysis": {
+      "lambda_fitted": 0.10369268463423172,
+      "lambda_hand_set": 0.05,
+      "half_life_s": 6.68462951851397,
+      "samples": 2410,
+      "observed_failures": 2370,
+      "censored": 40,
+      "censored_fraction": 0.016597510373443983,
+      "median_lifetime_s": 5.0,
+      "mean_lifetime_s": 7.618565400843882,
+      "max_deviation": 0.14644427808585314,
+      "mean_deviation": 0.07196636890303855
+    },
+    "hazard_detection": {
+      "lambda_fitted": 0.04951030057413036,
+      "lambda_hand_set": 0.2,
+      "half_life_s": 14.000060038458377,
+      "samples": 2410,
+      "observed_failures": 2199,
+      "censored": 211,
+      "censored_fraction": 0.087551867219917,
+      "median_lifetime_s": 6,
+      "mean_lifetime_s": 8.68349249658936,
+      "max_deviation": 0.30920850990148774,
+      "mean_deviation": 0.2009804625773932
+    },
+    "route_optimization": {
+      "lambda_fitted": 0.2577854671280277,
+      "lambda_hand_set": 0.02,
+      "half_life_s": 2.6888528212325395,
+      "samples": 2410,
+      "observed_failures": 2384,
+      "censored": 26,
+      "censored_fraction": 0.010788381742738589,
+      "median_lifetime_s": 1.0,
+      "mean_lifetime_s": 2.5704697986577183,
+      "max_deviation": 0.3563877463441062,
+      "mean_deviation": 0.16977666872223615
+    },
+    "sensor_processing": {
+      "lambda_fitted": 0.030054109829589778,
+      "lambda_hand_set": 0.1,
+      "half_life_s": 23.06330763047612,
+      "samples": 23384,
+      "observed_failures": 19340,
+      "censored": 4044,
+      "censored_fraction": 0.17293876154635648,
+      "median_lifetime_s": 5.0,
+      "mean_lifetime_s": 8.181282316442607,
+      "max_deviation": 0.4841816086499795,
+      "mean_deviation": 0.3077486901128827
+    },
+    "environment_perception": {
+      "lambda_fitted": 0.4116334934797529,
+      "lambda_hand_set": 0.01,
+      "half_life_s": 1.6838940259705548,
+      "samples": 2410,
+      "observed_failures": 2399,
+      "censored": 11,
+      "censored_fraction": 0.004564315352697096,
+      "median_lifetime_s": 2,
+      "mean_lifetime_s": 1.8791162984576908,
+      "max_deviation": 0.3370160929425795,
+      "mean_deviation": 0.12544199496784453
+    },
+    "content_delivery": {
+      "lambda_fitted": 0.0,
+      "lambda_hand_set": 0.005,
+      "half_life_s": Infinity,
+      "samples": 2410,
+      "observed_failures": 0,
+      "censored": 2410,
+      "censored_fraction": 1.0,
+      "median_lifetime_s": NaN,
+      "mean_lifetime_s": NaN,
+      "max_deviation": NaN,
+      "mean_deviation": NaN
+    },
+    "parking_search": {
+      "lambda_fitted": 0.04951030057413036,
+      "lambda_hand_set": 0.08,
+      "half_life_s": 14.000060038458377,
+      "samples": 2410,
+      "observed_failures": 2199,
+      "censored": 211,
+      "censored_fraction": 0.087551867219917,
+      "median_lifetime_s": 6,
+      "mean_lifetime_s": 8.68349249658936,
+      "max_deviation": 0.30920850990148774,
+      "mean_deviation": 0.2009804625773932
+    }
+  },
+  "max_age_s": 120,
+  "stride": 1
+}

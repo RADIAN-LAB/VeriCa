@@ -1,0 +1,51 @@
+{
+  "total_tasks": 16341,
+  "success_rate": 0.9679946147726577,
+  "average_completion": 2.2999229270993924,
+  "cache_hits": 15688,
+  "cache_misses": 653,
+  "runtime_seconds": 158.49726819992065,
+  "reuse_mode": "coca",
+  "valid_cache_hits": 12261,
+  "stale_cache_hits": 3427,
+  "semantic_cache_hits": 0,
+  "valid_hit_rate": 0.7503212777675785,
+  "stale_reuse_rate": 0.21844722080571138,
+  "rejected_stale": 0,
+  "rejected_intent": 0,
+  "per_intent": {
+    "traffic_analysis": {
+      "misses": 53,
+      "hits": 4531,
+      "valid_hits": 3713,
+      "stale_hits": 818
+    },
+    "hazard_detection": {
+      "misses": 301,
+      "hits": 2175,
+      "stale_hits": 888,
+      "valid_hits": 1287
+    },
+    "route_optimization": {
+      "misses": 32,
+      "hits": 2322,
+      "valid_hits": 2164,
+      "stale_hits": 158
+    },
+    "sensor_processing": {
+      "misses": 70,
+      "hits": 4456,
+      "valid_hits": 2949,
+      "stale_hits": 1507
+    },
+    "environment_perception": {
+      "misses": 197,
+      "hits": 2204,
+      "stale_hits": 56,
+      "valid_hits": 2148
+    }
+  },
+  "energy_joules": 3617.500966893092,
+  "seed": 1,
+  "reuse_threshold": 0.65
+}

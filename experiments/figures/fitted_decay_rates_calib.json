@@ -1,0 +1,336 @@
+{
+  "per_oracle": {
+    "seed_01.pkl": {
+      "traffic_analysis": {
+        "lambda_fitted": 0.08279649382194529,
+        "lambda_hand_set": 0.05,
+        "half_life_s": 8.371697261125156,
+        "samples": 2396,
+        "observed_failures": 2352,
+        "censored": 44,
+        "censored_fraction": 0.018363939899833055,
+        "median_lifetime_s": 7.0,
+        "mean_lifetime_s": 9.832908163265307,
+        "max_deviation": 0.12697526359098904,
+        "mean_deviation": 0.06450394064936484
+      },
+      "hazard_detection": {
+        "lambda_fitted": 0.017009953348939826,
+        "lambda_hand_set": 0.2,
+        "half_life_s": 40.74950508921571,
+        "samples": 2396,
+        "observed_failures": 2020,
+        "censored": 376,
+        "censored_fraction": 0.15692821368948248,
+        "median_lifetime_s": 27.0,
+        "mean_lifetime_s": 36.45247524752475,
+        "max_deviation": 0.1428167657087026,
+        "mean_deviation": 0.11126371295397589
+      },
+      "route_optimization": {
+        "lambda_fitted": 0.19086064911997416,
+        "lambda_hand_set": 0.02,
+        "half_life_s": 3.6316924612586643,
+        "samples": 2396,
+        "observed_failures": 2364,
+        "censored": 32,
+        "censored_fraction": 0.01335559265442404,
+        "median_lifetime_s": 2.0,
+        "mean_lifetime_s": 3.6150592216582065,
+        "max_deviation": 0.31043486927485264,
+        "mean_deviation": 0.14305033740725828
+      },
+      "sensor_processing": {
+        "lambda_fitted": 0.03244393792109409,
+        "lambda_hand_set": 0.1,
+        "half_life_s": 21.364458970601145,
+        "samples": 23065,
+        "observed_failures": 19358,
+        "censored": 3707,
+        "censored_fraction": 0.1607197051810102,
+        "median_lifetime_s": 4.0,
+        "mean_lifetime_s": 7.842752350449427,
+        "max_deviation": 0.4768455786943785,
+        "mean_deviation": 0.303694486354341
+      },
+      "environment_perception": {
+        "lambda_fitted": 0.4389705882352941,
+        "lambda_hand_set": 0.01,
+        "half_life_s": 1.5790287530343812,
+        "samples": 2396,
+        "observed_failures": 2388,
+        "censored": 8,
+        "censored_fraction": 0.00333889816360601,
+        "median_lifetime_s": 2.0,
+        "mean_lifetime_s": 1.8760469011725294,
+        "max_deviation": 0.35488149842294225,
+        "mean_deviation": 0.12337898660701194
+      },
+      "content_delivery": {
+        "lambda_fitted": 0.0,
+        "lambda_hand_set": 0.005,
+        "half_life_s": Infinity,
+        "samples": 2396,
+        "observed_failures": 0,
+        "censored": 2396,
+        "censored_fraction": 1.0,
+        "median_lifetime_s": NaN,
+        "mean_lifetime_s": NaN,
+        "max_deviation": NaN,
+        "mean_deviation": NaN
+      },
+      "parking_search": {
+        "lambda_fitted": 0.017009953348939826,
+        "lambda_hand_set": 0.08,
+        "half_life_s": 40.74950508921571,
+        "samples": 2396,
+        "observed_failures": 2020,
+        "censored": 376,
+        "censored_fraction": 0.15692821368948248,
+        "median_lifetime_s": 27.0,
+        "mean_lifetime_s": 36.45247524752475,
+        "max_deviation": 0.1428167657087026,
+        "mean_deviation": 0.11126371295397589
+      }
+    },
+    "seed_02.pkl": {
+      "traffic_analysis": {
+        "lambda_fitted": 0.09343384249156914,
+        "lambda_hand_set": 0.05,
+        "half_life_s": 7.418587977075762,
+        "samples": 2392,
+        "observed_failures": 2355,
+        "censored": 37,
+        "censored_fraction": 0.015468227424749164,
+        "median_lifetime_s": 6,
+        "mean_lifetime_s": 8.817409766454352,
+        "max_deviation": 0.11482018152775852,
+        "mean_deviation": 0.06005723802006191
+      },
+      "hazard_detection": {
+        "lambda_fitted": 0.015576664687685529,
+        "lambda_hand_set": 0.2,
+        "half_life_s": 44.499075665917616,
+        "samples": 2392,
+        "observed_failures": 1994,
+        "censored": 398,
+        "censored_fraction": 0.16638795986622074,
+        "median_lifetime_s": 32.0,
+        "mean_lifetime_s": 40.246740220661984,
+        "max_deviation": 0.15465704866659538,
+        "mean_deviation": 0.09970670967901409
+      },
+      "route_optimization": {
+        "lambda_fitted": 0.20738860194344744,
+        "lambda_hand_set": 0.02,
+        "half_life_s": 3.3422626608426573,
+        "samples": 2392,
+        "observed_failures": 2369,
+        "censored": 23,
+        "censored_fraction": 0.009615384615384616,
+        "median_lifetime_s": 2,
+        "mean_lifetime_s": 3.656817222456733,
+        "max_deviation": 0.291133260470569,
+        "mean_deviation": 0.12427131456233494
+      },
+      "sensor_processing": {
+        "lambda_fitted": 0.027553682393190605,
+        "lambda_hand_set": 0.1,
+        "half_life_s": 25.156244841206565,
+        "samples": 21471,
+        "observed_failures": 17364,
+        "censored": 4107,
+        "censored_fraction": 0.19128126309906385,
+        "median_lifetime_s": 5.0,
+        "mean_lifetime_s": 7.909928587882976,
+        "max_deviation": 0.5169585532848651,
+        "mean_deviation": 0.32476433011072536
+      },
+      "environment_perception": {
+        "lambda_fitted": 0.37962962962962965,
+        "lambda_hand_set": 0.01,
+        "half_life_s": 1.8258511097676606,
+        "samples": 2392,
+        "observed_failures": 2378,
+        "censored": 14,
+        "censored_fraction": 0.005852842809364548,
+        "median_lifetime_s": 2.0,
+        "mean_lifetime_s": 1.9276703111858704,
+        "max_deviation": 0.3154647404277725,
+        "mean_deviation": 0.12603274883182936
+      },
+      "content_delivery": {
+        "lambda_fitted": 0.0,
+        "lambda_hand_set": 0.005,
+        "half_life_s": Infinity,
+        "samples": 2392,
+        "observed_failures": 0,
+        "censored": 2392,
+        "censored_fraction": 1.0,
+        "median_lifetime_s": NaN,
+        "mean_lifetime_s": NaN,
+        "max_deviation": NaN,
+        "mean_deviation": NaN
+      },
+      "parking_search": {
+        "lambda_fitted": 0.015576664687685529,
+        "lambda_hand_set": 0.08,
+        "half_life_s": 44.499075665917616,
+        "samples": 2392,
+        "observed_failures": 1994,
+        "censored": 398,
+        "censored_fraction": 0.16638795986622074,
+        "median_lifetime_s": 32.0,
+        "mean_lifetime_s": 40.246740220661984,
+        "max_deviation": 0.15465704866659538,
+        "mean_deviation": 0.09970670967901409
+      }
+    },
+    "seed_03.pkl": {
+      "traffic_analysis": {
+        "lambda_fitted": 0.09199784349969192,
+        "lambda_hand_set": 0.05,
+        "half_life_s": 7.534385091996928,
+        "samples": 2424,
+        "observed_failures": 2389,
+        "censored": 35,
+        "censored_fraction": 0.014438943894389438,
+        "median_lifetime_s": 7,
+        "mean_lifetime_s": 9.111762243616576,
+        "max_deviation": 0.12117906763248587,
+        "mean_deviation": 0.055504398623280694
+      },
+      "hazard_detection": {
+        "lambda_fitted": 0.012814648480816145,
+        "lambda_hand_set": 0.2,
+        "half_life_s": 54.090221951667594,
+        "samples": 2424,
+        "observed_failures": 1849,
+        "censored": 575,
+        "censored_fraction": 0.2372112211221122,
+        "median_lifetime_s": 32,
+        "mean_lifetime_s": 40.71822606814494,
+        "max_deviation": 0.2167908541915213,
+        "mean_deviation": 0.14391238139120724
+      },
+      "route_optimization": {
+        "lambda_fitted": 0.25564627292969994,
+        "lambda_hand_set": 0.02,
+        "half_life_s": 2.711352575637015,
+        "samples": 2424,
+        "observed_failures": 2411,
+        "censored": 13,
+        "censored_fraction": 0.005363036303630363,
+        "median_lifetime_s": 2,
+        "mean_lifetime_s": 3.264620489423476,
+        "max_deviation": 0.25422011952147705,
+        "mean_deviation": 0.11022988837020352
+      },
+      "sensor_processing": {
+        "lambda_fitted": 0.029069264277403285,
+        "lambda_hand_set": 0.1,
+        "half_life_s": 23.84467573535243,
+        "samples": 22092,
+        "observed_failures": 18138,
+        "censored": 3954,
+        "censored_fraction": 0.17897881586094513,
+        "median_lifetime_s": 5.0,
+        "mean_lifetime_s": 8.241151174330136,
+        "max_deviation": 0.4942082004488375,
+        "mean_deviation": 0.31226792879265663
+      },
+      "environment_perception": {
+        "lambda_fitted": 0.4333393145523058,
+        "lambda_hand_set": 0.01,
+        "half_life_s": 1.5995483384101759,
+        "samples": 2424,
+        "observed_failures": 2415,
+        "censored": 9,
+        "censored_fraction": 0.0037128712871287127,
+        "median_lifetime_s": 2,
+        "mean_lifetime_s": 1.860455486542443,
+        "max_deviation": 0.35124545820141784,
+        "mean_deviation": 0.1227736159805548
+      },
+      "content_delivery": {
+        "lambda_fitted": 0.0,
+        "lambda_hand_set": 0.005,
+        "half_life_s": Infinity,
+        "samples": 2424,
+        "observed_failures": 0,
+        "censored": 2424,
+        "censored_fraction": 1.0,
+        "median_lifetime_s": NaN,
+        "mean_lifetime_s": NaN,
+        "max_deviation": NaN,
+        "mean_deviation": NaN
+      },
+      "parking_search": {
+        "lambda_fitted": 0.012814648480816145,
+        "lambda_hand_set": 0.08,
+        "half_life_s": 54.090221951667594,
+        "samples": 2424,
+        "observed_failures": 1849,
+        "censored": 575,
+        "censored_fraction": 0.2372112211221122,
+        "median_lifetime_s": 32,
+        "mean_lifetime_s": 40.71822606814494,
+        "max_deviation": 0.2167908541915213,
+        "mean_deviation": 0.14391238139120724
+      }
+    }
+  },
+  "merged": {
+    "traffic_analysis": {
+      "lambda_fitted": 0.08940939327106878,
+      "lambda_std": 0.005771772051920575,
+      "lambda_hand_set": 0.05,
+      "n_oracles": 3,
+      "half_life_s": 7.7525096100191835
+    },
+    "hazard_detection": {
+      "lambda_fitted": 0.015133755505813834,
+      "lambda_std": 0.002132433385047527,
+      "lambda_hand_set": 0.2,
+      "n_oracles": 3,
+      "half_life_s": 45.80139941428706
+    },
+    "route_optimization": {
+      "lambda_fitted": 0.21796517466437385,
+      "lambda_std": 0.03366291997130686,
+      "lambda_hand_set": 0.02,
+      "n_oracles": 3,
+      "half_life_s": 3.1800822384918326
+    },
+    "sensor_processing": {
+      "lambda_fitted": 0.02968896153056266,
+      "lambda_std": 0.0025033314395476285,
+      "lambda_hand_set": 0.1,
+      "n_oracles": 3,
+      "half_life_s": 23.346966172811396
+    },
+    "environment_perception": {
+      "lambda_fitted": 0.41731317747240987,
+      "lambda_std": 0.03275614666497736,
+      "lambda_hand_set": 0.01,
+      "n_oracles": 3,
+      "half_life_s": 1.6609760198760362
+    },
+    "content_delivery": {
+      "lambda_fitted": 0.0,
+      "lambda_std": 0.0,
+      "lambda_hand_set": 0.005,
+      "n_oracles": 3,
+      "half_life_s": Infinity
+    },
+    "parking_search": {
+      "lambda_fitted": 0.015133755505813834,
+      "lambda_std": 0.002132433385047527,
+      "lambda_hand_set": 0.08,
+      "n_oracles": 3,
+      "half_life_s": 45.80139941428706
+    }
+  },
+  "max_age_s": 120,
+  "stride": 1
+}

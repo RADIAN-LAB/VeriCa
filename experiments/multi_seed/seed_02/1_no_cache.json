@@ -1,0 +1,26 @@
+{
+  "total_tasks": 16456,
+  "success_rate": 0.3334953816237239,
+  "average_completion": 14.380267777916226,
+  "cache_hits": 0,
+  "cache_misses": 0,
+  "runtime_seconds": 391.8863413333893,
+  "reuse_mode": "coca",
+  "valid_cache_hits": 0,
+  "stale_cache_hits": 0,
+  "semantic_cache_hits": 0,
+  "valid_hit_rate": 0.0,
+  "stale_reuse_rate": 0.0,
+  "rejected_stale": 0,
+  "rejected_intent": 0,
+  "per_intent": {
+    "traffic_analysis": {},
+    "hazard_detection": {},
+    "route_optimization": {},
+    "sensor_processing": {},
+    "environment_perception": {}
+  },
+  "energy_joules": 16452.0,
+  "seed": 2,
+  "reuse_threshold": 0.65
+}

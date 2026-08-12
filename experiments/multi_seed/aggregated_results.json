@@ -1,0 +1,1076 @@
+{
+  "1_no_cache": {
+    "name": "No Cache",
+    "metrics": {
+      "success_rate": {
+        "mean": 0.32745853986904105,
+        "std": 0.0,
+        "min": 0.32745853986904105,
+        "max": 0.32745853986904105,
+        "n": 1
+      },
+      "average_completion": {
+        "mean": 14.250847176258546,
+        "std": 0.0,
+        "min": 14.250847176258546,
+        "max": 14.250847176258546,
+        "n": 1
+      },
+      "cache_hits": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "cache_misses": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "valid_hit_rate": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "stale_reuse_rate": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "semantic_cache_hits": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "energy_joules": {
+        "mean": 16485.0,
+        "std": 0.0,
+        "min": 16485.0,
+        "max": 16485.0,
+        "n": 1
+      },
+      "runtime_seconds": {
+        "mean": 429.31100511550903,
+        "std": 0.0,
+        "min": 429.31100511550903,
+        "max": 429.31100511550903,
+        "n": 1
+      }
+    },
+    "raw": [
+      {
+        "total_tasks": 16341,
+        "success_rate": 0.32745853986904105,
+        "average_completion": 14.250847176258546,
+        "cache_hits": 0,
+        "cache_misses": 0,
+        "runtime_seconds": 429.31100511550903,
+        "reuse_mode": "coca",
+        "valid_cache_hits": 0,
+        "stale_cache_hits": 0,
+        "semantic_cache_hits": 0,
+        "valid_hit_rate": 0.0,
+        "stale_reuse_rate": 0.0,
+        "rejected_stale": 0,
+        "rejected_intent": 0,
+        "per_intent": {
+          "traffic_analysis": {},
+          "hazard_detection": {},
+          "route_optimization": {},
+          "sensor_processing": {},
+          "environment_perception": {}
+        },
+        "energy_joules": 16485.0,
+        "seed": 1,
+        "reuse_threshold": 0.65
+      }
+    ]
+  },
+  "2_random": {
+    "name": "Random",
+    "metrics": {
+      "success_rate": {
+        "mean": 0.863961813842482,
+        "std": 0.0,
+        "min": 0.863961813842482,
+        "max": 0.863961813842482,
+        "n": 1
+      },
+      "average_completion": {
+        "mean": 3.36545865982289,
+        "std": 0.0,
+        "min": 3.36545865982289,
+        "max": 3.36545865982289,
+        "n": 1
+      },
+      "cache_hits": {
+        "mean": 12745.0,
+        "std": 0.0,
+        "min": 12745.0,
+        "max": 12745.0,
+        "n": 1
+      },
+      "cache_misses": {
+        "mean": 3596.0,
+        "std": 0.0,
+        "min": 3596.0,
+        "max": 3596.0,
+        "n": 1
+      },
+      "valid_hit_rate": {
+        "mean": 0.5110458356281745,
+        "std": 0.0,
+        "min": 0.5110458356281745,
+        "max": 0.5110458356281745,
+        "n": 1
+      },
+      "stale_reuse_rate": {
+        "mean": 0.3447626520204002,
+        "std": 0.0,
+        "min": 0.3447626520204002,
+        "max": 0.3447626520204002,
+        "n": 1
+      },
+      "semantic_cache_hits": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "energy_joules": {
+        "mean": 10822.613365155132,
+        "std": 0.0,
+        "min": 10822.613365155132,
+        "max": 10822.613365155132,
+        "n": 1
+      },
+      "runtime_seconds": {
+        "mean": 144.24928402900696,
+        "std": 0.0,
+        "min": 144.24928402900696,
+        "max": 144.24928402900696,
+        "n": 1
+      }
+    },
+    "raw": [
+      {
+        "total_tasks": 16341,
+        "success_rate": 0.863961813842482,
+        "average_completion": 3.36545865982289,
+        "cache_hits": 12745,
+        "cache_misses": 3596,
+        "runtime_seconds": 144.24928402900696,
+        "reuse_mode": "coca",
+        "valid_cache_hits": 8351,
+        "stale_cache_hits": 4394,
+        "semantic_cache_hits": 0,
+        "valid_hit_rate": 0.5110458356281745,
+        "stale_reuse_rate": 0.3447626520204002,
+        "rejected_stale": 0,
+        "rejected_intent": 0,
+        "per_intent": {
+          "traffic_analysis": {
+            "misses": 913,
+            "hits": 3671,
+            "stale_hits": 1015,
+            "valid_hits": 2656
+          },
+          "hazard_detection": {
+            "misses": 652,
+            "hits": 1824,
+            "stale_hits": 1246,
+            "valid_hits": 578
+          },
+          "route_optimization": {
+            "misses": 515,
+            "hits": 1839,
+            "valid_hits": 1537,
+            "stale_hits": 302
+          },
+          "sensor_processing": {
+            "misses": 777,
+            "hits": 3749,
+            "valid_hits": 2119,
+            "stale_hits": 1630
+          },
+          "environment_perception": {
+            "misses": 739,
+            "hits": 1662,
+            "valid_hits": 1461,
+            "stale_hits": 201
+          }
+        },
+        "energy_joules": 10822.613365155132,
+        "seed": 1,
+        "reuse_threshold": 0.65
+      }
+    ]
+  },
+  "3_lru": {
+    "name": "LRU",
+    "metrics": {
+      "success_rate": {
+        "mean": 0.9001285111070314,
+        "std": 0.0,
+        "min": 0.9001285111070314,
+        "max": 0.9001285111070314,
+        "n": 1
+      },
+      "average_completion": {
+        "mean": 3.076299322929412,
+        "std": 0.0,
+        "min": 3.076299322929412,
+        "max": 3.076299322929412,
+        "n": 1
+      },
+      "cache_hits": {
+        "mean": 13596.0,
+        "std": 0.0,
+        "min": 13596.0,
+        "max": 13596.0,
+        "n": 1
+      },
+      "cache_misses": {
+        "mean": 2745.0,
+        "std": 0.0,
+        "min": 2745.0,
+        "max": 2745.0,
+        "n": 1
+      },
+      "valid_hit_rate": {
+        "mean": 0.5250596658711217,
+        "std": 0.0,
+        "min": 0.5250596658711217,
+        "max": 0.5250596658711217,
+        "n": 1
+      },
+      "stale_reuse_rate": {
+        "mean": 0.36893203883495146,
+        "std": 0.0,
+        "min": 0.36893203883495146,
+        "max": 0.36893203883495146,
+        "n": 1
+      },
+      "semantic_cache_hits": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "energy_joules": {
+        "mean": 8749.305525977603,
+        "std": 0.0,
+        "min": 8749.305525977603,
+        "max": 8749.305525977603,
+        "n": 1
+      },
+      "runtime_seconds": {
+        "mean": 125.38892412185669,
+        "std": 0.0,
+        "min": 125.38892412185669,
+        "max": 125.38892412185669,
+        "n": 1
+      }
+    },
+    "raw": [
+      {
+        "total_tasks": 16341,
+        "success_rate": 0.9001285111070314,
+        "average_completion": 3.076299322929412,
+        "cache_hits": 13596,
+        "cache_misses": 2745,
+        "runtime_seconds": 125.38892412185669,
+        "reuse_mode": "coca",
+        "valid_cache_hits": 8580,
+        "stale_cache_hits": 5016,
+        "semantic_cache_hits": 0,
+        "valid_hit_rate": 0.5250596658711217,
+        "stale_reuse_rate": 0.36893203883495146,
+        "rejected_stale": 0,
+        "rejected_intent": 0,
+        "per_intent": {
+          "traffic_analysis": {
+            "misses": 521,
+            "hits": 4063,
+            "valid_hits": 2784,
+            "stale_hits": 1279
+          },
+          "hazard_detection": {
+            "misses": 525,
+            "hits": 1951,
+            "stale_hits": 1407,
+            "valid_hits": 544
+          },
+          "route_optimization": {
+            "misses": 390,
+            "hits": 1964,
+            "valid_hits": 1603,
+            "stale_hits": 361
+          },
+          "sensor_processing": {
+            "misses": 558,
+            "hits": 3968,
+            "valid_hits": 2142,
+            "stale_hits": 1826
+          },
+          "environment_perception": {
+            "misses": 751,
+            "hits": 1650,
+            "valid_hits": 1507,
+            "stale_hits": 143
+          }
+        },
+        "energy_joules": 8749.305525977603,
+        "seed": 1,
+        "reuse_threshold": 0.65
+      }
+    ]
+  },
+  "4_lfu": {
+    "name": "LFU",
+    "metrics": {
+      "success_rate": {
+        "mean": 0.9001285111070314,
+        "std": 0.0,
+        "min": 0.9001285111070314,
+        "max": 0.9001285111070314,
+        "n": 1
+      },
+      "average_completion": {
+        "mean": 3.076299322929412,
+        "std": 0.0,
+        "min": 3.076299322929412,
+        "max": 3.076299322929412,
+        "n": 1
+      },
+      "cache_hits": {
+        "mean": 13596.0,
+        "std": 0.0,
+        "min": 13596.0,
+        "max": 13596.0,
+        "n": 1
+      },
+      "cache_misses": {
+        "mean": 2745.0,
+        "std": 0.0,
+        "min": 2745.0,
+        "max": 2745.0,
+        "n": 1
+      },
+      "valid_hit_rate": {
+        "mean": 0.5250596658711217,
+        "std": 0.0,
+        "min": 0.5250596658711217,
+        "max": 0.5250596658711217,
+        "n": 1
+      },
+      "stale_reuse_rate": {
+        "mean": 0.36893203883495146,
+        "std": 0.0,
+        "min": 0.36893203883495146,
+        "max": 0.36893203883495146,
+        "n": 1
+      },
+      "semantic_cache_hits": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "energy_joules": {
+        "mean": 8749.305525977603,
+        "std": 0.0,
+        "min": 8749.305525977603,
+        "max": 8749.305525977603,
+        "n": 1
+      },
+      "runtime_seconds": {
+        "mean": 122.4154920578003,
+        "std": 0.0,
+        "min": 122.4154920578003,
+        "max": 122.4154920578003,
+        "n": 1
+      }
+    },
+    "raw": [
+      {
+        "total_tasks": 16341,
+        "success_rate": 0.9001285111070314,
+        "average_completion": 3.076299322929412,
+        "cache_hits": 13596,
+        "cache_misses": 2745,
+        "runtime_seconds": 122.4154920578003,
+        "reuse_mode": "coca",
+        "valid_cache_hits": 8580,
+        "stale_cache_hits": 5016,
+        "semantic_cache_hits": 0,
+        "valid_hit_rate": 0.5250596658711217,
+        "stale_reuse_rate": 0.36893203883495146,
+        "rejected_stale": 0,
+        "rejected_intent": 0,
+        "per_intent": {
+          "traffic_analysis": {
+            "misses": 521,
+            "hits": 4063,
+            "valid_hits": 2784,
+            "stale_hits": 1279
+          },
+          "hazard_detection": {
+            "misses": 525,
+            "hits": 1951,
+            "stale_hits": 1407,
+            "valid_hits": 544
+          },
+          "route_optimization": {
+            "misses": 390,
+            "hits": 1964,
+            "valid_hits": 1603,
+            "stale_hits": 361
+          },
+          "sensor_processing": {
+            "misses": 558,
+            "hits": 3968,
+            "valid_hits": 2142,
+            "stale_hits": 1826
+          },
+          "environment_perception": {
+            "misses": 751,
+            "hits": 1650,
+            "valid_hits": 1507,
+            "stale_hits": 143
+          }
+        },
+        "energy_joules": 8749.305525977603,
+        "seed": 1,
+        "reuse_threshold": 0.65
+      }
+    ]
+  },
+  "5_fl_only": {
+    "name": "FL-Only",
+    "metrics": {
+      "success_rate": {
+        "mean": 0.9679946147726577,
+        "std": 0.0,
+        "min": 0.9679946147726577,
+        "max": 0.9679946147726577,
+        "n": 1
+      },
+      "average_completion": {
+        "mean": 2.2999229270993924,
+        "std": 0.0,
+        "min": 2.2999229270993924,
+        "max": 2.2999229270993924,
+        "n": 1
+      },
+      "cache_hits": {
+        "mean": 15688.0,
+        "std": 0.0,
+        "min": 15688.0,
+        "max": 15688.0,
+        "n": 1
+      },
+      "cache_misses": {
+        "mean": 653.0,
+        "std": 0.0,
+        "min": 653.0,
+        "max": 653.0,
+        "n": 1
+      },
+      "valid_hit_rate": {
+        "mean": 0.7503212777675785,
+        "std": 0.0,
+        "min": 0.7503212777675785,
+        "max": 0.7503212777675785,
+        "n": 1
+      },
+      "stale_reuse_rate": {
+        "mean": 0.21844722080571138,
+        "std": 0.0,
+        "min": 0.21844722080571138,
+        "max": 0.21844722080571138,
+        "n": 1
+      },
+      "semantic_cache_hits": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "energy_joules": {
+        "mean": 3617.500966893092,
+        "std": 0.0,
+        "min": 3617.500966893092,
+        "max": 3617.500966893092,
+        "n": 1
+      },
+      "runtime_seconds": {
+        "mean": 158.49726819992065,
+        "std": 0.0,
+        "min": 158.49726819992065,
+        "max": 158.49726819992065,
+        "n": 1
+      }
+    },
+    "raw": [
+      {
+        "total_tasks": 16341,
+        "success_rate": 0.9679946147726577,
+        "average_completion": 2.2999229270993924,
+        "cache_hits": 15688,
+        "cache_misses": 653,
+        "runtime_seconds": 158.49726819992065,
+        "reuse_mode": "coca",
+        "valid_cache_hits": 12261,
+        "stale_cache_hits": 3427,
+        "semantic_cache_hits": 0,
+        "valid_hit_rate": 0.7503212777675785,
+        "stale_reuse_rate": 0.21844722080571138,
+        "rejected_stale": 0,
+        "rejected_intent": 0,
+        "per_intent": {
+          "traffic_analysis": {
+            "misses": 53,
+            "hits": 4531,
+            "valid_hits": 3713,
+            "stale_hits": 818
+          },
+          "hazard_detection": {
+            "misses": 301,
+            "hits": 2175,
+            "stale_hits": 888,
+            "valid_hits": 1287
+          },
+          "route_optimization": {
+            "misses": 32,
+            "hits": 2322,
+            "valid_hits": 2164,
+            "stale_hits": 158
+          },
+          "sensor_processing": {
+            "misses": 70,
+            "hits": 4456,
+            "valid_hits": 2949,
+            "stale_hits": 1507
+          },
+          "environment_perception": {
+            "misses": 197,
+            "hits": 2204,
+            "stale_hits": 56,
+            "valid_hits": 2148
+          }
+        },
+        "energy_joules": 3617.500966893092,
+        "seed": 1,
+        "reuse_threshold": 0.65
+      }
+    ]
+  },
+  "6_coca": {
+    "name": "CoCa (FL+RL)",
+    "metrics": {
+      "success_rate": {
+        "mean": 0.9693409216082247,
+        "std": 0.0,
+        "min": 0.9693409216082247,
+        "max": 0.9693409216082247,
+        "n": 1
+      },
+      "average_completion": {
+        "mean": 2.298150476887235,
+        "std": 0.0,
+        "min": 2.298150476887235,
+        "max": 2.298150476887235,
+        "n": 1
+      },
+      "cache_hits": {
+        "mean": 15719.0,
+        "std": 0.0,
+        "min": 15719.0,
+        "max": 15719.0,
+        "n": 1
+      },
+      "cache_misses": {
+        "mean": 622.0,
+        "std": 0.0,
+        "min": 622.0,
+        "max": 622.0,
+        "n": 1
+      },
+      "valid_hit_rate": {
+        "mean": 0.7561960712318707,
+        "std": 0.0,
+        "min": 0.7561960712318707,
+        "max": 0.7561960712318707,
+        "n": 1
+      },
+      "stale_reuse_rate": {
+        "mean": 0.213881290158407,
+        "std": 0.0,
+        "min": 0.213881290158407,
+        "max": 0.213881290158407,
+        "n": 1
+      },
+      "semantic_cache_hits": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "energy_joules": {
+        "mean": 3529.2601064806317,
+        "std": 0.0,
+        "min": 3529.2601064806317,
+        "max": 3529.2601064806317,
+        "n": 1
+      },
+      "runtime_seconds": {
+        "mean": 68.28306269645691,
+        "std": 0.0,
+        "min": 68.28306269645691,
+        "max": 68.28306269645691,
+        "n": 1
+      }
+    },
+    "raw": [
+      {
+        "total_tasks": 16341,
+        "success_rate": 0.9693409216082247,
+        "average_completion": 2.298150476887235,
+        "cache_hits": 15719,
+        "cache_misses": 622,
+        "runtime_seconds": 68.28306269645691,
+        "reuse_mode": "coca",
+        "valid_cache_hits": 12357,
+        "stale_cache_hits": 3362,
+        "semantic_cache_hits": 0,
+        "valid_hit_rate": 0.7561960712318707,
+        "stale_reuse_rate": 0.213881290158407,
+        "rejected_stale": 0,
+        "rejected_intent": 0,
+        "per_intent": {
+          "traffic_analysis": {
+            "misses": 54,
+            "hits": 4530,
+            "valid_hits": 3708,
+            "stale_hits": 822
+          },
+          "hazard_detection": {
+            "misses": 291,
+            "hits": 2185,
+            "stale_hits": 893,
+            "valid_hits": 1292
+          },
+          "route_optimization": {
+            "misses": 28,
+            "hits": 2326,
+            "valid_hits": 2172,
+            "stale_hits": 154
+          },
+          "sensor_processing": {
+            "misses": 72,
+            "hits": 4454,
+            "valid_hits": 3016,
+            "stale_hits": 1438
+          },
+          "environment_perception": {
+            "misses": 177,
+            "hits": 2224,
+            "stale_hits": 55,
+            "valid_hits": 2169
+          }
+        },
+        "energy_joules": 3529.2601064806317,
+        "seed": 1,
+        "reuse_threshold": 0.65
+      }
+    ]
+  },
+  "7_intent_nlp": {
+    "name": "Intent-NLP (full)",
+    "metrics": {
+      "success_rate": {
+        "mean": 0.9997552169389878,
+        "std": 0.0,
+        "min": 0.9997552169389878,
+        "max": 0.9997552169389878,
+        "n": 1
+      },
+      "average_completion": {
+        "mean": 2.2160341128923102,
+        "std": 0.0,
+        "min": 2.2160341128923102,
+        "max": 2.2160341128923102,
+        "n": 1
+      },
+      "cache_hits": {
+        "mean": 16335.0,
+        "std": 0.0,
+        "min": 16335.0,
+        "max": 16335.0,
+        "n": 1
+      },
+      "cache_misses": {
+        "mean": 6.0,
+        "std": 0.0,
+        "min": 6.0,
+        "max": 6.0,
+        "n": 1
+      },
+      "valid_hit_rate": {
+        "mean": 0.8504375497215593,
+        "std": 0.0,
+        "min": 0.8504375497215593,
+        "max": 0.8504375497215593,
+        "n": 1
+      },
+      "stale_reuse_rate": {
+        "mean": 0.14925007652280378,
+        "std": 0.0,
+        "min": 0.14925007652280378,
+        "max": 0.14925007652280378,
+        "n": 1
+      },
+      "semantic_cache_hits": {
+        "mean": 1198.0,
+        "std": 0.0,
+        "min": 1198.0,
+        "max": 1198.0,
+        "n": 1
+      },
+      "energy_joules": {
+        "mean": 1651.4970626032675,
+        "std": 0.0,
+        "min": 1651.4970626032675,
+        "max": 1651.4970626032675,
+        "n": 1
+      },
+      "runtime_seconds": {
+        "mean": 25.198678970336914,
+        "std": 0.0,
+        "min": 25.198678970336914,
+        "max": 25.198678970336914,
+        "n": 1
+      }
+    },
+    "raw": [
+      {
+        "total_tasks": 16341,
+        "success_rate": 0.9997552169389878,
+        "average_completion": 2.2160341128923102,
+        "cache_hits": 16335,
+        "cache_misses": 6,
+        "runtime_seconds": 25.198678970336914,
+        "reuse_mode": "intent",
+        "valid_cache_hits": 13897,
+        "stale_cache_hits": 2438,
+        "semantic_cache_hits": 1198,
+        "valid_hit_rate": 0.8504375497215593,
+        "stale_reuse_rate": 0.14925007652280378,
+        "rejected_stale": 1400,
+        "rejected_intent": 9382,
+        "per_intent": {
+          "traffic_analysis": {
+            "misses": 1,
+            "hits": 4583,
+            "semantic_hits": 125,
+            "valid_hits": 4031,
+            "stale_hits": 552
+          },
+          "hazard_detection": {
+            "misses": 1,
+            "hits": 2475,
+            "stale_hits": 752,
+            "semantic_hits": 567,
+            "valid_hits": 1723
+          },
+          "route_optimization": {
+            "misses": 1,
+            "hits": 2353,
+            "semantic_hits": 40,
+            "valid_hits": 2210,
+            "stale_hits": 143
+          },
+          "sensor_processing": {
+            "misses": 2,
+            "hits": 4524,
+            "semantic_hits": 318,
+            "valid_hits": 3597,
+            "stale_hits": 927
+          },
+          "environment_perception": {
+            "misses": 1,
+            "hits": 2400,
+            "semantic_hits": 148,
+            "valid_hits": 2336,
+            "stale_hits": 64
+          }
+        },
+        "energy_joules": 1651.4970626032675,
+        "seed": 1,
+        "reuse_threshold": 0.65
+      }
+    ]
+  },
+  "8_freshness_only": {
+    "name": "Freshness-only",
+    "metrics": {
+      "success_rate": {
+        "mean": 0.9653631968667769,
+        "std": 0.0,
+        "min": 0.9653631968667769,
+        "max": 0.9653631968667769,
+        "n": 1
+      },
+      "average_completion": {
+        "mean": 2.3635095181363104,
+        "std": 0.0,
+        "min": 2.3635095181363104,
+        "max": 2.3635095181363104,
+        "n": 1
+      },
+      "cache_hits": {
+        "mean": 15560.0,
+        "std": 0.0,
+        "min": 15560.0,
+        "max": 15560.0,
+        "n": 1
+      },
+      "cache_misses": {
+        "mean": 781.0,
+        "std": 0.0,
+        "min": 781.0,
+        "max": 781.0,
+        "n": 1
+      },
+      "valid_hit_rate": {
+        "mean": 0.7714338167798789,
+        "std": 0.0,
+        "min": 0.7714338167798789,
+        "max": 0.7714338167798789,
+        "n": 1
+      },
+      "stale_reuse_rate": {
+        "mean": 0.18984575835475578,
+        "std": 0.0,
+        "min": 0.18984575835475578,
+        "max": 0.18984575835475578,
+        "n": 1
+      },
+      "semantic_cache_hits": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 1
+      },
+      "energy_joules": {
+        "mean": 3912.8973135059045,
+        "std": 0.0,
+        "min": 3912.8973135059045,
+        "max": 3912.8973135059045,
+        "n": 1
+      },
+      "runtime_seconds": {
+        "mean": 75.02601861953735,
+        "std": 0.0,
+        "min": 75.02601861953735,
+        "max": 75.02601861953735,
+        "n": 1
+      }
+    },
+    "raw": [
+      {
+        "total_tasks": 16341,
+        "success_rate": 0.9653631968667769,
+        "average_completion": 2.3635095181363104,
+        "cache_hits": 15560,
+        "cache_misses": 781,
+        "runtime_seconds": 75.02601861953735,
+        "reuse_mode": "freshness_only",
+        "valid_cache_hits": 12606,
+        "stale_cache_hits": 2954,
+        "semantic_cache_hits": 0,
+        "valid_hit_rate": 0.7714338167798789,
+        "stale_reuse_rate": 0.18984575835475578,
+        "rejected_stale": 829,
+        "rejected_intent": 0,
+        "per_intent": {
+          "traffic_analysis": {
+            "misses": 56,
+            "hits": 4528,
+            "valid_hits": 3730,
+            "stale_hits": 798
+          },
+          "hazard_detection": {
+            "misses": 384,
+            "hits": 2092,
+            "stale_hits": 717,
+            "valid_hits": 1375
+          },
+          "route_optimization": {
+            "misses": 28,
+            "hits": 2326,
+            "valid_hits": 2170,
+            "stale_hits": 156
+          },
+          "sensor_processing": {
+            "misses": 120,
+            "hits": 4406,
+            "valid_hits": 3184,
+            "stale_hits": 1222
+          },
+          "environment_perception": {
+            "misses": 193,
+            "hits": 2208,
+            "stale_hits": 61,
+            "valid_hits": 2147
+          }
+        },
+        "energy_joules": 3912.8973135059045,
+        "seed": 1,
+        "reuse_threshold": 0.65
+      }
+    ]
+  },
+  "9_intent_only": {
+    "name": "Intent-only",
+    "metrics": {
+      "success_rate": {
+        "mean": 0.9997552169389878,
+        "std": 0.0,
+        "min": 0.9997552169389878,
+        "max": 0.9997552169389878,
+        "n": 1
+      },
+      "average_completion": {
+        "mean": 2.2160341128923102,
+        "std": 0.0,
+        "min": 2.2160341128923102,
+        "max": 2.2160341128923102,
+        "n": 1
+      },
+      "cache_hits": {
+        "mean": 16335.0,
+        "std": 0.0,
+        "min": 16335.0,
+        "max": 16335.0,
+        "n": 1
+      },
+      "cache_misses": {
+        "mean": 6.0,
+        "std": 0.0,
+        "min": 6.0,
+        "max": 6.0,
+        "n": 1
+      },
+      "valid_hit_rate": {
+        "mean": 0.7932807049752157,
+        "std": 0.0,
+        "min": 0.7932807049752157,
+        "max": 0.7932807049752157,
+        "n": 1
+      },
+      "stale_reuse_rate": {
+        "mean": 0.2064279155188246,
+        "std": 0.0,
+        "min": 0.2064279155188246,
+        "max": 0.2064279155188246,
+        "n": 1
+      },
+      "semantic_cache_hits": {
+        "mean": 520.0,
+        "std": 0.0,
+        "min": 520.0,
+        "max": 520.0,
+        "n": 1
+      },
+      "energy_joules": {
+        "mean": 1651.4970626032675,
+        "std": 0.0,
+        "min": 1651.4970626032675,
+        "max": 1651.4970626032675,
+        "n": 1
+      },
+      "runtime_seconds": {
+        "mean": 24.30007028579712,
+        "std": 0.0,
+        "min": 24.30007028579712,
+        "max": 24.30007028579712,
+        "n": 1
+      }
+    },
+    "raw": [
+      {
+        "total_tasks": 16341,
+        "success_rate": 0.9997552169389878,
+        "average_completion": 2.2160341128923102,
+        "cache_hits": 16335,
+        "cache_misses": 6,
+        "runtime_seconds": 24.30007028579712,
+        "reuse_mode": "intent_only",
+        "valid_cache_hits": 12963,
+        "stale_cache_hits": 3372,
+        "semantic_cache_hits": 520,
+        "valid_hit_rate": 0.7932807049752157,
+        "stale_reuse_rate": 0.2064279155188246,
+        "rejected_stale": 0,
+        "rejected_intent": 2234,
+        "per_intent": {
+          "traffic_analysis": {
+            "misses": 1,
+            "hits": 4583,
+            "semantic_hits": 50,
+            "valid_hits": 3867,
+            "stale_hits": 716
+          },
+          "hazard_detection": {
+            "misses": 1,
+            "hits": 2475,
+            "stale_hits": 1050,
+            "semantic_hits": 228,
+            "valid_hits": 1425
+          },
+          "route_optimization": {
+            "misses": 1,
+            "hits": 2353,
+            "semantic_hits": 30,
+            "valid_hits": 2136,
+            "stale_hits": 217
+          },
+          "sensor_processing": {
+            "misses": 2,
+            "hits": 4524,
+            "semantic_hits": 64,
+            "valid_hits": 3207,
+            "stale_hits": 1317
+          },
+          "environment_perception": {
+            "misses": 1,
+            "hits": 2400,
+            "semantic_hits": 148,
+            "valid_hits": 2328,
+            "stale_hits": 72
+          }
+        },
+        "energy_joules": 1651.4970626032675,
+        "seed": 1,
+        "reuse_threshold": 0.65
+      }
+    ]
+  }
+}

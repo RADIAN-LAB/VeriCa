@@ -1,0 +1,15 @@
+# Pinned to the versions the reported results were produced with. Must stay
+# consistent with ../sdn-vanet-optimizer/requirements.txt, since this project
+# imports that one at runtime (see coca_path.py).
+
+torch==2.7.1
+numpy==2.0.2
+pandas==2.2.3
+PyYAML==6.0.2
+matplotlib==3.9.4
+scipy==1.13.1
+pulp==2.9.0
+xgboost==2.1.2
+
+# Test suite
+pytest==8.4.2

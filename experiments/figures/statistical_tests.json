@@ -1,0 +1,32 @@
+{
+  "valid_hit_rate": {
+    "n": 1,
+    "mean_difference_intent_minus_coca": 0.09424147848968856,
+    "paired_t": null,
+    "p_value": null
+  },
+  "stale_reuse_rate": {
+    "n": 1,
+    "mean_difference_intent_minus_coca": -0.06463121363560323,
+    "paired_t": null,
+    "p_value": null
+  },
+  "success_rate": {
+    "n": 1,
+    "mean_difference_intent_minus_coca": 0.03041429533076312,
+    "paired_t": null,
+    "p_value": null
+  },
+  "average_completion": {
+    "n": 1,
+    "mean_difference_intent_minus_coca": -0.08211636399492495,
+    "paired_t": null,
+    "p_value": null
+  },
+  "energy_joules": {
+    "n": 1,
+    "mean_difference_intent_minus_coca": -1877.7630438773642,
+    "paired_t": null,
+    "p_value": null
+  }
+}
