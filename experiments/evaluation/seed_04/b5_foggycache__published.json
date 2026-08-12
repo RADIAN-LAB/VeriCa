@@ -1,0 +1,160 @@
+{
+  "total_tasks": 15256,
+  "success_rate": 1.0,
+  "average_completion": 3.5078590387694377,
+  "cache_hits": 13836,
+  "cache_misses": 1420,
+  "hit_rate": 0.9069218668065023,
+  "preplacements": 0,
+  "proactive_computations": 0,
+  "proactive_hits": 0,
+  "proactive_wasted": 0,
+  "proactive_precision": 0.0,
+  "proactive_compute_ms": 0.0,
+  "runtime_seconds": 78.04608488082886,
+  "provenance": {
+    "params": {
+      "trace": "/Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/intent-nlp-vanet/experiments/evaluation/seed_04/tasks.csv",
+      "seed": 4,
+      "max_ts": null,
+      "evict_policy": "lru",
+      "load_rl": null,
+      "no_fl": true,
+      "fl_placement_enabled": false,
+      "preplace_mode": "compute",
+      "preplace_budget": 10,
+      "cache_capacity_per_rsu": 100,
+      "default_ttl": 300,
+      "eviction_policy": "LRU",
+      "rsu_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enable_auto_cache": true,
+      "enable_cache_lookup": true,
+      "enable_forwarding": false
+    },
+    "git": {
+      "coca": {
+        "available": true,
+        "commit": "a7c6974cd690988b73cc031cef301801b97dd965",
+        "branch": "iotj-rework",
+        "dirty": false
+      }
+    },
+    "python": "3.9.6",
+    "platform": "macOS-15.1.1-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.0.2",
+      "torch": "2.7.1",
+      "pulp": "2.9.0",
+      "scipy": "1.13.1",
+      "pandas": "2.2.3",
+      "xgboost": "2.1.2"
+    }
+  },
+  "reuse_mode": "foggycache",
+  "key_mode": "coca",
+  "verify_before_serve": false,
+  "verifications": 0,
+  "verification_failures": 0,
+  "verification_ms_total": 0.0,
+  "distinct_keys_resident": 129,
+  "distinct_keys_seen": 145,
+  "validity_model": "oracle",
+  "valid_cache_hits": 6274,
+  "stale_cache_hits": 7562,
+  "semantic_cache_hits": 1088,
+  "semantic_correct_hits": 437,
+  "valid_hit_rate": 0.41124803356056633,
+  "stale_reuse_rate": 0.5465452442902573,
+  "hit_error_rate": 0.5465452442902573,
+  "semantic_precision": 0.4016544117647059,
+  "semantic_error_rate": 0.4708008094825094,
+  "error_breakdown": {
+    "wrong_intent": 0,
+    "wrong_place": 6051,
+    "wrong_subject": 463,
+    "stale": 1048,
+    "unknown": 0
+  },
+  "rejected_stale": 0,
+  "rejected_intent": 0,
+  "per_intent": {
+    "traffic_analysis": {
+      "misses": 98,
+      "hits": 2136,
+      "semantic_hits": 152,
+      "stale_hits": 1360,
+      "stale": 201,
+      "wrong_place": 1159,
+      "valid_hits": 776,
+      "semantic_correct": 47
+    },
+    "hazard_detection": {
+      "misses": 167,
+      "hits": 1156,
+      "valid_hits": 1022,
+      "stale_hits": 134,
+      "wrong_place": 104,
+      "semantic_hits": 120,
+      "semantic_correct": 100,
+      "stale": 30
+    },
+    "route_optimization": {
+      "misses": 98,
+      "hits": 2019,
+      "semantic_hits": 117,
+      "valid_hits": 150,
+      "semantic_correct": 15,
+      "stale_hits": 1869,
+      "wrong_place": 1557,
+      "stale": 312
+    },
+    "sensor_processing": {
+      "misses": 170,
+      "hits": 2164,
+      "semantic_hits": 100,
+      "valid_hits": 38,
+      "semantic_correct": 8,
+      "stale_hits": 2126,
+      "wrong_subject": 463,
+      "wrong_place": 1663
+    },
+    "environment_perception": {
+      "misses": 306,
+      "hits": 1887,
+      "stale_hits": 1872,
+      "stale": 475,
+      "semantic_hits": 315,
+      "wrong_place": 1397,
+      "valid_hits": 15,
+      "semantic_correct": 3
+    },
+    "content_delivery": {
+      "misses": 424,
+      "hits": 3443,
+      "valid_hits": 3443,
+      "semantic_hits": 124,
+      "semantic_correct": 124
+    },
+    "parking_search": {
+      "misses": 157,
+      "hits": 1031,
+      "valid_hits": 830,
+      "stale_hits": 201,
+      "wrong_place": 171,
+      "semantic_hits": 160,
+      "semantic_correct": 140,
+      "stale": 30
+    }
+  },
+  "energy_joules": 4223.6,
+  "seed": 4,
+  "reuse_threshold": 0.65,
+  "decay_rates": null,
+  "freshness_threshold": null
+}

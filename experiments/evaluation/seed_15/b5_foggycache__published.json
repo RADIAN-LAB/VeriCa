@@ -1,0 +1,160 @@
+{
+  "total_tasks": 15916,
+  "success_rate": 1.0,
+  "average_completion": 3.621076287645943,
+  "cache_hits": 14400,
+  "cache_misses": 1516,
+  "hit_rate": 0.9047499371701433,
+  "preplacements": 0,
+  "proactive_computations": 0,
+  "proactive_hits": 0,
+  "proactive_wasted": 0,
+  "proactive_precision": 0.0,
+  "proactive_compute_ms": 0.0,
+  "runtime_seconds": 82.82994389533997,
+  "provenance": {
+    "params": {
+      "trace": "/Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/intent-nlp-vanet/experiments/evaluation/seed_15/tasks.csv",
+      "seed": 15,
+      "max_ts": null,
+      "evict_policy": "lru",
+      "load_rl": null,
+      "no_fl": true,
+      "fl_placement_enabled": false,
+      "preplace_mode": "compute",
+      "preplace_budget": 10,
+      "cache_capacity_per_rsu": 100,
+      "default_ttl": 300,
+      "eviction_policy": "LRU",
+      "rsu_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enable_auto_cache": true,
+      "enable_cache_lookup": true,
+      "enable_forwarding": false
+    },
+    "git": {
+      "coca": {
+        "available": true,
+        "commit": "a7c6974cd690988b73cc031cef301801b97dd965",
+        "branch": "iotj-rework",
+        "dirty": false
+      }
+    },
+    "python": "3.9.6",
+    "platform": "macOS-15.1.1-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.0.2",
+      "torch": "2.7.1",
+      "pulp": "2.9.0",
+      "scipy": "1.13.1",
+      "pandas": "2.2.3",
+      "xgboost": "2.1.2"
+    }
+  },
+  "reuse_mode": "foggycache",
+  "key_mode": "coca",
+  "verify_before_serve": false,
+  "verifications": 0,
+  "verification_failures": 0,
+  "verification_ms_total": 0.0,
+  "distinct_keys_resident": 131,
+  "distinct_keys_seen": 145,
+  "validity_model": "oracle",
+  "valid_cache_hits": 6377,
+  "stale_cache_hits": 8023,
+  "semantic_cache_hits": 1132,
+  "semantic_correct_hits": 445,
+  "valid_hit_rate": 0.400665996481528,
+  "stale_reuse_rate": 0.5571527777777778,
+  "hit_error_rate": 0.5571527777777778,
+  "semantic_precision": 0.3931095406360424,
+  "semantic_error_rate": 0.473125,
+  "error_breakdown": {
+    "wrong_intent": 0,
+    "wrong_place": 6309,
+    "wrong_subject": 504,
+    "stale": 1210,
+    "unknown": 0
+  },
+  "rejected_stale": 0,
+  "rejected_intent": 0,
+  "per_intent": {
+    "traffic_analysis": {
+      "misses": 108,
+      "hits": 2221,
+      "valid_hits": 662,
+      "semantic_hits": 153,
+      "stale_hits": 1559,
+      "stale": 236,
+      "wrong_place": 1323,
+      "semantic_correct": 49
+    },
+    "hazard_detection": {
+      "misses": 194,
+      "hits": 1252,
+      "stale_hits": 121,
+      "stale": 29,
+      "valid_hits": 1131,
+      "semantic_hits": 117,
+      "semantic_correct": 101,
+      "wrong_place": 92
+    },
+    "route_optimization": {
+      "misses": 141,
+      "hits": 2026,
+      "semantic_hits": 164,
+      "valid_hits": 133,
+      "semantic_correct": 21,
+      "stale_hits": 1893,
+      "wrong_place": 1555,
+      "stale": 338
+    },
+    "sensor_processing": {
+      "misses": 184,
+      "hits": 2190,
+      "stale_hits": 2141,
+      "wrong_subject": 504,
+      "semantic_hits": 121,
+      "wrong_place": 1637,
+      "valid_hits": 49,
+      "semantic_correct": 13
+    },
+    "environment_perception": {
+      "misses": 347,
+      "hits": 2092,
+      "semantic_hits": 279,
+      "valid_hits": 16,
+      "semantic_correct": 4,
+      "stale_hits": 2076,
+      "stale": 546,
+      "wrong_place": 1530
+    },
+    "content_delivery": {
+      "misses": 401,
+      "hits": 3498,
+      "semantic_hits": 122,
+      "valid_hits": 3498,
+      "semantic_correct": 122
+    },
+    "parking_search": {
+      "misses": 141,
+      "hits": 1121,
+      "valid_hits": 888,
+      "semantic_hits": 176,
+      "semantic_correct": 135,
+      "stale_hits": 233,
+      "wrong_place": 172,
+      "stale": 61
+    }
+  },
+  "energy_joules": 4472.0,
+  "seed": 15,
+  "reuse_threshold": 0.65,
+  "decay_rates": null,
+  "freshness_threshold": null
+}
