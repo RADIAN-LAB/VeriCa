@@ -30,6 +30,8 @@ bootstrap_coca()
 
 from cache.manager import make_task_key
 
+from intent.text_synthesis import describe_task
+
 
 def load_coca_runner():
     runner_path = COCA_ROOT / "scripts" / "run_experiment.py"
@@ -113,6 +115,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--knn-max-distance", type=float, default=0.25,
         help="Baseline B5: furthest input still considered equivalent.",
+    )
+    parser.add_argument(
+        "--classify-from-text",
+        type=Path,
+        default=None,
+        help="Recover each task's intent from a synthesised natural-language "
+             "request using this fitted model, instead of reading it off the "
+             "task type. Misclassification then propagates into the cache.",
     )
     parser.add_argument("--threshold", type=float, default=0.65)
     parser.add_argument("--seed", type=int, default=42)
@@ -223,6 +233,14 @@ def main() -> int:
 
     applied_rates = apply_decay_rates(args.decay_rates)
     aoi_windows = parse_aoi_windows(args.aoi_window)
+
+    text_model = None
+    if args.classify_from_text is not None:
+        from intent.trained_classifier import TrainedIntentClassifier
+
+        text_model = TrainedIntentClassifier.load(args.classify_from_text)
+        print(f"Intent from text: {args.classify_from_text.name} "
+              f"({len(text_model.vocabulary)} tokens)")
     if args.freshness_threshold is not None:
         from intent.freshness import freshness_policy
 
@@ -270,6 +288,7 @@ def main() -> int:
             key_mode=args.key_mode,
             verify_before_serve=args.verify_before_serve,
             aoi_windows=aoi_windows,
+            text_model=text_model,
             reuse_index_params={
                 "k": args.knn_k,
                 "homogeneity": args.knn_homogeneity,
@@ -297,6 +316,13 @@ def main() -> int:
             # The oracle judges correctness per vehicle, so the requester's
             # identity has to survive the trip through CoCa's key-only lookup.
             attrs["node_id"] = node_id
+            if text_model is not None:
+                attrs["task_description"] = describe_task(
+                    {**attrs, "task_id": _task_id,
+                     "timestamp": attrs.get("time", 0.0),
+                     "veh_speed_kmh": attrs.get("speed", 0.0)},
+                    seed=args.seed,
+                )
             attrs.setdefault("task_type", 0)
             attrs.setdefault("priority", 0)
             attrs.setdefault("data_size", 0)
@@ -349,6 +375,9 @@ def main() -> int:
     result["key_mode"] = args.key_mode
     result["decay_rates"] = applied_rates
     result["freshness_threshold"] = args.freshness_threshold
+    result["intent_from_text"] = (
+        str(args.classify_from_text) if args.classify_from_text else None
+    )
     with args.output.open("w") as result_file:
         json.dump(result, result_file, indent=2)
 

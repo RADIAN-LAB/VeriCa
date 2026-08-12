@@ -1,0 +1,62 @@
+{
+  "accuracy": 0.892625,
+  "confusion": {
+    "sensor_processing": {
+      "sensor_processing": 1044,
+      "environment_perception": 60,
+      "traffic_analysis": 35,
+      "hazard_detection": 51,
+      "parking_search": 5
+    },
+    "content_delivery": {
+      "content_delivery": 1702,
+      "hazard_detection": 64,
+      "traffic_analysis": 61,
+      "environment_perception": 91,
+      "parking_search": 14,
+      "sensor_processing": 4
+    },
+    "traffic_analysis": {
+      "traffic_analysis": 1103,
+      "environment_perception": 48,
+      "hazard_detection": 48,
+      "sensor_processing": 4,
+      "parking_search": 6
+    },
+    "route_optimization": {
+      "route_optimization": 997,
+      "traffic_analysis": 35,
+      "environment_perception": 50,
+      "sensor_processing": 2,
+      "hazard_detection": 51,
+      "parking_search": 2
+    },
+    "environment_perception": {
+      "environment_perception": 1171,
+      "hazard_detection": 53,
+      "traffic_analysis": 44,
+      "parking_search": 6,
+      "sensor_processing": 2
+    },
+    "parking_search": {
+      "environment_perception": 34,
+      "parking_search": 468,
+      "traffic_analysis": 19,
+      "hazard_detection": 14,
+      "sensor_processing": 3
+    },
+    "hazard_detection": {
+      "hazard_detection": 656,
+      "sensor_processing": 4,
+      "traffic_analysis": 21,
+      "environment_perception": 26,
+      "parking_search": 2
+    }
+  },
+  "ambiguous_rate": 0.12,
+  "vocabulary_size": 1949,
+  "train_utterances": 8000,
+  "test_utterances": 8000,
+  "model": "/Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/intent-nlp-vanet/experiments/models/intent_text.json",
+  "note": "Synthetic text; accuracy is bounded by the deliberately ambiguous fraction."
+}

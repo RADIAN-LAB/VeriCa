@@ -148,6 +148,7 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         verify_before_serve: bool = False,
         aoi_windows: Optional[Dict[int, float]] = None,
         reuse_index_params: Optional[Dict[str, Any]] = None,
+        text_model: Any = None,
     ) -> None:
         if reuse_mode not in REUSE_MODES:
             raise ValueError(f"reuse_mode must be one of {sorted(REUSE_MODES)}")
@@ -175,7 +176,10 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
             freshness_min=0.20,
             intent_min=0.80,
         )
-        self.classifier = IntentClassifier()
+        # With a fitted text model, intent is recovered from the request's
+        # wording rather than read off its task type — and its mistakes
+        # propagate into the cache, which is the cost the paper measures.
+        self.classifier = IntentClassifier(text_model=text_model)
         self.sim_time = 0.0
         self.seed = seed
         self._attrs: Dict[str, Dict[str, Any]] = {}

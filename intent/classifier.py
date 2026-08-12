@@ -115,6 +115,15 @@ class IntentClassifier:
 
     NUM_INTENTS = NUM_INTENTS
 
+    def __init__(self, text_model: Any = None) -> None:
+        """Args:
+            text_model: Optional ``TrainedIntentClassifier``. When present it
+                handles free text, replacing the keyword-corpus cosine below —
+                which is string overlap, not learning, and exists only as a
+                fallback for callers with no fitted model.
+        """
+        self.text_model = text_model
+
     def classify(self, task_row: Dict[str, Any]) -> Tuple[int, str]:
         """Classify from a structured task attribute dict."""
         if "intent_class" in task_row:
@@ -122,6 +131,9 @@ class IntentClassifier:
             return idx, INTENT_LABELS[idx]
 
         if "task_description" in task_row:
+            if self.text_model is not None:
+                label = self.text_model.predict(str(task_row["task_description"]))
+                return INTENT_LABELS.index(label), label
             return self.classify_text(str(task_row["task_description"]))
 
         ttype = int(task_row.get("task_type", 0))
