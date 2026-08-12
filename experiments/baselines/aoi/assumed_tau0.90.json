@@ -1,0 +1,13 @@
+{
+  "windows": {
+    "traffic_analysis": 2.1072103131565254,
+    "hazard_detection": 0.5268025782891314,
+    "route_optimization": 5.268025782891314,
+    "sensor_processing": 1.0536051565782627,
+    "environment_perception": 10.536051565782628,
+    "content_delivery": 21.072103131565257,
+    "parking_search": 1.3170064457228285
+  },
+  "tau": 0.9,
+  "source": "hand-set decay rates"
+}

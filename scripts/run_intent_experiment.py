@@ -95,6 +95,13 @@ def parse_args() -> argparse.Namespace:
              "every delivered answer correct, so methods can be compared on "
              "latency at equal correctness.",
     )
+    parser.add_argument(
+        "--aoi-window",
+        default=None,
+        help="Baseline B4 only: refreshing window in seconds. A number applies "
+             "one window to every intent; a path to JSON produced by "
+             "scripts/tune_aoi_window.py applies the tuned per-intent windows.",
+    )
     parser.add_argument("--threshold", type=float, default=0.65)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--max-ts", type=int, default=None)
@@ -147,6 +154,33 @@ def apply_decay_rates(path: Optional[Path]) -> Optional[dict[str, float]]:
     return applied
 
 
+def parse_aoi_windows(spec: Optional[str]) -> Optional[dict[int, float]]:
+    """Resolve --aoi-window into per-intent windows keyed by intent index."""
+    if spec is None:
+        return None
+
+    from sdn_core.task_taxonomy import INTENT_LABELS as TAXONOMY_LABELS
+
+    try:
+        uniform = float(spec)
+    except ValueError:
+        pass
+    else:
+        return {index: uniform for index in range(len(TAXONOMY_LABELS))}
+
+    with Path(spec).open() as handle:
+        tuned = json.load(handle)
+    table = tuned.get("windows", tuned)
+    windows = {
+        index: float(table[label])
+        for index, label in enumerate(TAXONOMY_LABELS)
+        if label in table
+    }
+    print("AoI refreshing windows: "
+          + ", ".join(f"{TAXONOMY_LABELS[i]}={w:.1f}s" for i, w in windows.items()))
+    return windows
+
+
 def energy_joules(result: dict[str, Any]) -> float:
     hits = result["cache_hits"]
     misses = result["cache_misses"]
@@ -176,6 +210,7 @@ def main() -> int:
               file=sys.stderr)
 
     applied_rates = apply_decay_rates(args.decay_rates)
+    aoi_windows = parse_aoi_windows(args.aoi_window)
     if args.freshness_threshold is not None:
         from intent.freshness import freshness_policy
 
@@ -222,6 +257,7 @@ def main() -> int:
             oracle=oracle,
             key_mode=args.key_mode,
             verify_before_serve=args.verify_before_serve,
+            aoi_windows=aoi_windows,
         )
         captured["manager"] = manager
         return manager

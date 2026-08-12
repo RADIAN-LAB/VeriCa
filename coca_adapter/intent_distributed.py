@@ -33,7 +33,15 @@ from intent.ground_truth import INTENT_FEATURES, NEIGHBOURS, covers  # noqa: E40
 from intent.oracle import InvalidationOracle  # noqa: E402
 
 
-REUSE_MODES = {"coca", "intent", "freshness_only", "intent_only"}
+REUSE_MODES = {"coca", "intent", "freshness_only", "intent_only", "aoi_window"}
+
+# Baseline B4, the AoI-aware edge caching literature: a cached item is served
+# while its Age of Information stays inside a refreshing window, and refreshed
+# once it ages out. Distinct from ``freshness_only`` in what sets the bound —
+# a window tuned to the method's own objective on calibration traces, rather
+# than a survival function fitted to observed invalidation. That difference is
+# the claim under test: whether age is an adequate proxy for validity.
+DEFAULT_AOI_WINDOW_S = 10.0
 VALIDITY_MODELS = {"oracle", "exponential"}
 
 # How a cache entry is addressed.
@@ -132,6 +140,7 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         oracle: Optional[InvalidationOracle] = None,
         key_mode: str = "coca",
         verify_before_serve: bool = False,
+        aoi_windows: Optional[Dict[int, float]] = None,
     ) -> None:
         if reuse_mode not in REUSE_MODES:
             raise ValueError(f"reuse_mode must be one of {sorted(REUSE_MODES)}")
@@ -141,6 +150,7 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         self.reuse_mode = reuse_mode
         self.key_mode = key_mode
         self.verify_before_serve = verify_before_serve
+        self.aoi_windows = dict(aoi_windows) if aoi_windows else {}
         self.oracle = oracle
         self.validity_model = "oracle" if oracle is not None else "exponential"
         # A task result may cross task types within the same semantic intent,
@@ -435,6 +445,10 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         age = max(0.0, self.sim_time - metadata.stored_at)
         if self.reuse_mode == "coca":
             return age <= self.default_ttl, "reuse" if age <= self.default_ttl else "stale"
+        if self.reuse_mode == "aoi_window":
+            window = self.aoi_windows.get(metadata.intent_idx, DEFAULT_AOI_WINDOW_S)
+            fresh = age <= window
+            return fresh, "reuse" if fresh else "stale"
         if self.reuse_mode == "freshness_only":
             fresh = freshness_policy.is_fresh(
                 metadata.stored_at, metadata.intent_idx, now=self.sim_time

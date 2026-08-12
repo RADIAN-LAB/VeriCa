@@ -1,0 +1,18 @@
+{
+  "windows": {
+    "traffic_analysis": 2.0,
+    "hazard_detection": 9.0,
+    "route_optimization": 0.0,
+    "sensor_processing": 1.0,
+    "environment_perception": 0.0,
+    "content_delivery": 120.0,
+    "parking_search": 9.0
+  },
+  "tau": 0.8,
+  "source": "empirical survival, calibration oracles",
+  "calibration_oracles": [
+    "seed_01.pkl",
+    "seed_02.pkl",
+    "seed_03.pkl"
+  ]
+}
