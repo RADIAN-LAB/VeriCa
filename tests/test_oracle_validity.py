@@ -268,3 +268,138 @@ def test_speculative_entries_are_usable_and_belong_to_no_vehicle():
     manager.register_tasks([("t", _traffic(2, 0.0, 0.0, 10))])
     assert manager.lookup("t", 1, enable_forwarding=False) is not None
     assert manager.total_hits == 1
+
+
+# ---------------------------------------------------------------------------
+# Key scoping and serve-time verification
+# ---------------------------------------------------------------------------
+
+def _sensor_task(node_id: str, x: float, y: float, time: float = 10):
+    return {
+        "task_type": 3, "priority": 1, "data_size": 100,   # sensor_processing
+        "node_id": node_id, "x": x, "y": y, "time": time, "origin_rsu": 1,
+    }
+
+
+def test_adaptive_scope_splits_per_vehicle_intents_from_cell_intents():
+    """Key scope should follow what the answer actually depends on."""
+    manager = _manager(_oracle({}), mode="coca")
+    manager.key_mode = "context_adaptive"
+    manager.set_sim_time(10)
+
+    # A traffic answer holds across the cell, so it is keyed by the cell.
+    traffic = _traffic(1, *IN_CELL_1, time=10)
+    manager.register_tasks([("t", traffic)])
+    traffic_key = manager._cache_key(
+        "t", "traffic_analysis", manager._current_context("t", 1)
+    )
+    assert ":r" in traffic_key
+
+    # A fusion answer depends on the ego vehicle's neighbourhood, so it is keyed
+    # by the local zone instead.
+    sensor = _sensor_task("a0", *IN_CELL_1)
+    manager.register_tasks([("s", sensor)])
+    sensor_key = manager._cache_key(
+        "s", "sensor_processing", manager._current_context("s", 1)
+    )
+    assert ":z" in sensor_key
+
+
+def test_adaptive_scope_separates_distant_vehicles_in_one_cell():
+    manager = _manager(_oracle({}), mode="coca")
+    manager.key_mode = "context_adaptive"
+    manager.set_sim_time(10)
+
+    near = _sensor_task("a0", *IN_CELL_1)
+    far = _sensor_task("b0", *FAR_IN_CELL_1)
+    manager.register_tasks([("s", near)])
+    near_key = manager._cache_key(
+        "s", "sensor_processing", manager._context_of(near)
+    )
+    far_key = manager._cache_key(
+        "s", "sensor_processing", manager._context_of(far)
+    )
+    assert near_key != far_key
+
+
+def test_verification_refuses_a_result_the_state_no_longer_supports():
+    ten = [_vehicle(f"v{i}", 10.0 * i, 0.0) for i in range(10)]
+    five = ten[:5]
+    oracle = _oracle({(1, 10): ten, (1, 40): five})
+    manager = IntentAwareDistributedCacheManager(
+        rsu_ids=[1, 2], cache_capacity=10, default_ttl=300,
+        reuse_mode="coca", seed=7, oracle=oracle, verify_before_serve=True,
+    )
+
+    manager.set_sim_time(10)
+    manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=10))])
+    manager.store("t", (1, 2.5), 1, replicate=False)
+
+    manager.set_sim_time(40)
+    manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=40))])
+    # Without verification this is served and counted wrong; with it, refused.
+    assert manager.lookup("t", 1, enable_forwarding=False) is None
+    assert manager.verification_failures == 1
+    assert manager.total_misses == 1
+    assert manager.stale_hits == 0
+
+
+def test_verification_still_serves_a_result_the_state_supports():
+    steady = [_vehicle(f"v{i}", 10.0 * i, 0.0) for i in range(10)]
+    oracle = _oracle({(1, 10): steady, (1, 12): steady})
+    manager = IntentAwareDistributedCacheManager(
+        rsu_ids=[1, 2], cache_capacity=10, default_ttl=300,
+        reuse_mode="coca", seed=7, oracle=oracle, verify_before_serve=True,
+    )
+
+    manager.set_sim_time(10)
+    manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=10))])
+    manager.store("t", (1, 2.5), 1, replicate=False)
+
+    manager.set_sim_time(12)
+    manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=12))])
+    assert manager.lookup("t", 1, enable_forwarding=False) == (1, 2.5)
+    assert manager.valid_hits == 1
+    assert manager.verification_failures == 0
+
+
+def test_verification_refuses_what_it_cannot_observe():
+    """A forwarded entry describes another cell, which this RSU cannot check."""
+    busy = [_vehicle(f"v{i}", 10.0 * i, 0.0) for i in range(10)]
+    quiet = [_vehicle("w0", *IN_CELL_2, speed=0.5)]
+    oracle = _oracle({(1, 10): busy, (2, 10): quiet})
+    manager = IntentAwareDistributedCacheManager(
+        rsu_ids=[1, 2], cache_capacity=10, default_ttl=300,
+        reuse_mode="coca", seed=7, oracle=oracle, verify_before_serve=True,
+    )
+
+    manager.set_sim_time(10)
+    manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=10))])
+    manager.store("t", (1, 2.5), 1, replicate=False)
+
+    manager.register_tasks([("t", _traffic(2, *IN_CELL_2, time=10))])
+    assert manager.lookup("t", 2, enable_forwarding=True) is None
+    assert manager.verification_failures == 1
+
+
+def test_verification_delivers_only_correct_answers():
+    """The property the whole design rests on: no wrong answer survives."""
+    ten = [_vehicle(f"v{i}", 10.0 * i, 0.0) for i in range(10)]
+    oracle = _oracle({(1, t): (ten if t < 30 else ten[:4]) for t in range(10, 60)})
+    manager = IntentAwareDistributedCacheManager(
+        rsu_ids=[1, 2], cache_capacity=10, default_ttl=300,
+        reuse_mode="coca", seed=7, oracle=oracle, verify_before_serve=True,
+    )
+
+    manager.set_sim_time(10)
+    manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=10))])
+    manager.store("t", (1, 2.5), 1, replicate=False)
+
+    for now in range(11, 60):
+        manager.set_sim_time(now)
+        manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=now))])
+        manager.lookup("t", 1, enable_forwarding=False)
+
+    assert manager.stale_hits == 0
+    assert sum(manager.error_kinds.values()) == 0
+    assert manager.valid_hits > 0     # and it still serves when it legitimately can

@@ -87,6 +87,14 @@ def parse_args() -> argparse.Namespace:
              "have a far larger key space than CoCa's 145, so capacity has to be "
              "reported against key cardinality rather than held fixed.",
     )
+    parser.add_argument(
+        "--verify-before-serve",
+        action="store_true",
+        help="RSU checks an entry against the state it currently observes in its "
+             "own cell before serving it, and recomputes on mismatch. Makes "
+             "every delivered answer correct, so methods can be compared on "
+             "latency at equal correctness.",
+    )
     parser.add_argument("--threshold", type=float, default=0.65)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--max-ts", type=int, default=None)
@@ -213,6 +221,7 @@ def main() -> int:
             seed=args.seed,
             oracle=oracle,
             key_mode=args.key_mode,
+            verify_before_serve=args.verify_before_serve,
         )
         captured["manager"] = manager
         return manager

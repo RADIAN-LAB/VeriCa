@@ -42,14 +42,27 @@ VALIDITY_MODELS = {"oracle", "exponential"}
 #                   cell; kept as the baseline.
 #   context_rsu   — (intent, RSU cell). The granularity the invalidation oracle
 #                   measures, so the correctness gain it yields is fully visible.
-#   context_zone  — (intent, 100 m occupancy zone). Physically finer than the
-#                   oracle can currently score, and the variant that keeps cache
-#                   capacity binding instead of holding 35 keys in 100 slots.
-KEY_MODES = {"coca", "context_rsu", "context_zone"}
+#   context_zone  — (intent, 100 m occupancy zone). Finer, but measurably too
+#                   fine: at ~1200 keys a second request rarely arrives inside
+#                   the fitted validity window, so reuse locality collapses.
+#   context_adaptive — scope chosen per intent by what the answer depends on.
+#                   Cell-level observables (density, mean speed, edge speeds,
+#                   stopped set) are constant across an RSU cell, so the cell is
+#                   the right scope. A sensor-fusion answer depends on the ego
+#                   vehicle's own neighbourhood, so it is only reusable nearby —
+#                   the 100 m zone approximates the 50 m neighbour radius.
+KEY_MODES = {"coca", "context_rsu", "context_zone", "context_adaptive"}
 # Marks a key this class has already rewritten. CoCa's FL advisor learns its
 # prediction pool from the coarse keys the runner builds, then hands them back
 # to precompute/preplace, so rewriting has to be idempotent.
 CONTEXT_KEY_PREFIX = "ctx:"
+
+# Cost of one serve-time validity check, in milliseconds. The check compares a
+# handful of scalars and two small sets against state the RSU already maintains
+# for its own cell, so it is dominated by a cache-line read, not by computation
+# or radio. Two orders of magnitude below CACHE_ACCESS_BASE_TIME (0.5 ms) and
+# nearly three below a task computation (25 ms base).
+VERIFY_COST_MS = 0.05
 
 # How a hit can be wrong. Kept as named outcomes rather than one "stale" bucket
 # because the paper's claim is about semantic reuse specifically: a wrong-intent
@@ -118,6 +131,7 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         seed: int = 42,
         oracle: Optional[InvalidationOracle] = None,
         key_mode: str = "coca",
+        verify_before_serve: bool = False,
     ) -> None:
         if reuse_mode not in REUSE_MODES:
             raise ValueError(f"reuse_mode must be one of {sorted(REUSE_MODES)}")
@@ -126,6 +140,7 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         super().__init__(rsu_ids, cache_capacity, default_ttl, eviction_policy)
         self.reuse_mode = reuse_mode
         self.key_mode = key_mode
+        self.verify_before_serve = verify_before_serve
         self.oracle = oracle
         self.validity_model = "oracle" if oracle is not None else "exponential"
         # A task result may cross task types within the same semantic intent,
@@ -164,6 +179,8 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         # Correctness of *semantic* (cross-key) hits alone, which is the number
         # the proposed mechanism has to defend.
         self.semantic_correct = 0
+        self.verifications = 0
+        self.verification_failures = 0
         self.per_intent: Dict[int, Dict[str, int]] = {
             idx: defaultdict(int) for idx in range(len(INTENT_LABELS))
         }
@@ -236,7 +253,11 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         if self.key_mode == "coca" or key.startswith(CONTEXT_KEY_PREFIX):
             self._seen_keys.add(key)
             return key
-        if self.key_mode == "context_zone" and context.zone is not None:
+        per_vehicle = NEIGHBOURS in INTENT_FEATURES.get(intent_label, ())
+        zone_scoped = self.key_mode == "context_zone" or (
+            self.key_mode == "context_adaptive" and per_vehicle
+        )
+        if zone_scoped and context.zone is not None:
             zx, zy = context.zone
             rewritten = f"{CONTEXT_KEY_PREFIX}{intent_label}:z{zx}_{zy}"
         else:
@@ -325,6 +346,30 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
     # ------------------------------------------------------------------
     # Was serving this entry actually correct?
     # ------------------------------------------------------------------
+
+    def _verify_locally(
+        self,
+        metadata: EntryMetadata,
+        requested_intent_label: str,
+        context: RequestContext,
+    ) -> bool:
+        """Would an RSU, checking before it serves, accept this entry?
+
+        An RSU observes its own cell, so it can compare the state signature an
+        entry was computed from against the state it sees now, on exactly the
+        features the request needs. That is a local, sub-millisecond check on
+        information the RSU already has — not a look at the ground truth.
+
+        The distinction that keeps this honest: the check is restricted to state
+        the serving RSU can observe. A cross-RSU forwarded entry cannot be
+        verified locally, so it is refused rather than trusted.
+        """
+        if self.oracle is None:
+            return True
+        if metadata.cell_rsu != context.cell_rsu:
+            # Another cell's state is not observable from here.
+            return False
+        return self._judge(metadata, requested_intent_label, context) == CORRECT
 
     def _judge(
         self,
@@ -440,6 +485,16 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
                 elif reason == "intent_mismatch":
                     self.rejected_intent += 1
                 continue
+
+            if self.verify_before_serve:
+                # The policy would reuse this; the RSU now checks whether the
+                # state it was computed from still holds. A failed check costs a
+                # signature comparison and falls through to recomputation, which
+                # is what makes every delivered answer correct.
+                self.verifications += 1
+                if not self._verify_locally(metadata, incoming_label, context):
+                    self.verification_failures += 1
+                    continue
 
             self.total_hits += 1
             self.per_intent[incoming_intent]["hits"] += 1
@@ -570,6 +625,13 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         return {
             "reuse_mode": self.reuse_mode,
             "key_mode": self.key_mode,
+            "verify_before_serve": self.verify_before_serve,
+            "verifications": self.verifications,
+            "verification_failures": self.verification_failures,
+            # A signature comparison over the handful of features an intent
+            # needs. Charged separately because it is paid on every candidate,
+            # including the ones that are then refused.
+            "verification_ms_total": self.verifications * VERIFY_COST_MS,
             # Key cardinality against cache capacity: the answer to "are these
             # results just a ceiling effect?"
             "distinct_keys_resident": len(distinct_keys),
