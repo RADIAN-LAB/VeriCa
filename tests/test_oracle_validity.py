@@ -403,3 +403,47 @@ def test_verification_delivers_only_correct_answers():
     assert manager.stale_hits == 0
     assert sum(manager.error_kinds.values()) == 0
     assert manager.valid_hits > 0     # and it still serves when it legitimately can
+
+
+def test_aoi_baseline_never_substitutes_across_keys():
+    """B4 addresses content by identity; cross-key reuse would be our mechanism,
+    not the baseline's, and charging it for those errors would be unfair."""
+    steady = [_vehicle(f"v{i}", 10.0 * i, 0.0) for i in range(10)]
+    oracle = _oracle({(1, 10): steady})
+    manager = IntentAwareDistributedCacheManager(
+        rsu_ids=[1, 2], cache_capacity=10, default_ttl=300,
+        reuse_mode="aoi_window", seed=7, oracle=oracle,
+        aoi_windows={idx: 30.0 for idx in range(7)},
+    )
+
+    manager.set_sim_time(10)
+    stored = _traffic(1, *IN_CELL_1, time=10)
+    manager.register_tasks([("stored", stored)])
+    manager.store("stored", (1, 2.5), 1, replicate=False)
+
+    other = dict(stored, task_type=1, node_id=2)   # a different key and intent
+    manager.register_tasks([("other", other)])
+    assert manager.lookup("other", 1, enable_forwarding=False) is None
+    assert manager.semantic_hits == 0
+
+
+def test_aoi_window_bounds_age_per_intent():
+    steady = [_vehicle(f"v{i}", 10.0 * i, 0.0) for i in range(10)]
+    oracle = _oracle({(1, t): steady for t in range(10, 60)})
+    manager = IntentAwareDistributedCacheManager(
+        rsu_ids=[1, 2], cache_capacity=10, default_ttl=300,
+        reuse_mode="aoi_window", seed=7, oracle=oracle,
+        aoi_windows={idx: 5.0 for idx in range(7)},
+    )
+
+    manager.set_sim_time(10)
+    manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=10))])
+    manager.store("t", (1, 2.5), 1, replicate=False)
+
+    manager.set_sim_time(14)                       # inside the window
+    manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=14))])
+    assert manager.lookup("t", 1, enable_forwarding=False) == (1, 2.5)
+
+    manager.set_sim_time(20)                       # aged out
+    manager.register_tasks([("t", _traffic(1, *IN_CELL_1, time=20))])
+    assert manager.lookup("t", 1, enable_forwarding=False) is None

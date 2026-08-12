@@ -471,8 +471,12 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
             if key in self.rsu_caches[source_rsu]._store:
                 yield source_rsu, key, False
 
-        # CoCa and freshness-only are exact-key baselines.
-        if self.reuse_mode in {"coca", "freshness_only"}:
+        # Exact-key baselines. AoI-aware caching addresses content by identity
+        # and bounds its age; it never substitutes one item's result for
+        # another's, so letting it fall through to the semantic branch would
+        # invent cross-intent reuse the baseline does not do — and then charge
+        # it for the resulting wrong answers.
+        if self.reuse_mode in {"coca", "freshness_only", "aoi_window"}:
             return
         for source_rsu in rsus:
             for candidate_key in list(self.rsu_caches[source_rsu]._store):
