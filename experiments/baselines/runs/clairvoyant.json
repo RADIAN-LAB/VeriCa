@@ -1,0 +1,39 @@
+{
+  "clairvoyant_bound": 0.9056973257450585,
+  "requests": 16341,
+  "servable": 14800,
+  "per_intent": {
+    "traffic_analysis": {
+      "requests": 2435,
+      "servable": 2409
+    },
+    "hazard_detection": {
+      "requests": 1388,
+      "servable": 1279
+    },
+    "route_optimization": {
+      "requests": 2149,
+      "servable": 2081
+    },
+    "sensor_processing": {
+      "requests": 2446,
+      "servable": 2027
+    },
+    "environment_perception": {
+      "requests": 2401,
+      "servable": 1612
+    },
+    "content_delivery": {
+      "requests": 4205,
+      "servable": 4200
+    },
+    "parking_search": {
+      "requests": 1317,
+      "servable": 1192
+    }
+  },
+  "trace": "experiments/multi_seed/seed_01/tasks.csv",
+  "oracle": "experiments/oracle/base.pkl",
+  "max_age_s": 120,
+  "candidates_scanned": 200
+}
