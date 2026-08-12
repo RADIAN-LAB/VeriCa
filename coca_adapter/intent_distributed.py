@@ -18,6 +18,7 @@ from collections import defaultdict, deque
 from dataclasses import dataclass
 from typing import Any, Deque, Dict, Iterable, Optional, Tuple
 
+from .approximate_reuse import ApproximateReuseIndex, feature_vector
 from .bootstrap import bootstrap_coca
 
 bootstrap_coca()
@@ -33,7 +34,9 @@ from intent.ground_truth import INTENT_FEATURES, NEIGHBOURS, covers  # noqa: E40
 from intent.oracle import InvalidationOracle  # noqa: E402
 
 
-REUSE_MODES = {"coca", "intent", "freshness_only", "intent_only", "aoi_window"}
+REUSE_MODES = {
+    "coca", "intent", "freshness_only", "intent_only", "aoi_window", "foggycache",
+}
 
 # Baseline B4, the AoI-aware edge caching literature: a cached item is served
 # while its Age of Information stays inside a refreshing window, and refreshed
@@ -112,6 +115,9 @@ class EntryMetadata:
     # to no vehicle — and so cannot correctly answer per-vehicle questions.
     cell_rsu: int = -1
     vehicle_id: Optional[str] = None
+    # CoCa's original key for this entry, which is how its task attributes are
+    # looked up after the cache key has been rewritten.
+    source_key: str = ""
 
     def as_reuse_entry(self) -> Dict[str, Any]:
         return {
@@ -141,6 +147,7 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         key_mode: str = "coca",
         verify_before_serve: bool = False,
         aoi_windows: Optional[Dict[int, float]] = None,
+        reuse_index_params: Optional[Dict[str, Any]] = None,
     ) -> None:
         if reuse_mode not in REUSE_MODES:
             raise ValueError(f"reuse_mode must be one of {sorted(REUSE_MODES)}")
@@ -151,6 +158,12 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         self.key_mode = key_mode
         self.verify_before_serve = verify_before_serve
         self.aoi_windows = dict(aoi_windows) if aoi_windows else {}
+        # One approximate-reuse index per RSU, mirroring that cache's contents.
+        index_params = dict(reuse_index_params or {})
+        index_params.setdefault("seed", seed)
+        self.reuse_indexes: Dict[int, ApproximateReuseIndex] = {
+            rid: ApproximateReuseIndex(**index_params) for rid in rsu_ids
+        }
         self.oracle = oracle
         self.validity_model = "oracle" if oracle is not None else "exponential"
         # A task result may cross task types within the same semantic intent,
@@ -351,6 +364,7 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
             ),
             cell_rsu=context.cell_rsu,
             vehicle_id=context.vehicle_id if vehicle_known else None,
+            source_key=key,
         )
 
     # ------------------------------------------------------------------
@@ -449,6 +463,11 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
             window = self.aoi_windows.get(metadata.intent_idx, DEFAULT_AOI_WINDOW_S)
             fresh = age <= window
             return fresh, "reuse" if fresh else "stale"
+        if self.reuse_mode == "foggycache":
+            # Approximate reuse decides purely on input similarity; the
+            # confidence test already ran in the index. It has no notion of a
+            # result going out of date, which is the comparison being made.
+            return True, "reuse"
         if self.reuse_mode == "freshness_only":
             fresh = freshness_policy.is_fresh(
                 metadata.stored_at, metadata.intent_idx, now=self.sim_time
@@ -477,6 +496,17 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         # invent cross-intent reuse the baseline does not do — and then charge
         # it for the resulting wrong answers.
         if self.reuse_mode in {"coca", "freshness_only", "aoi_window"}:
+            return
+
+        if self.reuse_mode == "foggycache":
+            # Approximate reuse picks one neighbour by input similarity rather
+            # than scanning every key, so it yields at most one candidate.
+            features = feature_vector(self._task(key, rsu_id))
+            for source_rsu in rsus:
+                store = self.rsu_caches[source_rsu]._store
+                candidate = self.reuse_indexes[source_rsu].query(features, store)
+                if candidate is not None and candidate != key:
+                    yield source_rsu, candidate, True
             return
         for source_rsu in rsus:
             for candidate_key in list(self.rsu_caches[source_rsu]._store):
@@ -574,6 +604,7 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         )
         metadata = old or self._new_metadata(key, rsu_id, context=context)
         self._metadata[rsu_id][cache_key] = metadata
+        self._index_entry(cache_key, rsu_id, metadata)
         if replicate:
             for neighbor in self.rsu_ids:
                 if cache_key in self.rsu_caches[neighbor]._store:
@@ -607,10 +638,29 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         cache_key = self._cache_key(key, self._intent_label(key, rsu_id), context)
         compute_ms = super().precompute(cache_key, rsu_id, attrs, ttl)
         if compute_ms is not None:
-            self._metadata[rsu_id][cache_key] = self._new_metadata(
+            metadata = self._new_metadata(
                 key, rsu_id, context=context, vehicle_known=False
             )
+            self._metadata[rsu_id][cache_key] = metadata
+            self._index_entry(cache_key, rsu_id, metadata)
         return compute_ms
+
+    def _index_entry(
+        self, cache_key: str, rsu_id: int, metadata: EntryMetadata
+    ) -> None:
+        """Record an entry's input descriptor for approximate reuse (B5).
+
+        Indexed for every mode so the baseline can be switched on without
+        changing what got cached; only ``foggycache`` ever queries it. The task
+        attributes are keyed by CoCa's original key, which is what the index
+        describes — the entry's *input*, not its address.
+        """
+        attrs = self._attrs.get(metadata.source_key)
+        if attrs is None:
+            return
+        self.reuse_indexes[rsu_id].add(
+            cache_key, feature_vector(attrs), metadata.intent_idx
+        )
 
     def _speculative_context(
         self, rsu_id: int, attrs: Dict[str, Any]

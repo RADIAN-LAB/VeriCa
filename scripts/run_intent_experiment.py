@@ -102,6 +102,18 @@ def parse_args() -> argparse.Namespace:
              "one window to every intent; a path to JSON produced by "
              "scripts/tune_aoi_window.py applies the tuned per-intent windows.",
     )
+    parser.add_argument(
+        "--knn-k", type=int, default=5,
+        help="Baseline B5: neighbours consulted per lookup.",
+    )
+    parser.add_argument(
+        "--knn-homogeneity", type=float, default=0.6,
+        help="Baseline B5: fraction of neighbours that must agree before reuse.",
+    )
+    parser.add_argument(
+        "--knn-max-distance", type=float, default=0.25,
+        help="Baseline B5: furthest input still considered equivalent.",
+    )
     parser.add_argument("--threshold", type=float, default=0.65)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--max-ts", type=int, default=None)
@@ -258,6 +270,11 @@ def main() -> int:
             key_mode=args.key_mode,
             verify_before_serve=args.verify_before_serve,
             aoi_windows=aoi_windows,
+            reuse_index_params={
+                "k": args.knn_k,
+                "homogeneity": args.knn_homogeneity,
+                "max_distance": args.knn_max_distance,
+            },
         )
         captured["manager"] = manager
         return manager
