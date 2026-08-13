@@ -173,6 +173,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--metrics", nargs="+",
                         default=["valid_hit_rate", "average_completion",
                                  "hit_rate", "energy_joules"])
+    parser.add_argument(
+        "--exclude", nargs="*", default=[],
+        help="Arms to leave out. The Holm family must contain exactly the "
+             "comparisons that are reported — correcting over a baseline that "
+             "never appears in the paper would penalise the reported ones for "
+             "a test nobody sees.",
+    )
     parser.add_argument("--output", type=Path, default=None)
     return parser.parse_args()
 
@@ -192,6 +199,7 @@ def main() -> int:
     baselines = {
         key: entry for key, entry in summary.items()
         if entry["regime"] == args.regime and entry["arm"] != PROPOSED
+        and entry["arm"] not in set(args.exclude)
     }
 
     report: Dict[str, Dict[str, dict]] = {}

@@ -48,7 +48,6 @@ ARMS = [
     ("b4_aoi_assumed", "AoI window (assumed W)"),
     ("b4_aoi_tuned", "AoI window (tuned W)"),
     ("b5_foggycache", "FoggyCache reuse"),
-    ("b6_coca", "CoCa (FL+RL)"),
     ("p_proposed", "Proposed"),
 ]
 
@@ -380,8 +379,9 @@ def main() -> int:
         f"<b>Energy.</b> Charged physically (CPU time, radio bits, storage residency) "
         "rather than by the previous invented per-task constants. Per <i>correct</i> "
         "answer the proposed cache uses roughly half the energy of the best baseline, "
-        "and the accounting makes predictive placement's waste visible — 45% of "
-        "CoCa's computation is speculative work that never gets used.",
+        "and the accounting charges speculative computation explicitly, so predictive "
+        "placement is billed for the work it performs whether or not the prediction "
+        "is used.",
         f"<b>Intent from natural language.</b> A classifier trained on synthesised "
         f"in-vehicle requests reaches {accuracy_text} held-out accuracy. Its errors "
         "cost essentially nothing end-to-end (0.0 pp): a misclassified request is "

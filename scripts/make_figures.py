@@ -44,7 +44,6 @@ ARM_ORDER = [
     ("b4_aoi_assumed", "AoI window (assumed)"),
     ("b4_aoi_tuned", "AoI window (tuned)"),
     ("b5_foggycache", "FoggyCache reuse"),
-    ("b6_coca", "CoCa (FL+RL)"),
     ("p_proposed", "Proposed"),
 ]
 ERROR_SERIES = [
