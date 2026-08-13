@@ -191,3 +191,34 @@ def test_cross_cell_reuse_compares_real_states():
     busy = _sig(1, 10, [(f"v{i}", 300 + i, 300, 10.0) for i in range(12)])
     empty = _sig(2, 10, [("v99", 900, 300, 10.0)])
     assert not is_correct("traffic_analysis", "traffic_analysis", busy, empty)
+
+
+def test_tolerance_scale_env_var_scales_all_tolerances():
+    """The sensitivity sweep depends on this hook actually reaching the oracle."""
+    import subprocess, sys, os, json
+    probe = (
+        "import json, intent.ground_truth as g;"
+        "print(json.dumps([g.TOLERANCE_SCALE, g.DENSITY_REL_TOLERANCE,"
+        " g.STOPPED_SET_MIN_JACCARD, g.NEIGHBOUR_SET_MIN_JACCARD]))"
+    )
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    def run(scale):
+        env = dict(os.environ, GT_TOLERANCE_SCALE=str(scale), PYTHONPATH=root)
+        out = subprocess.run([sys.executable, "-c", probe], env=env,
+                             capture_output=True, text=True, cwd=root)
+        assert out.returncode == 0, out.stderr
+        return json.loads(out.stdout)
+
+    base = run(1.0)
+    assert base == [1.0, 0.20, 0.80, 0.70]
+
+    strict = run(0.5)   # half the tolerance: harder to count as correct
+    assert strict[1] == 0.10
+    assert strict[2] == 0.90       # Jaccard minimums move toward 1, not away
+    assert strict[3] == 0.85
+
+    loose = run(1.5)
+    assert loose[1] == 0.30000000000000004 or abs(loose[1] - 0.30) < 1e-9
+    assert abs(loose[2] - 0.70) < 1e-9
+    assert abs(loose[3] - 0.55) < 1e-9

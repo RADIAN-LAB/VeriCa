@@ -94,12 +94,28 @@ INTENT_FEATURES: Dict[str, FrozenSet[str]] = {
 }
 
 # Tolerances: how much a feature may drift before the answer is wrong.
-DENSITY_REL_TOLERANCE = 0.20        # 20% change in vehicle count
-MEAN_SPEED_ABS_TOLERANCE_MS = 5.0 / 3.6   # 5 km/h expressed in m/s
-EDGE_SPEED_REL_TOLERANCE = 0.20     # 20% change on any shared lane
-STOPPED_SET_MIN_JACCARD = 0.80      # hazard/parking: the stopped set must hold
-NEIGHBOUR_SET_MIN_JACCARD = 0.70    # sensor fusion tolerates some churn
-OCCUPANCY_MAX_FLIP_RATIO = 0.20     # 20% of grid cells may change occupancy
+#
+# These constants *define* what "correct" means, so every headline number in the
+# evaluation depends on them — which makes them the obvious place for a reviewer
+# to object. GT_TOLERANCE_SCALE (environment variable, default 1.0) scales all
+# of them at once for the sensitivity sweep: values below 1 make the oracle
+# stricter, values above 1 looser. For the Jaccard minimums the scale applies to
+# the permitted *slack* (1 - minimum), since that is the quantity that plays the
+# role of a tolerance; scaling the threshold itself would move it the wrong way.
+import os as _os
+
+_SCALE = float(_os.environ.get("GT_TOLERANCE_SCALE", "1.0"))
+if not 0.0 < _SCALE <= 4.0:
+    raise ValueError(f"GT_TOLERANCE_SCALE={_SCALE} is outside (0, 4]")
+
+TOLERANCE_SCALE = _SCALE
+
+DENSITY_REL_TOLERANCE = 0.20 * _SCALE        # 20% change in vehicle count
+MEAN_SPEED_ABS_TOLERANCE_MS = (5.0 / 3.6) * _SCALE   # 5 km/h in m/s
+EDGE_SPEED_REL_TOLERANCE = 0.20 * _SCALE     # 20% change on any shared lane
+STOPPED_SET_MIN_JACCARD = 1.0 - 0.20 * _SCALE   # hazard/parking set must hold
+NEIGHBOUR_SET_MIN_JACCARD = 1.0 - 0.30 * _SCALE # sensor fusion tolerates churn
+OCCUPANCY_MAX_FLIP_RATIO = 0.20 * _SCALE     # grid cells that may change
 
 
 def _jaccard(a: FrozenSet[str], b: FrozenSet[str]) -> float:

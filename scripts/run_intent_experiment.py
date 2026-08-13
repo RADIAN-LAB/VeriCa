@@ -378,6 +378,12 @@ def main() -> int:
     result["intent_from_text"] = (
         str(args.classify_from_text) if args.classify_from_text else None
     )
+    # Which definition of "correct" judged this run. Anything other than 1.0
+    # belongs to the tolerance sensitivity sweep and must not be aggregated
+    # with baseline-tolerance results.
+    from intent.ground_truth import TOLERANCE_SCALE
+
+    result["tolerance_scale"] = TOLERANCE_SCALE
     with args.output.open("w") as result_file:
         json.dump(result, result_file, indent=2)
 
