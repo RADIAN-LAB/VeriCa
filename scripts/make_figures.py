@@ -119,6 +119,7 @@ def fig_hit_vs_correct(runs, out: Path) -> None:
                  color=INK, fontsize=12, loc="left", pad=32)
     fig.tight_layout()
     fig.savefig(out, dpi=200)
+    fig.savefig(out.with_suffix(".pdf"))
     plt.close(fig)
 
 
@@ -149,6 +150,7 @@ def fig_verified(runs, ceiling: Optional[float], out: Path) -> None:
                  color=INK, fontsize=12, loc="left", pad=12)
     fig.tight_layout()
     fig.savefig(out, dpi=200)
+    fig.savefig(out.with_suffix(".pdf"))
     plt.close(fig)
 
 
@@ -189,6 +191,7 @@ def fig_error_taxonomy(runs, out: Path) -> None:
                  color=INK, fontsize=12, loc="left", pad=32)
     fig.tight_layout()
     fig.savefig(out, dpi=200)
+    fig.savefig(out.with_suffix(".pdf"))
     plt.close(fig)
 
 
@@ -213,6 +216,7 @@ def fig_latency(runs, out: Path) -> None:
                  color=INK, fontsize=12, loc="left", pad=12)
     fig.tight_layout()
     fig.savefig(out, dpi=200)
+    fig.savefig(out.with_suffix(".pdf"))
     plt.close(fig)
 
 
@@ -243,6 +247,7 @@ def fig_decay_rates(fitted_path: Path, out: Path) -> None:
                  color=INK, fontsize=12, loc="left", pad=32)
     fig.tight_layout()
     fig.savefig(out, dpi=200)
+    fig.savefig(out.with_suffix(".pdf"))
     plt.close(fig)
 
 
