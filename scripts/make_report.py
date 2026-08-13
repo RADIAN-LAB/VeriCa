@@ -377,8 +377,10 @@ def main() -> int:
     )
     story += bullets([
         f"<b>Energy.</b> Charged physically (CPU time, radio bits, storage residency) "
-        "rather than by the previous invented per-task constants. Per <i>correct</i> "
-        "answer the proposed cache uses roughly half the energy of the best baseline, "
+        "rather than by the previous invented per-task constants, with values grounded "
+        "in deployed hardware (Jetson-class compute, DSRC radio, a 12 W RSU budget). "
+        "Per <i>correct</i> answer the proposed cache uses 39% less energy than the "
+        "best baseline (0.332 vs 0.567 J, n=27), "
         "and the accounting charges speculative computation explicitly, so predictive "
         "placement is billed for the work it performs whether or not the prediction "
         "is used.",

@@ -35,11 +35,10 @@ precision, so 42% is waste that any honest energy figure has to show.
 
 Constants
 ---------
-The three constants below are the model's only free parameters, and the
-conclusions must not rest on them — ``--sensitivity`` re-runs the comparison at
-+/-50% on each. **They are placeholders pending citation**: fill in values from
-the edge-server and C-V2X literature before submission, and state them in the
-paper with their sources.
+The three constants below are the model's only free parameters. Each is
+grounded in deployed hardware (see the comments where they are defined), and
+``--sensitivity`` re-runs the comparison at +/-50% on each so the conclusions
+demonstrably do not rest on the exact values.
 """
 from __future__ import annotations
 
@@ -62,12 +61,28 @@ from sdn_core.timing import (  # noqa: E402
     COMPUTATION_BASE_TIME,
 )
 
-# --- Free parameters (PLACEHOLDERS — cite before submission) ---------------
-# Active draw of the RSU's compute element while running a task.
+# --- Free parameters, grounded in deployed hardware ------------------------
+#
+# P_CPU_W: active draw of the RSU's compute element while running a task.
+# Jetson-class modules are what RSU perception deployments actually use; their
+# documented power envelopes are 10/15/30 W (Orin NX 10-25 W, AGX Orin
+# 15-60 W), and a 2026 roadside-perception field trial ran on an Orin Nano at
+# 7-25 W. 30 W is the AGX Orin mid-range mode. [NVIDIA Jetson power modes;
+# arXiv:2606.17241]
 P_CPU_W = 30.0
-# Radio energy per transmitted bit, short-range V2X.
-E_BIT_J = 1.0e-7
-# Idle draw attributable to holding cached results.
+#
+# E_BIT_J: radio energy per delivered bit, from the standard MEC formulation
+# E = P_radio * bits / rate. Production DSRC/802.11p electronics draw ~3 W in
+# operation, and 6 Mb/s is the common 802.11p operating rate, giving
+# 3 / 6e6 = 5e-7 J/bit. Deliveries occur for every answered request in every
+# arm, so this term is near-constant across methods and its exact value does
+# not move the comparison. [arXiv:1606.00169; IEEE 802.11p rate set]
+E_BIT_J = 5.0e-7
+#
+# P_CACHE_IDLE_W: idle draw attributable to holding cached results. A deployed
+# RSU's whole-unit budget is 12 W (PoE+ class); 1 W for the storage subsystem
+# is consistent with that envelope, and the term is identical across arms.
+# [Yunex Traffic connected-vehicle RSU datasheet, 2021]
 P_CACHE_IDLE_W = 1.0
 
 # Mean of the uniform load factor in estimate_computation_time: 1 + U(0, 0.5).
@@ -237,7 +252,8 @@ def main() -> int:
                     "constants": {
                         "P_CPU_W": P_CPU_W, "E_BIT_J": E_BIT_J,
                         "P_CACHE_IDLE_W": P_CACHE_IDLE_W,
-                        "note": "PLACEHOLDERS — cite before submission",
+                        "basis": "Jetson-class RSU compute; DSRC 3 W at "
+                                 "6 Mb/s; 12 W RSU unit budget",
                     },
                 },
                 handle, indent=2,
