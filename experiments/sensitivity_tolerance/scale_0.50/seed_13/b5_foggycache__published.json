@@ -1,0 +1,161 @@
+{
+  "total_tasks": 16452,
+  "success_rate": 1.0,
+  "average_completion": 3.4446048577870307,
+  "cache_hits": 15000,
+  "cache_misses": 1452,
+  "hit_rate": 0.9117432530999271,
+  "preplacements": 0,
+  "proactive_computations": 0,
+  "proactive_hits": 0,
+  "proactive_wasted": 0,
+  "proactive_precision": 0.0,
+  "proactive_compute_ms": 0.0,
+  "runtime_seconds": 92.48309421539307,
+  "provenance": {
+    "params": {
+      "trace": "/Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/intent-nlp-vanet/experiments/evaluation/seed_13/tasks.csv",
+      "seed": 13,
+      "max_ts": null,
+      "evict_policy": "lru",
+      "load_rl": null,
+      "no_fl": true,
+      "fl_placement_enabled": false,
+      "preplace_mode": "compute",
+      "preplace_budget": 10,
+      "cache_capacity_per_rsu": 100,
+      "default_ttl": 300,
+      "eviction_policy": "LRU",
+      "rsu_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enable_auto_cache": true,
+      "enable_cache_lookup": true,
+      "enable_forwarding": false
+    },
+    "git": {
+      "coca": {
+        "available": true,
+        "commit": "a7c6974cd690988b73cc031cef301801b97dd965",
+        "branch": "iotj-rework",
+        "dirty": false
+      }
+    },
+    "python": "3.9.6",
+    "platform": "macOS-15.1.1-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.0.2",
+      "torch": "2.7.1",
+      "pulp": "2.9.0",
+      "scipy": "1.13.1",
+      "pandas": "2.2.3",
+      "xgboost": "2.1.2"
+    }
+  },
+  "reuse_mode": "foggycache",
+  "key_mode": "coca",
+  "verify_before_serve": false,
+  "verifications": 0,
+  "verification_failures": 0,
+  "verification_ms_total": 0.0,
+  "distinct_keys_resident": 129,
+  "distinct_keys_seen": 145,
+  "validity_model": "oracle",
+  "valid_cache_hits": 5950,
+  "stale_cache_hits": 9050,
+  "semantic_cache_hits": 1211,
+  "semantic_correct_hits": 432,
+  "valid_hit_rate": 0.36165815706297105,
+  "stale_reuse_rate": 0.6033333333333334,
+  "hit_error_rate": 0.6033333333333334,
+  "semantic_precision": 0.35672997522708505,
+  "semantic_error_rate": 0.5050666666666667,
+  "error_breakdown": {
+    "wrong_intent": 0,
+    "wrong_place": 7117,
+    "wrong_subject": 459,
+    "stale": 1474,
+    "unknown": 0
+  },
+  "rejected_stale": 0,
+  "rejected_intent": 0,
+  "per_intent": {
+    "traffic_analysis": {
+      "misses": 91,
+      "hits": 2474,
+      "valid_hits": 226,
+      "stale_hits": 2248,
+      "stale": 464,
+      "semantic_hits": 177,
+      "wrong_place": 1784,
+      "semantic_correct": 25
+    },
+    "hazard_detection": {
+      "misses": 202,
+      "hits": 1165,
+      "valid_hits": 901,
+      "semantic_hits": 170,
+      "semantic_correct": 135,
+      "stale_hits": 264,
+      "stale": 46,
+      "wrong_place": 218
+    },
+    "route_optimization": {
+      "misses": 155,
+      "hits": 1993,
+      "semantic_hits": 187,
+      "valid_hits": 51,
+      "semantic_correct": 10,
+      "stale_hits": 1942,
+      "stale": 425,
+      "wrong_place": 1517
+    },
+    "sensor_processing": {
+      "misses": 138,
+      "hits": 2369,
+      "semantic_hits": 112,
+      "stale_hits": 2317,
+      "wrong_subject": 459,
+      "wrong_place": 1858,
+      "valid_hits": 52,
+      "semantic_correct": 10
+    },
+    "environment_perception": {
+      "misses": 309,
+      "hits": 1975,
+      "valid_hits": 10,
+      "semantic_hits": 275,
+      "stale_hits": 1965,
+      "stale": 470,
+      "wrong_place": 1495
+    },
+    "content_delivery": {
+      "misses": 438,
+      "hits": 3830,
+      "valid_hits": 3830,
+      "semantic_hits": 128,
+      "semantic_correct": 128
+    },
+    "parking_search": {
+      "misses": 119,
+      "hits": 1194,
+      "semantic_hits": 162,
+      "valid_hits": 880,
+      "semantic_correct": 124,
+      "stale_hits": 314,
+      "wrong_place": 245,
+      "stale": 69
+    }
+  },
+  "energy_joules": 4404.0,
+  "seed": 13,
+  "reuse_threshold": 0.65,
+  "decay_rates": null,
+  "freshness_threshold": null,
+  "intent_from_text": null,
+  "tolerance_scale": 0.5
+}

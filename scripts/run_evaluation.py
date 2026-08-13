@@ -135,18 +135,23 @@ def generate_trace(seed: int, output: Path) -> None:
 
 
 def run_arm(seed: int, trace: Path, arm: str, regime: str, output: Path,
-            max_ts: Optional[int]) -> None:
-    oracle = ORACLE_DIR / f"seed_{seed:02d}.pkl"
+            max_ts: Optional[int], oracle_dir: Path = ORACLE_DIR,
+            aoi_dir: Path = AOI_DIR) -> None:
+    oracle = oracle_dir / f"seed_{seed:02d}.pkl"
     if not oracle.exists():
         raise FileNotFoundError(
             f"No oracle for seed {seed}: {oracle}. Build it with "
             "scripts/build_oracle.py --mobility-dir."
         )
+    arm_args = [
+        str(aoi_dir / Path(a).name) if a.endswith(".json") else a
+        for a in ARMS[arm]["args"]
+    ]
     command = [
         sys.executable, str(ROOT / "scripts" / "run_intent_experiment.py"),
         "--trace", str(trace), "--output", str(output),
         "--oracle", str(oracle), "--seed", str(seed),
-        *ARMS[arm]["args"], *REGIMES[regime],
+        *arm_args, *REGIMES[regime],
     ]
     if max_ts is not None:
         command.extend(["--max-ts", str(max_ts)])
@@ -197,6 +202,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--jobs", type=int, default=6)
     parser.add_argument("--max-ts", type=int, default=None)
     parser.add_argument("--out-dir", type=Path, default=DEFAULT_OUT)
+    parser.add_argument("--oracle-dir", type=Path, default=ORACLE_DIR,
+                        help="Oracle pickles for this scenario's mobility.")
+    parser.add_argument("--aoi-dir", type=Path, default=AOI_DIR,
+                        help="B4 window tables tuned on this scenario's "
+                             "calibration seeds — windows do not transfer "
+                             "between maps.")
     parser.add_argument("--arms", nargs="+", choices=list(ARMS), default=list(ARMS))
     parser.add_argument("--regimes", nargs="+", choices=list(REGIMES),
                         default=list(REGIMES))
@@ -240,7 +251,8 @@ def main() -> int:
         with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
             futures = {
                 pool.submit(run_arm, seed, traces[seed], arm, regime, output,
-                            args.max_ts): (seed, arm, regime)
+                            args.max_ts, args.oracle_dir, args.aoi_dir):
+                    (seed, arm, regime)
                 for seed, arm, regime, output in work
             }
             for future in concurrent.futures.as_completed(futures):
