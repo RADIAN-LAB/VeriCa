@@ -216,3 +216,230 @@
 [215/418] seed 19 p_proposed published
 [216/418] seed 19 b4_aoi_assumed verified
 [217/418] seed 19 p_proposed verified
+[218/418] seed 19 b4_aoi_tuned verified
+[219/418] seed 19 b5_foggycache verified
+[220/418] seed 20 b0_random published
+[221/418] seed 20 b0_fifo published
+[222/418] seed 19 b6_coca verified
+[223/418] seed 20 b1_lru published
+[224/418] seed 20 b2_lfu published
+[225/418] seed 20 b0_random verified
+[226/418] seed 20 b4_aoi_assumed published
+[227/418] seed 20 b0_fifo verified
+[228/418] seed 20 b1_lru verified
+[229/418] seed 20 b5_foggycache published
+[230/418] seed 20 b2_lfu verified
+[231/418] seed 20 b6_coca published
+[232/418] seed 20 b4_aoi_tuned published
+[233/418] seed 20 p_proposed published
+[234/418] seed 20 b4_aoi_assumed verified
+[235/418] seed 20 p_proposed verified
+[236/418] seed 20 b4_aoi_tuned verified
+[237/418] seed 20 b5_foggycache verified
+[238/418] seed 21 b0_random published
+[239/418] seed 21 b0_fifo published
+[240/418] seed 21 b1_lru published
+[241/418] seed 20 b6_coca verified
+[242/418] seed 21 b2_lfu published
+[243/418] seed 21 b0_random verified
+[244/418] seed 21 b0_fifo verified
+[245/418] seed 21 b4_aoi_assumed published
+[246/418] seed 21 b1_lru verified
+[247/418] seed 21 b5_foggycache published
+[248/418] seed 21 b2_lfu verified
+[249/418] seed 21 b6_coca published
+[250/418] seed 21 b4_aoi_tuned published
+[251/418] seed 21 p_proposed published
+[252/418] seed 21 b4_aoi_assumed verified
+[253/418] seed 21 p_proposed verified
+[254/418] seed 21 b5_foggycache verified
+[255/418] seed 21 b4_aoi_tuned verified
+[256/418] seed 22 b0_random published
+[257/418] seed 22 b0_fifo published
+[258/418] seed 21 b6_coca verified
+[259/418] seed 22 b1_lru published
+[260/418] seed 22 b2_lfu published
+[261/418] seed 22 b0_random verified
+[262/418] seed 22 b4_aoi_assumed published
+[263/418] seed 22 b0_fifo verified
+[264/418] seed 22 b1_lru verified
+[265/418] seed 22 b5_foggycache published
+[266/418] seed 22 b2_lfu verified
+[267/418] seed 22 b6_coca published
+[268/418] seed 22 b4_aoi_tuned published
+[269/418] seed 22 p_proposed published
+[270/418] seed 22 b4_aoi_assumed verified
+[271/418] seed 22 p_proposed verified
+[272/418] seed 22 b4_aoi_tuned verified
+[273/418] seed 22 b5_foggycache verified
+[274/418] seed 23 b0_random published
+[275/418] seed 23 b0_fifo published
+[276/418] seed 23 b1_lru published
+[277/418] seed 22 b6_coca verified
+[278/418] seed 23 b2_lfu published
+[279/418] seed 23 b0_random verified
+[280/418] seed 23 b4_aoi_assumed published
+[281/418] seed 23 b0_fifo verified
+[282/418] seed 23 b1_lru verified
+[283/418] seed 23 b5_foggycache published
+[284/418] seed 23 b2_lfu verified
+[285/418] seed 23 b4_aoi_tuned published
+[286/418] seed 23 b6_coca published
+[287/418] seed 23 p_proposed published
+[288/418] seed 23 b4_aoi_assumed verified
+[289/418] seed 23 p_proposed verified
+[290/418] seed 23 b5_foggycache verified
+[291/418] seed 23 b4_aoi_tuned verified
+[292/418] seed 24 b0_random published
+[293/418] seed 24 b0_fifo published
+[294/418] seed 24 b1_lru published
+[295/418] seed 23 b6_coca verified
+[296/418] seed 24 b2_lfu published
+[297/418] seed 24 b0_random verified
+[298/418] seed 24 b4_aoi_assumed published
+[299/418] seed 24 b0_fifo verified
+[300/418] seed 24 b1_lru verified
+[301/418] seed 24 b5_foggycache published
+[302/418] seed 24 b2_lfu verified
+[303/418] seed 24 b4_aoi_tuned published
+[304/418] seed 24 b6_coca published
+[305/418] seed 24 p_proposed published
+[306/418] seed 24 b4_aoi_assumed verified
+[307/418] seed 24 p_proposed verified
+[308/418] seed 24 b5_foggycache verified
+[309/418] seed 24 b4_aoi_tuned verified
+[310/418] seed 25 b0_random published
+[311/418] seed 25 b0_fifo published
+[312/418] seed 25 b1_lru published
+[313/418] seed 24 b6_coca verified
+[314/418] seed 25 b2_lfu published
+[315/418] seed 25 b0_random verified
+[316/418] seed 25 b0_fifo verified
+[317/418] seed 25 b4_aoi_assumed published
+[318/418] seed 25 b1_lru verified
+[319/418] seed 25 b5_foggycache published
+[320/418] seed 25 b2_lfu verified
+[321/418] seed 25 b4_aoi_tuned published
+[322/418] seed 25 b6_coca published
+[323/418] seed 25 b4_aoi_assumed verified
+[324/418] seed 25 p_proposed published
+[325/418] seed 25 b5_foggycache verified
+[326/418] seed 25 b4_aoi_tuned verified
+[327/418] seed 25 p_proposed verified
+[328/418] seed 26 b0_random published
+[329/418] seed 25 b6_coca verified
+[330/418] seed 26 b0_fifo published
+[331/418] seed 26 b1_lru published
+[332/418] seed 26 b0_random verified
+[333/418] seed 26 b2_lfu published
+[334/418] seed 26 b0_fifo verified
+[335/418] seed 26 b4_aoi_assumed published
+[336/418] seed 26 b1_lru verified
+[337/418] seed 26 b2_lfu verified
+[338/418] seed 26 b5_foggycache published
+[339/418] seed 26 b4_aoi_tuned published
+[340/418] seed 26 b6_coca published
+[341/418] seed 26 b4_aoi_assumed verified
+[342/418] seed 26 p_proposed published
+[343/418] seed 26 b4_aoi_tuned verified
+[344/418] seed 26 p_proposed verified
+[345/418] seed 26 b5_foggycache verified
+[346/418] seed 27 b0_random published
+[347/418] seed 27 b0_fifo published
+[348/418] seed 26 b6_coca verified
+[349/418] seed 27 b1_lru published
+[350/418] seed 27 b2_lfu published
+[351/418] seed 27 b0_random verified
+[352/418] seed 27 b4_aoi_assumed published
+[353/418] seed 27 b0_fifo verified
+[354/418] seed 27 b1_lru verified
+[355/418] seed 27 b5_foggycache published
+[356/418] seed 27 b2_lfu verified
+[357/418] seed 27 b4_aoi_tuned published
+[358/418] seed 27 b6_coca published
+[359/418] seed 27 p_proposed published
+[360/418] seed 27 b4_aoi_assumed verified
+[361/418] seed 27 p_proposed verified
+[362/418] seed 27 b4_aoi_tuned verified
+[363/418] seed 27 b5_foggycache verified
+[364/418] seed 28 b0_random published
+[365/418] seed 28 b0_fifo published
+[366/418] seed 27 b6_coca verified
+[367/418] seed 28 b1_lru published
+[368/418] seed 28 b2_lfu published
+[369/418] seed 28 b0_random verified
+[370/418] seed 28 b4_aoi_assumed published
+[371/418] seed 28 b0_fifo verified
+[372/418] seed 28 b1_lru verified
+[373/418] seed 28 b5_foggycache published
+[374/418] seed 28 b2_lfu verified
+[375/418] seed 28 b6_coca published
+[376/418] seed 28 b4_aoi_tuned published
+[377/418] seed 28 p_proposed published
+[378/418] seed 28 b4_aoi_assumed verified
+[379/418] seed 28 p_proposed verified
+[380/418] seed 28 b5_foggycache verified
+[381/418] seed 28 b4_aoi_tuned verified
+[382/418] seed 29 b0_random published
+[383/418] seed 29 b0_fifo published
+[384/418] seed 29 b1_lru published
+[385/418] seed 28 b6_coca verified
+[386/418] seed 29 b2_lfu published
+[387/418] seed 29 b0_random verified
+[388/418] seed 29 b4_aoi_assumed published
+[389/418] seed 29 b0_fifo verified
+[390/418] seed 29 b1_lru verified
+[391/418] seed 29 b5_foggycache published
+[392/418] seed 29 b2_lfu verified
+[393/418] seed 29 b6_coca published
+[394/418] seed 29 b4_aoi_tuned published
+[395/418] seed 29 p_proposed published
+[396/418] seed 29 b4_aoi_assumed verified
+[397/418] seed 29 p_proposed verified
+[398/418] seed 29 b4_aoi_tuned verified
+[399/418] seed 29 b5_foggycache verified
+[400/418] seed 30 b0_random published
+[401/418] seed 30 b0_fifo published
+[402/418] seed 30 b1_lru published
+[403/418] seed 29 b6_coca verified
+[404/418] seed 30 b0_random verified
+[405/418] seed 30 b2_lfu published
+[406/418] seed 30 b4_aoi_assumed published
+[407/418] seed 30 b0_fifo verified
+[408/418] seed 30 b1_lru verified
+[409/418] seed 30 b5_foggycache published
+[410/418] seed 30 b2_lfu verified
+[411/418] seed 30 b4_aoi_tuned published
+[412/418] seed 30 b6_coca published
+[413/418] seed 30 p_proposed published
+[414/418] seed 30 b4_aoi_assumed verified
+[415/418] seed 30 p_proposed verified
+[416/418] seed 30 b5_foggycache verified
+[417/418] seed 30 b4_aoi_tuned verified
+[418/418] seed 30 b6_coca verified
+
+Saved /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/intent-nlp-vanet/experiments/evaluation/aggregated_results.json (53536s)
+
+PUBLISHED
+  arm                         hit%  correct%       ms   n
+  Random                      78.2      35.6     5.23  27
+  FIFO                        82.9      37.4     4.54  27
+  LRU                         82.9      37.5     4.54  27
+  LFU                         82.9      37.5     4.54  27
+  AoI window (assumed)        59.1      28.7     7.98  27
+  AoI window (tuned)          40.2      32.0    10.86  27
+  FoggyCache reuse            90.1      40.1     3.60  27
+  CoCa (FL+RL)                97.2      43.3     2.65  27
+  Proposed                    96.3      46.8     2.95  27
+
+VERIFIED
+  arm                         hit%  correct%       ms   n
+  Random                      12.8      12.8    14.50  27
+  FIFO                        13.3      13.3    14.44  27
+  LRU                         13.3      13.3    14.44  27
+  LFU                         13.3      13.3    14.44  27
+  AoI window (assumed)        10.4      10.4    14.76  27
+  AoI window (tuned)           9.8       9.8    14.89  27
+  FoggyCache reuse            20.8      20.8    13.49  27
+  CoCa (FL+RL)                13.7      13.7    14.39  27
+  Proposed                    68.6      68.6     7.35  27
