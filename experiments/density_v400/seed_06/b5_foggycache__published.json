@@ -1,0 +1,162 @@
+{
+  "total_tasks": 31715,
+  "success_rate": 1.0,
+  "average_completion": 3.577965350237795,
+  "cache_hits": 28601,
+  "cache_misses": 3114,
+  "hit_rate": 0.9018130222292291,
+  "preplacements": 0,
+  "proactive_computations": 0,
+  "proactive_hits": 0,
+  "proactive_wasted": 0,
+  "proactive_precision": 0.0,
+  "proactive_compute_ms": 0.0,
+  "runtime_seconds": 136.74983191490173,
+  "provenance": {
+    "params": {
+      "trace": "experiments/density_v400/seed_06/tasks.csv",
+      "seed": 6,
+      "max_ts": null,
+      "evict_policy": "lru",
+      "load_rl": null,
+      "no_fl": true,
+      "fl_placement_enabled": false,
+      "preplace_mode": "compute",
+      "preplace_budget": 10,
+      "cache_capacity_per_rsu": 100,
+      "default_ttl": 300,
+      "eviction_policy": "LRU",
+      "rsu_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enable_auto_cache": true,
+      "enable_cache_lookup": true,
+      "enable_forwarding": false
+    },
+    "git": {
+      "coca": {
+        "available": true,
+        "commit": "f5f145068da0ad8b5d26e8c9d3b065d36dd71d31",
+        "branch": "iotj-rework",
+        "dirty": true
+      }
+    },
+    "python": "3.9.6",
+    "platform": "macOS-15.1.1-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.0.2",
+      "torch": "2.7.1",
+      "pulp": "2.9.0",
+      "scipy": "1.13.1",
+      "pandas": "2.2.3",
+      "xgboost": "2.1.2"
+    }
+  },
+  "reuse_mode": "foggycache",
+  "key_mode": "coca",
+  "verify_before_serve": false,
+  "verifications": 0,
+  "verification_failures": 0,
+  "verification_ms_total": 0.0,
+  "distinct_keys_resident": 134,
+  "distinct_keys_seen": 145,
+  "validity_model": "oracle",
+  "valid_cache_hits": 11240,
+  "stale_cache_hits": 17361,
+  "semantic_cache_hits": 2028,
+  "semantic_correct_hits": 665,
+  "valid_hit_rate": 0.3544064322875611,
+  "stale_reuse_rate": 0.6070067480158037,
+  "hit_error_rate": 0.6070067480158037,
+  "semantic_precision": 0.32790927021696253,
+  "semantic_error_rate": 0.521625118002867,
+  "error_breakdown": {
+    "wrong_intent": 0,
+    "wrong_place": 14000,
+    "wrong_subject": 919,
+    "stale": 2442,
+    "unknown": 0
+  },
+  "rejected_stale": 0,
+  "rejected_intent": 0,
+  "per_intent": {
+    "traffic_analysis": {
+      "misses": 264,
+      "hits": 4557,
+      "valid_hits": 2308,
+      "semantic_hits": 321,
+      "stale_hits": 2249,
+      "stale": 160,
+      "semantic_correct": 162,
+      "wrong_place": 2089
+    },
+    "hazard_detection": {
+      "misses": 474,
+      "hits": 2317,
+      "valid_hits": 1052,
+      "semantic_hits": 269,
+      "semantic_correct": 130,
+      "stale_hits": 1265,
+      "wrong_place": 996,
+      "stale": 269
+    },
+    "route_optimization": {
+      "misses": 167,
+      "hits": 4130,
+      "semantic_hits": 148,
+      "stale_hits": 4010,
+      "wrong_place": 3201,
+      "valid_hits": 120,
+      "semantic_correct": 11,
+      "stale": 809
+    },
+    "sensor_processing": {
+      "misses": 281,
+      "hits": 4469,
+      "semantic_hits": 165,
+      "valid_hits": 59,
+      "semantic_correct": 7,
+      "stale_hits": 4410,
+      "wrong_place": 3491,
+      "wrong_subject": 919
+    },
+    "environment_perception": {
+      "misses": 658,
+      "hits": 4031,
+      "stale_hits": 3954,
+      "stale": 876,
+      "semantic_hits": 578,
+      "valid_hits": 77,
+      "semantic_correct": 12,
+      "wrong_place": 3078
+    },
+    "content_delivery": {
+      "misses": 970,
+      "hits": 6858,
+      "valid_hits": 6858,
+      "semantic_hits": 220,
+      "semantic_correct": 220
+    },
+    "parking_search": {
+      "misses": 300,
+      "hits": 2239,
+      "valid_hits": 766,
+      "semantic_hits": 327,
+      "semantic_correct": 123,
+      "stale_hits": 1473,
+      "stale": 328,
+      "wrong_place": 1145
+    }
+  },
+  "energy_joules": 9088.1,
+  "seed": 6,
+  "reuse_threshold": 0.65,
+  "decay_rates": null,
+  "freshness_threshold": null,
+  "intent_from_text": null,
+  "tolerance_scale": 1.0
+}

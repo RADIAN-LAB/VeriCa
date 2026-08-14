@@ -1,2 +1,16 @@
 [12:26:45] tolerance sweep finished; starting A2
 [12:26:45] Bologna evaluation
+[13:07:43] Bologna done (0)
+[13:07:43] density 100: mobility
+[13:07:45] density 100: traces
+[13:07:47] density 100: oracles
+[13:07:48] density 100: B4 windows (calibration seeds only)
+[13:07:50] density 100: evaluation
+[13:38:32] density 100 done (0)
+[13:38:32] density 400: mobility
+[13:38:34] density 400: traces
+[13:38:42] density 400: oracles
+[13:38:50] density 400: B4 windows (calibration seeds only)
+[13:38:53] density 400: evaluation
+[15:19:22] density 400 done (0)
+[15:19:22] A2 complete

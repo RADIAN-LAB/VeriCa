@@ -1,0 +1,162 @@
+{
+  "total_tasks": 32157,
+  "success_rate": 1.0,
+  "average_completion": 3.5730567650692735,
+  "cache_hits": 29198,
+  "cache_misses": 2959,
+  "hit_rate": 0.907982709829897,
+  "preplacements": 0,
+  "proactive_computations": 0,
+  "proactive_hits": 0,
+  "proactive_wasted": 0,
+  "proactive_precision": 0.0,
+  "proactive_compute_ms": 0.0,
+  "runtime_seconds": 138.9167869091034,
+  "provenance": {
+    "params": {
+      "trace": "experiments/density_v400/seed_10/tasks.csv",
+      "seed": 10,
+      "max_ts": null,
+      "evict_policy": "lru",
+      "load_rl": null,
+      "no_fl": true,
+      "fl_placement_enabled": false,
+      "preplace_mode": "compute",
+      "preplace_budget": 10,
+      "cache_capacity_per_rsu": 100,
+      "default_ttl": 300,
+      "eviction_policy": "LRU",
+      "rsu_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enable_auto_cache": true,
+      "enable_cache_lookup": true,
+      "enable_forwarding": false
+    },
+    "git": {
+      "coca": {
+        "available": true,
+        "commit": "f5f145068da0ad8b5d26e8c9d3b065d36dd71d31",
+        "branch": "iotj-rework",
+        "dirty": true
+      }
+    },
+    "python": "3.9.6",
+    "platform": "macOS-15.1.1-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.0.2",
+      "torch": "2.7.1",
+      "pulp": "2.9.0",
+      "scipy": "1.13.1",
+      "pandas": "2.2.3",
+      "xgboost": "2.1.2"
+    }
+  },
+  "reuse_mode": "foggycache",
+  "key_mode": "coca",
+  "verify_before_serve": false,
+  "verifications": 0,
+  "verification_failures": 0,
+  "verification_ms_total": 0.0,
+  "distinct_keys_resident": 134,
+  "distinct_keys_seen": 145,
+  "validity_model": "oracle",
+  "valid_cache_hits": 11447,
+  "stale_cache_hits": 17751,
+  "semantic_cache_hits": 2048,
+  "semantic_correct_hits": 607,
+  "valid_hit_rate": 0.35597226109400754,
+  "stale_reuse_rate": 0.607952599493116,
+  "hit_error_rate": 0.607952599493116,
+  "semantic_precision": 0.29638671875,
+  "semantic_error_rate": 0.5255154462634427,
+  "error_breakdown": {
+    "wrong_intent": 0,
+    "wrong_place": 14394,
+    "wrong_subject": 950,
+    "stale": 2407,
+    "unknown": 0
+  },
+  "rejected_stale": 0,
+  "rejected_intent": 0,
+  "per_intent": {
+    "traffic_analysis": {
+      "misses": 238,
+      "hits": 4509,
+      "valid_hits": 2089,
+      "stale_hits": 2420,
+      "wrong_place": 2232,
+      "semantic_hits": 287,
+      "semantic_correct": 138,
+      "stale": 188
+    },
+    "hazard_detection": {
+      "misses": 376,
+      "hits": 2453,
+      "valid_hits": 943,
+      "semantic_hits": 318,
+      "semantic_correct": 149,
+      "stale_hits": 1510,
+      "wrong_place": 1272,
+      "stale": 238
+    },
+    "route_optimization": {
+      "misses": 247,
+      "hits": 4020,
+      "semantic_hits": 236,
+      "valid_hits": 117,
+      "semantic_correct": 17,
+      "stale_hits": 3903,
+      "wrong_place": 3132,
+      "stale": 771
+    },
+    "sensor_processing": {
+      "misses": 334,
+      "hits": 4432,
+      "semantic_hits": 148,
+      "valid_hits": 44,
+      "semantic_correct": 10,
+      "stale_hits": 4388,
+      "wrong_place": 3438,
+      "wrong_subject": 950
+    },
+    "environment_perception": {
+      "misses": 705,
+      "hits": 4064,
+      "semantic_hits": 590,
+      "valid_hits": 97,
+      "semantic_correct": 19,
+      "stale_hits": 3967,
+      "stale": 938,
+      "wrong_place": 3029
+    },
+    "content_delivery": {
+      "misses": 754,
+      "hits": 7404,
+      "valid_hits": 7404,
+      "semantic_hits": 155,
+      "semantic_correct": 155
+    },
+    "parking_search": {
+      "misses": 305,
+      "hits": 2316,
+      "valid_hits": 753,
+      "semantic_hits": 314,
+      "semantic_correct": 119,
+      "stale_hits": 1563,
+      "wrong_place": 1291,
+      "stale": 272
+    }
+  },
+  "energy_joules": 8837.8,
+  "seed": 10,
+  "reuse_threshold": 0.65,
+  "decay_rates": null,
+  "freshness_threshold": null,
+  "intent_from_text": null,
+  "tolerance_scale": 1.0
+}

@@ -1,0 +1,568 @@
+[seed 04] built (0.6s)
+[seed 02] built (0.6s)
+[seed 03] built (0.6s)
+[seed 01] built (0.6s)
+[seed 06] built (0.4s)
+[seed 05] built (0.4s)
+[seed 07] built (0.4s)
+[seed 08] built (0.4s)
+[seed 09] built (0.4s)
+[seed 10] built (0.4s)
+[seed 11] built (0.4s)
+[seed 12] built (0.4s)
+[seed 13] built (0.4s)
+
+13/13 mobility realisations available in /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400 (1.9s)
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_01/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_01/tasks.csv
+  Total tasks: 32837
+  Timesteps with tasks: 495
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4251 (12.9%)
+    1 (SafetyAlert): 2382 (7.3%)
+    2 (MediaStreaming): 4281 (13.0%)
+    3 (SensorProcessing): 5022 (15.3%)
+    4 (CoopPerception): 2374 (7.2%)
+    5 (TrafficInfo): 4819 (14.7%)
+    6 (ParkingSearch): 2697 (8.2%)
+    7 (Emergency): 447 (1.4%)
+    8 (Infotainment): 4151 (12.6%)
+    9 (V2XMessage): 2413 (7.3%)
+
+  RSU task distribution:
+    RSU 1: 7048 tasks
+    RSU 2: 7674 tasks
+    RSU 3: 3964 tasks
+    RSU 4: 7128 tasks
+    RSU 5: 7023 tasks
+
+  Speed stats: min=0.0, max=64.9, avg=43.7 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_02/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_02/tasks.csv
+  Total tasks: 31388
+  Timesteps with tasks: 498
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4195 (13.4%)
+    1 (SafetyAlert): 2230 (7.1%)
+    2 (MediaStreaming): 4010 (12.8%)
+    3 (SensorProcessing): 4641 (14.8%)
+    4 (CoopPerception): 2250 (7.2%)
+    5 (TrafficInfo): 4653 (14.8%)
+    6 (ParkingSearch): 2564 (8.2%)
+    7 (Emergency): 486 (1.5%)
+    8 (Infotainment): 4003 (12.8%)
+    9 (V2XMessage): 2356 (7.5%)
+
+  RSU task distribution:
+    RSU 1: 7401 tasks
+    RSU 2: 6697 tasks
+    RSU 3: 3700 tasks
+    RSU 4: 7042 tasks
+    RSU 5: 6548 tasks
+
+  Speed stats: min=0.0, max=64.9, avg=44.2 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_03/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_03/tasks.csv
+  Total tasks: 32221
+  Timesteps with tasks: 499
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4326 (13.4%)
+    1 (SafetyAlert): 2334 (7.2%)
+    2 (MediaStreaming): 4120 (12.8%)
+    3 (SensorProcessing): 4731 (14.7%)
+    4 (CoopPerception): 2244 (7.0%)
+    5 (TrafficInfo): 4757 (14.8%)
+    6 (ParkingSearch): 2759 (8.6%)
+    7 (Emergency): 459 (1.4%)
+    8 (Infotainment): 4247 (13.2%)
+    9 (V2XMessage): 2244 (7.0%)
+
+  RSU task distribution:
+    RSU 1: 7255 tasks
+    RSU 2: 6358 tasks
+    RSU 3: 4552 tasks
+    RSU 4: 6526 tasks
+    RSU 5: 7530 tasks
+
+  Speed stats: min=0.0, max=65.0, avg=43.2 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_04/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_04/tasks.csv
+  Total tasks: 31552
+  Timesteps with tasks: 499
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4282 (13.6%)
+    1 (SafetyAlert): 2326 (7.4%)
+    2 (MediaStreaming): 3891 (12.3%)
+    3 (SensorProcessing): 4755 (15.1%)
+    4 (CoopPerception): 2311 (7.3%)
+    5 (TrafficInfo): 4764 (15.1%)
+    6 (ParkingSearch): 2487 (7.9%)
+    7 (Emergency): 478 (1.5%)
+    8 (Infotainment): 3926 (12.4%)
+    9 (V2XMessage): 2332 (7.4%)
+
+  RSU task distribution:
+    RSU 1: 7108 tasks
+    RSU 2: 6565 tasks
+    RSU 3: 4345 tasks
+    RSU 4: 7124 tasks
+    RSU 5: 6410 tasks
+
+  Speed stats: min=0.0, max=65.0, avg=44.3 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_05/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_05/tasks.csv
+  Total tasks: 32786
+  Timesteps with tasks: 499
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4381 (13.4%)
+    1 (SafetyAlert): 2343 (7.1%)
+    2 (MediaStreaming): 4338 (13.2%)
+    3 (SensorProcessing): 4893 (14.9%)
+    4 (CoopPerception): 2259 (6.9%)
+    5 (TrafficInfo): 4866 (14.8%)
+    6 (ParkingSearch): 2721 (8.3%)
+    7 (Emergency): 464 (1.4%)
+    8 (Infotainment): 4235 (12.9%)
+    9 (V2XMessage): 2286 (7.0%)
+
+  RSU task distribution:
+    RSU 1: 6891 tasks
+    RSU 2: 7366 tasks
+    RSU 3: 4388 tasks
+    RSU 4: 6688 tasks
+    RSU 5: 7453 tasks
+
+  Speed stats: min=0.0, max=65.0, avg=43.8 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_06/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_06/tasks.csv
+  Total tasks: 31715
+  Timesteps with tasks: 498
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4297 (13.5%)
+    1 (SafetyAlert): 2331 (7.3%)
+    2 (MediaStreaming): 3913 (12.3%)
+    3 (SensorProcessing): 4750 (15.0%)
+    4 (CoopPerception): 2386 (7.5%)
+    5 (TrafficInfo): 4821 (15.2%)
+    6 (ParkingSearch): 2539 (8.0%)
+    7 (Emergency): 460 (1.5%)
+    8 (Infotainment): 3915 (12.3%)
+    9 (V2XMessage): 2303 (7.3%)
+
+  RSU task distribution:
+    RSU 1: 7407 tasks
+    RSU 2: 5969 tasks
+    RSU 3: 3745 tasks
+    RSU 4: 7325 tasks
+    RSU 5: 7269 tasks
+
+  Speed stats: min=0.0, max=64.9, avg=44.4 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_07/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_07/tasks.csv
+  Total tasks: 32813
+  Timesteps with tasks: 499
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4437 (13.5%)
+    1 (SafetyAlert): 2396 (7.3%)
+    2 (MediaStreaming): 4095 (12.5%)
+    3 (SensorProcessing): 4828 (14.7%)
+    4 (CoopPerception): 2399 (7.3%)
+    5 (TrafficInfo): 4831 (14.7%)
+    6 (ParkingSearch): 2750 (8.4%)
+    7 (Emergency): 467 (1.4%)
+    8 (Infotainment): 4174 (12.7%)
+    9 (V2XMessage): 2436 (7.4%)
+
+  RSU task distribution:
+    RSU 1: 7841 tasks
+    RSU 2: 6114 tasks
+    RSU 3: 4046 tasks
+    RSU 4: 7681 tasks
+    RSU 5: 7131 tasks
+
+  Speed stats: min=0.0, max=65.0, avg=43.9 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_08/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_08/tasks.csv
+  Total tasks: 33211
+  Timesteps with tasks: 499
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4476 (13.5%)
+    1 (SafetyAlert): 2458 (7.4%)
+    2 (MediaStreaming): 4305 (13.0%)
+    3 (SensorProcessing): 4906 (14.8%)
+    4 (CoopPerception): 2524 (7.6%)
+    5 (TrafficInfo): 4917 (14.8%)
+    6 (ParkingSearch): 2573 (7.7%)
+    7 (Emergency): 466 (1.4%)
+    8 (Infotainment): 4199 (12.6%)
+    9 (V2XMessage): 2387 (7.2%)
+
+  RSU task distribution:
+    RSU 1: 7740 tasks
+    RSU 2: 7209 tasks
+    RSU 3: 4359 tasks
+    RSU 4: 6803 tasks
+    RSU 5: 7100 tasks
+
+  Speed stats: min=0.0, max=65.0, avg=43.7 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_09/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_09/tasks.csv
+  Total tasks: 31604
+  Timesteps with tasks: 497
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4229 (13.4%)
+    1 (SafetyAlert): 2238 (7.1%)
+    2 (MediaStreaming): 4007 (12.7%)
+    3 (SensorProcessing): 4745 (15.0%)
+    4 (CoopPerception): 2217 (7.0%)
+    5 (TrafficInfo): 4686 (14.8%)
+    6 (ParkingSearch): 2679 (8.5%)
+    7 (Emergency): 435 (1.4%)
+    8 (Infotainment): 4099 (13.0%)
+    9 (V2XMessage): 2269 (7.2%)
+
+  RSU task distribution:
+    RSU 1: 7005 tasks
+    RSU 2: 6210 tasks
+    RSU 3: 4316 tasks
+    RSU 4: 8044 tasks
+    RSU 5: 6029 tasks
+
+  Speed stats: min=0.0, max=65.0, avg=43.4 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_10/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_10/tasks.csv
+  Total tasks: 32157
+  Timesteps with tasks: 495
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4267 (13.3%)
+    1 (SafetyAlert): 2391 (7.4%)
+    2 (MediaStreaming): 4090 (12.7%)
+    3 (SensorProcessing): 4766 (14.8%)
+    4 (CoopPerception): 2407 (7.5%)
+    5 (TrafficInfo): 4747 (14.8%)
+    6 (ParkingSearch): 2621 (8.2%)
+    7 (Emergency): 438 (1.4%)
+    8 (Infotainment): 4068 (12.7%)
+    9 (V2XMessage): 2362 (7.3%)
+
+  RSU task distribution:
+    RSU 1: 6986 tasks
+    RSU 2: 6819 tasks
+    RSU 3: 3667 tasks
+    RSU 4: 7037 tasks
+    RSU 5: 7648 tasks
+
+  Speed stats: min=0.0, max=64.9, avg=43.7 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_11/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_11/tasks.csv
+  Total tasks: 32249
+  Timesteps with tasks: 499
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4138 (12.8%)
+    1 (SafetyAlert): 2339 (7.3%)
+    2 (MediaStreaming): 4156 (12.9%)
+    3 (SensorProcessing): 4744 (14.7%)
+    4 (CoopPerception): 2476 (7.7%)
+    5 (TrafficInfo): 4798 (14.9%)
+    6 (ParkingSearch): 2648 (8.2%)
+    7 (Emergency): 491 (1.5%)
+    8 (Infotainment): 4043 (12.5%)
+    9 (V2XMessage): 2416 (7.5%)
+
+  RSU task distribution:
+    RSU 1: 6950 tasks
+    RSU 2: 6602 tasks
+    RSU 3: 3768 tasks
+    RSU 4: 7684 tasks
+    RSU 5: 7245 tasks
+
+  Speed stats: min=0.0, max=65.0, avg=43.8 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_12/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_12/tasks.csv
+  Total tasks: 32341
+  Timesteps with tasks: 499
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4406 (13.6%)
+    1 (SafetyAlert): 2364 (7.3%)
+    2 (MediaStreaming): 4133 (12.8%)
+    3 (SensorProcessing): 4756 (14.7%)
+    4 (CoopPerception): 2407 (7.4%)
+    5 (TrafficInfo): 4816 (14.9%)
+    6 (ParkingSearch): 2590 (8.0%)
+    7 (Emergency): 468 (1.4%)
+    8 (Infotainment): 4002 (12.4%)
+    9 (V2XMessage): 2399 (7.4%)
+
+  RSU task distribution:
+    RSU 1: 6349 tasks
+    RSU 2: 8012 tasks
+    RSU 3: 3941 tasks
+    RSU 4: 6809 tasks
+    RSU 5: 7230 tasks
+
+  Speed stats: min=0.0, max=65.0, avg=43.6 km/h
+Parsing SUMO FCD trace: /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/sdn-vanet-optimizer/experiments/sumo/mobility_v400/seed_13/fcd_trace.xml
+  Found 500 timesteps
+  Total unique vehicles: 400
+
+--- SUMO Trace Conversion Summary ---
+  Output: experiments/density_v400/seed_13/tasks.csv
+  Total tasks: 31883
+  Timesteps with tasks: 499
+  Unique vehicles: 400
+  RSUs used: 5
+
+  Task type distribution:
+    0 (Navigation): 4165 (13.1%)
+    1 (SafetyAlert): 2208 (6.9%)
+    2 (MediaStreaming): 4046 (12.7%)
+    3 (SensorProcessing): 4733 (14.8%)
+    4 (CoopPerception): 2358 (7.4%)
+    5 (TrafficInfo): 4800 (15.1%)
+    6 (ParkingSearch): 2661 (8.3%)
+    7 (Emergency): 459 (1.4%)
+    8 (Infotainment): 4200 (13.2%)
+    9 (V2XMessage): 2253 (7.1%)
+
+  RSU task distribution:
+    RSU 1: 6382 tasks
+    RSU 2: 7067 tasks
+    RSU 3: 4486 tasks
+    RSU 4: 7410 tasks
+    RSU 5: 6538 tasks
+
+  Speed stats: min=0.0, max=65.0, avg=43.4 km/h
+[seed_04.pkl] 2481 cell-steps in 2.4s
+[seed_01.pkl] 2461 cell-steps in 2.4s
+[seed_02.pkl] 2463 cell-steps in 2.4s
+[seed_03.pkl] 2475 cell-steps in 2.4s
+[seed_06.pkl] 2477 cell-steps in 2.4s
+[seed_05.pkl] 2480 cell-steps in 2.4s
+[seed_07.pkl] 2461 cell-steps in 2.6s
+[seed_08.pkl] 2463 cell-steps in 2.6s
+[seed_09.pkl] 2452 cell-steps in 2.4s
+[seed_10.pkl] 2456 cell-steps in 3.0s
+[seed_11.pkl] 2473 cell-steps in 2.8s
+[seed_12.pkl] 2435 cell-steps in 2.8s
+[seed_13.pkl] 2477 cell-steps in 0.6s
+
+13/13 oracles built (7.9s)
+pooled seed_01.pkl
+pooled seed_02.pkl
+pooled seed_03.pkl
+
+tau=0.80
+  intent                     tuned W   assumed W
+  traffic_analysis               4.0         4.5
+  hazard_detection               1.0         1.1
+  route_optimization             0.0        11.2
+  sensor_processing              0.0         2.2
+  environment_perception         0.0        22.3
+  content_delivery             120.0        44.6
+  parking_search                 1.0         2.8
+
+Wrote 2 window tables to experiments/baselines/aoi_v400
+Sweep tau on a calibration seed and carry the best into evaluation.
+100 runs over 10 independent mobility seeds (6 at a time)
+[1/100] seed 04 b1_lru published
+[2/100] seed 04 b4_aoi_assumed published
+[3/100] seed 04 b5_foggycache published
+[4/100] seed 04 p_proposed published
+[5/100] seed 04 b4_aoi_tuned published
+[6/100] seed 04 b1_lru verified
+[7/100] seed 04 b4_aoi_assumed verified
+[8/100] seed 04 b4_aoi_tuned verified
+[9/100] seed 05 b1_lru published
+[10/100] seed 04 p_proposed verified
+[11/100] seed 04 b5_foggycache verified
+[12/100] seed 05 b4_aoi_assumed published
+[13/100] seed 05 b5_foggycache published
+[14/100] seed 05 b4_aoi_tuned published
+[15/100] seed 05 p_proposed published
+[16/100] seed 05 b1_lru verified
+[17/100] seed 05 b4_aoi_assumed verified
+[18/100] seed 06 b1_lru published
+[19/100] seed 05 b4_aoi_tuned verified
+[20/100] seed 05 p_proposed verified
+[21/100] seed 05 b5_foggycache verified
+[22/100] seed 06 b4_aoi_assumed published
+[23/100] seed 06 b5_foggycache published
+[24/100] seed 06 p_proposed published
+[25/100] seed 06 b1_lru verified
+[26/100] seed 06 b4_aoi_tuned published
+[27/100] seed 06 b4_aoi_assumed verified
+[28/100] seed 07 b1_lru published
+[29/100] seed 06 b4_aoi_tuned verified
+[30/100] seed 06 p_proposed verified
+[31/100] seed 06 b5_foggycache verified
+[32/100] seed 07 b4_aoi_assumed published
+[33/100] seed 07 b5_foggycache published
+[34/100] seed 07 p_proposed published
+[35/100] seed 07 b1_lru verified
+[36/100] seed 07 b4_aoi_tuned published
+[37/100] seed 07 b4_aoi_assumed verified
+[38/100] seed 08 b1_lru published
+[39/100] seed 07 p_proposed verified
+[40/100] seed 07 b4_aoi_tuned verified
+[41/100] seed 07 b5_foggycache verified
+[42/100] seed 08 b4_aoi_assumed published
+[43/100] seed 08 b5_foggycache published
+[44/100] seed 08 p_proposed published
+[45/100] seed 08 b4_aoi_tuned published
+[46/100] seed 08 b1_lru verified
+[47/100] seed 08 b4_aoi_assumed verified
+[48/100] seed 09 b1_lru published
+[49/100] seed 08 b4_aoi_tuned verified
+[50/100] seed 08 p_proposed verified
+[51/100] seed 08 b5_foggycache verified
+[52/100] seed 09 b4_aoi_assumed published
+[53/100] seed 09 b5_foggycache published
+[54/100] seed 09 b1_lru verified
+[55/100] seed 09 p_proposed published
+[56/100] seed 09 b4_aoi_tuned published
+[57/100] seed 09 b4_aoi_assumed verified
+[58/100] seed 10 b1_lru published
+[59/100] seed 09 b4_aoi_tuned verified
+[60/100] seed 09 p_proposed verified
+[61/100] seed 09 b5_foggycache verified
+[62/100] seed 10 b4_aoi_assumed published
+[63/100] seed 10 b5_foggycache published
+[64/100] seed 10 p_proposed published
+[65/100] seed 10 b1_lru verified
+[66/100] seed 10 b4_aoi_tuned published
+[67/100] seed 10 b4_aoi_assumed verified
+[68/100] seed 11 b1_lru published
+[69/100] seed 10 b4_aoi_tuned verified
+[70/100] seed 10 p_proposed verified
+[71/100] seed 10 b5_foggycache verified
+[72/100] seed 11 b4_aoi_assumed published
+[73/100] seed 11 b5_foggycache published
+[74/100] seed 11 p_proposed published
+[75/100] seed 11 b1_lru verified
+[76/100] seed 11 b4_aoi_tuned published
+[77/100] seed 11 b4_aoi_assumed verified
+[78/100] seed 12 b1_lru published
+[79/100] seed 11 b4_aoi_tuned verified
+[80/100] seed 11 p_proposed verified
+[81/100] seed 11 b5_foggycache verified
+[82/100] seed 12 b4_aoi_assumed published
+[83/100] seed 12 b5_foggycache published
+[84/100] seed 12 p_proposed published
+[85/100] seed 12 b1_lru verified
+[86/100] seed 12 b4_aoi_tuned published
+[87/100] seed 12 b4_aoi_assumed verified
+[88/100] seed 13 b1_lru published
+[89/100] seed 12 b4_aoi_tuned verified
+[90/100] seed 12 p_proposed verified
+[91/100] seed 12 b5_foggycache verified
+[92/100] seed 13 b4_aoi_assumed published
+[93/100] seed 13 b5_foggycache published
+[94/100] seed 13 p_proposed published
+[95/100] seed 13 b1_lru verified
+[96/100] seed 13 b4_aoi_tuned published
+[97/100] seed 13 b4_aoi_assumed verified
+[98/100] seed 13 p_proposed verified
+[99/100] seed 13 b4_aoi_tuned verified
+[100/100] seed 13 b5_foggycache verified
+
+Saved experiments/density_v400/aggregated_results.json (6028s)
+
+PUBLISHED
+  arm                         hit%  correct%       ms   n
+  LRU                         84.4      34.3     4.33  10
+  AoI window (assumed)        68.4      30.5     6.64  10
+  AoI window (tuned)          37.6      29.5    11.35  10
+  FoggyCache reuse            90.5      35.6     3.54  10
+  Proposed                    97.4      40.6     2.76  10
+
+VERIFIED
+  arm                         hit%  correct%       ms   n
+  LRU                         12.6      12.6    14.50  10
+  AoI window (assumed)        11.1      11.1    14.67  10
+  AoI window (tuned)           9.3       9.3    14.92  10
+  FoggyCache reuse            18.1      18.1    13.81  10
+  Proposed                    65.9      65.9     7.62  10

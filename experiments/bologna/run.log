@@ -1,0 +1,119 @@
+100 runs over 10 independent mobility seeds (6 at a time)
+[1/100] seed 04 b1_lru published
+[2/100] seed 04 b5_foggycache published
+[3/100] seed 04 b4_aoi_assumed published
+[4/100] seed 04 b4_aoi_tuned published
+[5/100] seed 04 p_proposed published
+[6/100] seed 05 b1_lru published
+[7/100] seed 04 p_proposed verified
+[8/100] seed 04 b1_lru verified
+[9/100] seed 04 b4_aoi_assumed verified
+[10/100] seed 04 b4_aoi_tuned verified
+[11/100] seed 04 b5_foggycache verified
+[12/100] seed 05 b4_aoi_assumed published
+[13/100] seed 05 b5_foggycache published
+[14/100] seed 05 b4_aoi_tuned published
+[15/100] seed 05 p_proposed published
+[16/100] seed 05 b1_lru verified
+[17/100] seed 06 b1_lru published
+[18/100] seed 05 p_proposed verified
+[19/100] seed 05 b4_aoi_assumed verified
+[20/100] seed 05 b4_aoi_tuned verified
+[21/100] seed 05 b5_foggycache verified
+[22/100] seed 06 b4_aoi_assumed published
+[23/100] seed 06 b4_aoi_tuned published
+[24/100] seed 06 b5_foggycache published
+[25/100] seed 06 p_proposed published
+[26/100] seed 06 b1_lru verified
+[27/100] seed 06 b4_aoi_assumed verified
+[28/100] seed 06 p_proposed verified
+[29/100] seed 06 b4_aoi_tuned verified
+[30/100] seed 07 b1_lru published
+[31/100] seed 06 b5_foggycache verified
+[32/100] seed 07 b4_aoi_assumed published
+[33/100] seed 07 b5_foggycache published
+[34/100] seed 07 b4_aoi_tuned published
+[35/100] seed 07 p_proposed published
+[36/100] seed 07 b1_lru verified
+[37/100] seed 08 b1_lru published
+[38/100] seed 07 b4_aoi_assumed verified
+[39/100] seed 07 p_proposed verified
+[40/100] seed 07 b4_aoi_tuned verified
+[41/100] seed 07 b5_foggycache verified
+[42/100] seed 08 b4_aoi_assumed published
+[43/100] seed 08 b4_aoi_tuned published
+[44/100] seed 08 b5_foggycache published
+[45/100] seed 08 p_proposed published
+[46/100] seed 08 b1_lru verified
+[47/100] seed 08 p_proposed verified
+[48/100] seed 08 b4_aoi_assumed verified
+[49/100] seed 09 b1_lru published
+[50/100] seed 08 b4_aoi_tuned verified
+[51/100] seed 08 b5_foggycache verified
+[52/100] seed 09 b4_aoi_assumed published
+[53/100] seed 09 b5_foggycache published
+[54/100] seed 09 b4_aoi_tuned published
+[55/100] seed 09 p_proposed published
+[56/100] seed 09 b1_lru verified
+[57/100] seed 09 p_proposed verified
+[58/100] seed 09 b4_aoi_assumed verified
+[59/100] seed 10 b1_lru published
+[60/100] seed 09 b4_aoi_tuned verified
+[61/100] seed 09 b5_foggycache verified
+[62/100] seed 10 b4_aoi_assumed published
+[63/100] seed 10 b5_foggycache published
+[64/100] seed 10 b4_aoi_tuned published
+[65/100] seed 10 p_proposed published
+[66/100] seed 10 b1_lru verified
+[67/100] seed 11 b1_lru published
+[68/100] seed 10 p_proposed verified
+[69/100] seed 10 b4_aoi_assumed verified
+[70/100] seed 10 b4_aoi_tuned verified
+[71/100] seed 10 b5_foggycache verified
+[72/100] seed 11 b4_aoi_assumed published
+[73/100] seed 11 b4_aoi_tuned published
+[74/100] seed 11 b5_foggycache published
+[75/100] seed 11 p_proposed published
+[76/100] seed 11 b1_lru verified
+[77/100] seed 11 b4_aoi_assumed verified
+[78/100] seed 12 b1_lru published
+[79/100] seed 11 p_proposed verified
+[80/100] seed 11 b4_aoi_tuned verified
+[81/100] seed 11 b5_foggycache verified
+[82/100] seed 12 b4_aoi_assumed published
+[83/100] seed 12 b4_aoi_tuned published
+[84/100] seed 12 b5_foggycache published
+[85/100] seed 12 b1_lru verified
+[86/100] seed 12 p_proposed published
+[87/100] seed 12 p_proposed verified
+[88/100] seed 13 b1_lru published
+[89/100] seed 12 b4_aoi_assumed verified
+[90/100] seed 12 b4_aoi_tuned verified
+[91/100] seed 12 b5_foggycache verified
+[92/100] seed 13 b4_aoi_assumed published
+[93/100] seed 13 b4_aoi_tuned published
+[94/100] seed 13 b5_foggycache published
+[95/100] seed 13 b1_lru verified
+[96/100] seed 13 p_proposed published
+[97/100] seed 13 b4_aoi_assumed verified
+[98/100] seed 13 p_proposed verified
+[99/100] seed 13 b4_aoi_tuned verified
+[100/100] seed 13 b5_foggycache verified
+
+Saved experiments/bologna/aggregated_results.json (2456s)
+
+PUBLISHED
+  arm                         hit%  correct%       ms   n
+  LRU                         94.9      50.8     2.80  10
+  AoI window (assumed)        67.7      48.9     6.69  10
+  AoI window (tuned)          65.0      48.7     6.85  10
+  FoggyCache reuse            97.9      51.6     2.44  10
+  Proposed                    96.8      55.9     2.80  10
+
+VERIFIED
+  arm                         hit%  correct%       ms   n
+  LRU                         20.2      20.2    13.00  10
+  AoI window (assumed)        17.4      17.4    13.33  10
+  AoI window (tuned)          16.6      16.6    13.42  10
+  FoggyCache reuse            28.4      28.4    11.96  10
+  Proposed                    81.5      81.5     5.21  10
