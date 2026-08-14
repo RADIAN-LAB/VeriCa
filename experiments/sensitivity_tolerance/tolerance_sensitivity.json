@@ -1,0 +1,107 @@
+{
+  "per_scale": {
+    "0.50": {
+      "p_proposed": {
+        "published_correct": 42.87403995008251,
+        "verified_usable": 60.17043799565918,
+        "n": 10
+      },
+      "b5_foggycache": {
+        "published_correct": 36.63475639417551,
+        "verified_usable": 17.855002586990544,
+        "n": 10
+      },
+      "b1_lru": {
+        "published_correct": 34.18725268087699,
+        "verified_usable": 11.502411216013636,
+        "n": 10
+      }
+    },
+    "0.75": {
+      "p_proposed": {
+        "published_correct": 44.6376380142794,
+        "verified_usable": 64.5886955622734,
+        "n": 10
+      },
+      "b5_foggycache": {
+        "published_correct": 38.19874188956258,
+        "verified_usable": 19.41366348340733,
+        "n": 10
+      },
+      "b1_lru": {
+        "published_correct": 35.679055095762074,
+        "verified_usable": 12.435201883391326,
+        "n": 10
+      }
+    },
+    "1.00": {
+      "p_proposed": {
+        "published_correct": 46.86991446670755,
+        "verified_usable": 68.54679981859587,
+        "n": 10
+      },
+      "b5_foggycache": {
+        "published_correct": 40.20884648604307,
+        "verified_usable": 20.782799057998858,
+        "n": 10
+      },
+      "b1_lru": {
+        "published_correct": 37.563718983026604,
+        "verified_usable": 13.255440148103983,
+        "n": 10
+      }
+    },
+    "1.25": {
+      "p_proposed": {
+        "published_correct": 48.75439579786719,
+        "verified_usable": 71.39742390690898,
+        "n": 10
+      },
+      "b5_foggycache": {
+        "published_correct": 42.070425298574065,
+        "verified_usable": 21.841302453652425,
+        "n": 10
+      },
+      "b1_lru": {
+        "published_correct": 39.29836365672917,
+        "verified_usable": 13.89518929856239,
+        "n": 10
+      }
+    },
+    "1.50": {
+      "p_proposed": {
+        "published_correct": 50.48016624143702,
+        "verified_usable": 73.53934728728908,
+        "n": 10
+      },
+      "b5_foggycache": {
+        "published_correct": 43.693790393524615,
+        "verified_usable": 22.61802599416846,
+        "n": 10
+      },
+      "b1_lru": {
+        "published_correct": 40.78614292700606,
+        "verified_usable": 14.387100901876689,
+        "n": 10
+      }
+    }
+  },
+  "expected_order": [
+    "p_proposed",
+    "b5_foggycache",
+    "b1_lru"
+  ],
+  "ordering_holds": true,
+  "seeds": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "total_tasks": 14810,
+  "success_rate": 1.0,
+  "average_completion": 3.524766638771127,
+  "cache_hits": 13491,
+  "cache_misses": 1319,
+  "hit_rate": 0.9109385550303849,
+  "preplacements": 0,
+  "proactive_computations": 0,
+  "proactive_hits": 0,
+  "proactive_wasted": 0,
+  "proactive_precision": 0.0,
+  "proactive_compute_ms": 0.0,
+  "runtime_seconds": 88.52655982971191,
+  "provenance": {
+    "params": {
+      "trace": "/Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/intent-nlp-vanet/experiments/evaluation/seed_12/tasks.csv",
+      "seed": 12,
+      "max_ts": null,
+      "evict_policy": "lru",
+      "load_rl": null,
+      "no_fl": true,
+      "fl_placement_enabled": false,
+      "preplace_mode": "compute",
+      "preplace_budget": 10,
+      "cache_capacity_per_rsu": 100,
+      "default_ttl": 300,
+      "eviction_policy": "LRU",
+      "rsu_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enable_auto_cache": true,
+      "enable_cache_lookup": true,
+      "enable_forwarding": false
+    },
+    "git": {
+      "coca": {
+        "available": true,
+        "commit": "f5f145068da0ad8b5d26e8c9d3b065d36dd71d31",
+        "branch": "iotj-rework",
+        "dirty": false
+      }
+    },
+    "python": "3.9.6",
+    "platform": "macOS-15.1.1-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.0.2",
+      "torch": "2.7.1",
+      "pulp": "2.9.0",
+      "scipy": "1.13.1",
+      "pandas": "2.2.3",
+      "xgboost": "2.1.2"
+    }
+  },
+  "reuse_mode": "foggycache",
+  "key_mode": "coca",
+  "verify_before_serve": false,
+  "verifications": 0,
+  "verification_failures": 0,
+  "verification_ms_total": 0.0,
+  "distinct_keys_resident": 135,
+  "distinct_keys_seen": 145,
+  "validity_model": "oracle",
+  "valid_cache_hits": 6497,
+  "stale_cache_hits": 6994,
+  "semantic_cache_hits": 1073,
+  "semantic_correct_hits": 484,
+  "valid_hit_rate": 0.4386900742741391,
+  "stale_reuse_rate": 0.5184196871988733,
+  "hit_error_rate": 0.5184196871988733,
+  "semantic_precision": 0.451071761416589,
+  "semantic_error_rate": 0.45563709139426284,
+  "error_breakdown": {
+    "wrong_intent": 0,
+    "wrong_place": 5728,
+    "wrong_subject": 419,
+    "stale": 847,
+    "unknown": 0
+  },
+  "rejected_stale": 0,
+  "rejected_intent": 0,
+  "per_intent": {
+    "traffic_analysis": {
+      "misses": 79,
+      "hits": 2104,
+      "semantic_hits": 160,
+      "valid_hits": 1131,
+      "semantic_correct": 93,
+      "stale_hits": 973,
+      "wrong_place": 847,
+      "stale": 126
+    },
+    "hazard_detection": {
+      "misses": 176,
+      "hits": 1222,
+      "valid_hits": 1107,
+      "semantic_hits": 155,
+      "semantic_correct": 145,
+      "stale_hits": 115,
+      "wrong_place": 86,
+      "stale": 29
+    },
+    "route_optimization": {
+      "misses": 128,
+      "hits": 1978,
+      "semantic_hits": 135,
+      "stale_hits": 1717,
+      "wrong_place": 1537,
+      "valid_hits": 261,
+      "semantic_correct": 25,
+      "stale": 180
+    },
+    "sensor_processing": {
+      "misses": 149,
+      "hits": 2073,
+      "semantic_hits": 106,
+      "valid_hits": 37,
+      "semantic_correct": 8,
+      "stale_hits": 2036,
+      "wrong_subject": 419,
+      "wrong_place": 1617
+    },
+    "environment_perception": {
+      "misses": 289,
+      "hits": 2046,
+      "semantic_hits": 296,
+      "stale_hits": 2030,
+      "stale": 482,
+      "wrong_place": 1548,
+      "valid_hits": 16,
+      "semantic_correct": 6
+    },
+    "content_delivery": {
+      "misses": 379,
+      "hits": 3159,
+      "valid_hits": 3159,
+      "semantic_hits": 88,
+      "semantic_correct": 88
+    },
+    "parking_search": {
+      "misses": 119,
+      "hits": 909,
+      "valid_hits": 786,
+      "semantic_hits": 133,
+      "semantic_correct": 119,
+      "stale_hits": 123,
+      "wrong_place": 93,
+      "stale": 30
+    }
+  },
+  "energy_joules": 3987.1000000000004,
+  "seed": 12,
+  "reuse_threshold": 0.65,
+  "decay_rates": null,
+  "freshness_threshold": null,
+  "intent_from_text": null,
+  "tolerance_scale": 1.5
+}

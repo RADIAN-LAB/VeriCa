@@ -167,3 +167,96 @@ scale 1.00: 60 results copied from the main evaluation
 [165/240] scale 1.25 seed 11 b1_lru published
 [166/240] scale 1.25 seed 12 p_proposed published
 [167/240] scale 1.25 seed 10 b1_lru verified
+[168/240] scale 1.25 seed 12 b5_foggycache published
+[169/240] scale 1.25 seed 12 p_proposed verified
+[170/240] scale 1.25 seed 11 b5_foggycache verified
+[171/240] scale 1.25 seed 13 p_proposed published
+[172/240] scale 1.25 seed 12 b1_lru published
+[173/240] scale 1.25 seed 11 b1_lru verified
+[174/240] scale 1.25 seed 13 b5_foggycache published
+[175/240] scale 1.25 seed 12 b5_foggycache verified
+[176/240] scale 1.25 seed 13 p_proposed verified
+[177/240] scale 1.5 seed 04 p_proposed published
+[178/240] scale 1.25 seed 13 b1_lru published
+[179/240] scale 1.25 seed 12 b1_lru verified
+[180/240] scale 1.5 seed 04 p_proposed verified
+[181/240] scale 1.5 seed 04 b5_foggycache published
+[182/240] scale 1.25 seed 13 b5_foggycache verified
+[183/240] scale 1.5 seed 04 b1_lru published
+[184/240] scale 1.5 seed 05 p_proposed published
+[185/240] scale 1.25 seed 13 b1_lru verified
+[186/240] scale 1.5 seed 05 b5_foggycache published
+[187/240] scale 1.5 seed 05 p_proposed verified
+[188/240] scale 1.5 seed 04 b5_foggycache verified
+[189/240] scale 1.5 seed 06 p_proposed published
+[190/240] scale 1.5 seed 05 b1_lru published
+[191/240] scale 1.5 seed 04 b1_lru verified
+[192/240] scale 1.5 seed 06 p_proposed verified
+[193/240] scale 1.5 seed 06 b5_foggycache published
+[194/240] scale 1.5 seed 05 b5_foggycache verified
+[195/240] scale 1.5 seed 06 b1_lru published
+[196/240] scale 1.5 seed 07 p_proposed published
+[197/240] scale 1.5 seed 05 b1_lru verified
+[198/240] scale 1.5 seed 07 p_proposed verified
+[199/240] scale 1.5 seed 07 b5_foggycache published
+[200/240] scale 1.5 seed 06 b5_foggycache verified
+[201/240] scale 1.5 seed 08 p_proposed published
+[202/240] scale 1.5 seed 07 b1_lru published
+[203/240] scale 1.5 seed 08 b5_foggycache published
+[204/240] scale 1.5 seed 06 b1_lru verified
+[205/240] scale 1.5 seed 08 p_proposed verified
+[206/240] scale 1.5 seed 07 b5_foggycache verified
+[207/240] scale 1.5 seed 09 p_proposed published
+[208/240] scale 1.5 seed 08 b1_lru published
+[209/240] scale 1.5 seed 07 b1_lru verified
+[210/240] scale 1.5 seed 09 p_proposed verified
+[211/240] scale 1.5 seed 09 b5_foggycache published
+[212/240] scale 1.5 seed 08 b5_foggycache verified
+[213/240] scale 1.5 seed 10 p_proposed published
+[214/240] scale 1.5 seed 09 b1_lru published
+[215/240] scale 1.5 seed 08 b1_lru verified
+[216/240] scale 1.5 seed 10 b5_foggycache published
+[217/240] scale 1.5 seed 10 p_proposed verified
+[218/240] scale 1.5 seed 09 b5_foggycache verified
+[219/240] scale 1.5 seed 11 p_proposed published
+[220/240] scale 1.5 seed 10 b1_lru published
+[221/240] scale 1.5 seed 09 b1_lru verified
+[222/240] scale 1.5 seed 11 b5_foggycache published
+[223/240] scale 1.5 seed 11 p_proposed verified
+[224/240] scale 1.5 seed 10 b5_foggycache verified
+[225/240] scale 1.5 seed 12 p_proposed published
+[226/240] scale 1.5 seed 11 b1_lru published
+[227/240] scale 1.5 seed 10 b1_lru verified
+[228/240] scale 1.5 seed 12 b5_foggycache published
+[229/240] scale 1.5 seed 12 p_proposed verified
+[230/240] scale 1.5 seed 11 b5_foggycache verified
+[231/240] scale 1.5 seed 13 p_proposed published
+[232/240] scale 1.5 seed 12 b1_lru published
+[233/240] scale 1.5 seed 11 b1_lru verified
+[234/240] scale 1.5 seed 13 b5_foggycache published
+[235/240] scale 1.5 seed 13 p_proposed verified
+[236/240] scale 1.5 seed 12 b5_foggycache verified
+[237/240] scale 1.5 seed 13 b1_lru published
+[238/240] scale 1.5 seed 12 b1_lru verified
+[239/240] scale 1.5 seed 13 b5_foggycache verified
+[240/240] scale 1.5 seed 13 b1_lru verified
+
+ scale  arm               published correct%  verified usable%   n
+  0.50  p_proposed                      42.9              60.2  10
+  0.50  b5_foggycache                   36.6              17.9  10
+  0.50  b1_lru                          34.2              11.5  10
+  0.75  p_proposed                      44.6              64.6  10
+  0.75  b5_foggycache                   38.2              19.4  10
+  0.75  b1_lru                          35.7              12.4  10
+  1.00  p_proposed                      46.9              68.5  10
+  1.00  b5_foggycache                   40.2              20.8  10
+  1.00  b1_lru                          37.6              13.3  10
+  1.25  p_proposed                      48.8              71.4  10
+  1.25  b5_foggycache                   42.1              21.8  10
+  1.25  b1_lru                          39.3              13.9  10
+  1.50  p_proposed                      50.5              73.5  10
+  1.50  b5_foggycache                   43.7              22.6  10
+  1.50  b1_lru                          40.8              14.4  10
+
+Ordering (verified usable hits): HOLDS at every scale
+Saved /Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/intent-nlp-vanet/experiments/sensitivity_tolerance/tolerance_sensitivity.json (7098s)
