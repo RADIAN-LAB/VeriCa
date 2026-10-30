@@ -26,6 +26,9 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import energy_model  # noqa: E402
 
 # Validated categorical slots (light mode) — assigned in fixed order, never cycled.
 BLUE, ORANGE, AQUA, YELLOW, MAGENTA = (
@@ -44,7 +47,7 @@ ARM_ORDER = [
     ("b4_aoi_assumed", "AoI window (assumed)"),
     ("b4_aoi_tuned", "AoI window (tuned)"),
     ("b5_foggycache", "FoggyCache reuse"),
-    ("p_proposed", "Proposed"),
+    ("p_proposed", "VeriCa"),
 ]
 ERROR_SERIES = [
     ("wrong_place", "wrong place", BLUE),
@@ -90,64 +93,163 @@ def label_bars(ax, bars, values, fmt="{:.1f}", pad=0.6) -> None:
 
 
 def fig_hit_vs_correct(runs, out: Path) -> None:
-    """The money figure: how much of a hit rate is actually right."""
-    labels, hit, correct = [], [], []
+    """Published regime, replacing the results table: rates and completion."""
+    labels, hit, correct, wrong, completion = [], [], [], [], []
     for arm, name in ARM_ORDER:
         published = runs.get(arm, {}).get("published", [])
         if not published:
             continue
         labels.append(name)
-        hit.append(mean_of(published, "hit_rate", 100))
-        correct.append(mean_of(published, "valid_hit_rate", 100))
+        h = mean_of(published, "hit_rate", 100)
+        c = mean_of(published, "valid_hit_rate", 100)
+        hit.append(h)
+        correct.append(c)
+        wrong.append(h - c)
+        completion.append(mean_of(published, "average_completion"))
 
     positions = range(len(labels))
-    height = 0.38
-    fig, ax = plt.subplots(figsize=(8.4, 4.6))
-    bars_hit = ax.barh([p + height / 2 + 0.02 for p in positions], hit,
-                       height=height, color=BLUE, label="cache hit rate")
-    bars_ok = ax.barh([p - height / 2 - 0.02 for p in positions], correct,
-                      height=height, color=ORANGE, label="answers actually correct")
-    label_bars(ax, bars_hit, hit)
-    label_bars(ax, bars_ok, correct)
-    ax.set_yticks(list(positions))
-    ax.set_yticklabels(labels, color=INK, fontsize=9.5)
-    ax.set_xlim(0, 118)
-    style(ax, "% of requests")
-    ax.legend(frameon=False, fontsize=9, ncol=2, labelcolor=INK_SOFT,
-              loc="lower left", bbox_to_anchor=(0, 1.01))
-    ax.set_title("A cache hit is not a correct answer",
-                 color=INK, fontsize=12, loc="left", pad=32)
-    fig.tight_layout()
+    height = 0.26
+    fig, (ax1, ax2) = plt.subplots(
+        1, 2, figsize=(8.4, 5.2), sharey=True, layout="constrained",
+        gridspec_kw={"width_ratios": [1.9, 1.0]})
+    bars_hit = ax1.barh([p + height + 0.02 for p in positions], hit,
+                        height=height, color=BLUE, label="hit rate")
+    bars_ok = ax1.barh(list(positions), correct,
+                       height=height, color=ORANGE, label="correct answers")
+    bars_wr = ax1.barh([p - height - 0.02 for p in positions], wrong,
+                       height=height, color=AQUA, label="wrong answers")
+    label_bars(ax1, bars_hit, hit)
+    label_bars(ax1, bars_ok, correct)
+    label_bars(ax1, bars_wr, wrong)
+    ax1.set_yticks(list(positions))
+    ax1.set_yticklabels(labels, color=INK, fontsize=9.5)
+    ax1.set_xlim(0, 112)
+    style(ax1, "% of requests")
+    ax1.legend(frameon=False, fontsize=9, ncol=3, labelcolor=INK_SOFT,
+               loc="lower left", bbox_to_anchor=(0, 1.005))
+
+    bars_ms = ax2.barh(list(positions), completion, height=0.62, color=BLUE)
+    label_bars(ax2, bars_ms, completion, fmt="{:.2f}", pad=0.12)
+    ax2.set_xlim(0, max(completion) * 1.3)
+    style(ax2, "completion (ms)")
+
     fig.savefig(out, dpi=200)
     fig.savefig(out.with_suffix(".pdf"))
     plt.close(fig)
 
 
-def fig_verified(runs, ceiling: Optional[float], out: Path) -> None:
-    """Usable hits once every arm must deliver correct answers."""
-    labels, usable = [], []
+def fig_verified(runs, ceiling: Optional[float], energy: Dict[str, float],
+                 out: Path) -> None:
+    """Verified regime, replacing the results table: hits, latency, energy."""
+    labels, usable, latency, joules = [], [], [], []
     for arm, name in ARM_ORDER:
         verified = runs.get(arm, {}).get("verified", [])
         if not verified:
             continue
         labels.append(name)
         usable.append(mean_of(verified, "valid_hit_rate", 100))
+        latency.append(mean_of(verified, "average_completion"))
+        joules.append(energy.get(arm, float("nan")))
 
-    fig, ax = plt.subplots(figsize=(8.4, 4.2))
-    colors = [BLUE if name != "Proposed" else ORANGE for name in labels]
-    bars = ax.barh(list(range(len(labels))), usable, height=0.62, color=colors)
-    label_bars(ax, bars, usable)
+    positions = list(range(len(labels)))
+    colors = [ORANGE if name == "VeriCa" else BLUE for name in labels]
+    fig, (ax1, ax2, ax3) = plt.subplots(
+        1, 3, figsize=(8.4, 4.4), sharey=True, layout="constrained",
+        gridspec_kw={"width_ratios": [1.5, 1.0, 1.0]})
+
+    bars = ax1.barh(positions, usable, height=0.62, color=colors)
+    label_bars(ax1, bars, usable)
     if ceiling is not None:
-        ax.axvline(ceiling, color=INK_SOFT, linestyle=(0, (4, 3)), linewidth=1.2)
-        ax.text(ceiling - 1.5, len(labels) - 0.4,
-                f"clairvoyant ceiling {ceiling:.1f}%", ha="right", va="center",
-                color=INK_SOFT, fontsize=8.5)
-    ax.set_yticks(list(range(len(labels))))
-    ax.set_yticklabels(labels, color=INK, fontsize=9.5)
-    ax.set_xlim(0, max(100, (ceiling or 0) + 6))
-    style(ax, "% of requests served correctly from cache")
-    ax.set_title("Usable hits at equal correctness",
-                 color=INK, fontsize=12, loc="left", pad=12)
+        ax1.axvline(ceiling, color=INK_SOFT, linestyle=(0, (4, 3)),
+                    linewidth=1.2)
+        ax1.text(ceiling - 1.5, len(labels) - 0.4,
+                 f"clairvoyant {ceiling:.1f}%", ha="right", va="center",
+                 color=INK_SOFT, fontsize=8.5)
+    ax1.set_yticks(positions)
+    ax1.set_yticklabels(labels, color=INK, fontsize=9.5)
+    ax1.set_xlim(0, max(106, (ceiling or 0) + 8))
+    style(ax1, "usable hits (% of requests)")
+
+    bars = ax2.barh(positions, latency, height=0.62, color=colors)
+    label_bars(ax2, bars, latency, fmt="{:.2f}", pad=0.15)
+    ax2.set_xlim(0, max(latency) * 1.32)
+    style(ax2, "completion (ms)")
+
+    bars = ax3.barh(positions, joules, height=0.62, color=colors)
+    label_bars(ax3, bars, joules, fmt="{:.3f}", pad=0.006)
+    ax3.set_xlim(0, max(joules) * 1.36)
+    style(ax3, "J per correct answer")
+
+    fig.savefig(out, dpi=200)
+    fig.savefig(out.with_suffix(".pdf"))
+    plt.close(fig)
+
+
+def energy_per_correct(evaluation: Path) -> Dict[str, float]:
+    """Mean J per correct answer per arm, verified regime, physical model."""
+    acc: Dict[str, List[float]] = defaultdict(list)
+    for seed_dir in sorted(evaluation.glob("seed_*")):
+        trace = seed_dir / "tasks.csv"
+        if not trace.exists():
+            continue
+        profile = energy_model.trace_profile(trace)
+        for path in seed_dir.glob("*__verified.json"):
+            arm = path.stem.split("__")[0]
+            with path.open() as handle:
+                result = json.load(handle)
+            acc[arm].append(
+                energy_model.energy_joules(result, profile)["j_per_correct_answer"])
+    return {arm: statistics.fmean(v) for arm, v in acc.items()}
+
+
+SCENARIO_FILES = [
+    ("Sparse", "density_v100"),
+    ("Congested", "density_v400"),
+    ("Bologna", "bologna"),
+]
+SCENARIO_ARMS = [
+    ("b4_aoi_tuned", "AoI window (tuned)"),
+    ("b1_lru", "LRU"),
+    ("b5_foggycache", "FoggyCache reuse"),
+    ("p_proposed", "VeriCa"),
+]
+
+
+def fig_scenarios(runs, out: Path) -> None:
+    """Generality across topology and density, replacing the results table."""
+    values: Dict[str, Dict[str, float]] = {}
+    values["Grid"] = {
+        arm: mean_of(runs.get(arm, {}).get("verified", []), "valid_hit_rate", 100)
+        for arm, _ in SCENARIO_ARMS
+    }
+    for scenario, dirname in SCENARIO_FILES:
+        path = ROOT / "experiments" / dirname / "aggregated_results.json"
+        with path.open() as handle:
+            agg = json.load(handle)
+        values[scenario] = {
+            arm: 100.0 * agg[f"{arm}__verified"]["metrics"]["valid_hit_rate"]["mean"]
+            for arm, _ in SCENARIO_ARMS
+        }
+
+    series = [("Grid", BLUE), ("Sparse", ORANGE), ("Congested", AQUA),
+              ("Bologna", YELLOW)]
+    positions = list(range(len(SCENARIO_ARMS)))
+    height = 0.19
+    offsets = [1.5 * height, 0.5 * height, -0.5 * height, -1.5 * height]
+    fig, ax = plt.subplots(figsize=(8.4, 5.0))
+    for (scenario, color), offset in zip(series, offsets):
+        vals = [values[scenario][arm] for arm, _ in SCENARIO_ARMS]
+        bars = ax.barh([p + offset for p in positions], vals, height=height,
+                       color=color, label=scenario, edgecolor=SURFACE,
+                       linewidth=0.8)
+        label_bars(ax, bars, vals, pad=0.5)
+    ax.set_yticks(positions)
+    ax.set_yticklabels([name for _, name in SCENARIO_ARMS], color=INK,
+                       fontsize=9.5)
+    ax.set_xlim(0, 100)
+    style(ax, "usable hits (% of requests), verified regime")
+    ax.legend(frameon=False, fontsize=9, ncol=4, labelcolor=INK_SOFT,
+              loc="lower left", bbox_to_anchor=(0, 1.005))
     fig.tight_layout()
     fig.savefig(out, dpi=200)
     fig.savefig(out.with_suffix(".pdf"))
@@ -279,8 +381,10 @@ def main() -> int:
         with args.clairvoyant.open() as handle:
             ceiling = 100.0 * json.load(handle)["clairvoyant_bound"]
 
+    energy = energy_per_correct(args.evaluation)
     fig_hit_vs_correct(runs, args.out_dir / "fig_hit_vs_correct.png")
-    fig_verified(runs, ceiling, args.out_dir / "fig_verified.png")
+    fig_verified(runs, ceiling, energy, args.out_dir / "fig_verified.png")
+    fig_scenarios(runs, args.out_dir / "fig_scenarios.png")
     fig_error_taxonomy(runs, args.out_dir / "fig_error_taxonomy.png")
     fig_latency(runs, args.out_dir / "fig_latency.png")
     if args.fitted_rates.exists():

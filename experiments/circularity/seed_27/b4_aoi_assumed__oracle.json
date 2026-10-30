@@ -1,0 +1,147 @@
+{
+  "total_tasks": 16172,
+  "success_rate": 1.0,
+  "average_completion": 7.896478785671234,
+  "cache_hits": 9629,
+  "cache_misses": 6543,
+  "hit_rate": 0.5954118229037844,
+  "preplacements": 0,
+  "proactive_computations": 0,
+  "proactive_hits": 0,
+  "proactive_wasted": 0,
+  "proactive_precision": 0.0,
+  "proactive_compute_ms": 0.0,
+  "runtime_seconds": 146.14360690116882,
+  "provenance": {
+    "params": {
+      "trace": "/Users/kosar/Documents/Ph.D code/windsurf/CoCaandNlp/intent-nlp-vanet/experiments/evaluation/seed_27/tasks.csv",
+      "seed": 27,
+      "max_ts": null,
+      "evict_policy": "lru",
+      "load_rl": null,
+      "no_fl": true,
+      "fl_placement_enabled": false,
+      "preplace_mode": "compute",
+      "preplace_budget": 10,
+      "cache_capacity_per_rsu": 100,
+      "default_ttl": 300,
+      "eviction_policy": "LRU",
+      "rsu_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "enable_auto_cache": true,
+      "enable_cache_lookup": true,
+      "enable_forwarding": false
+    },
+    "git": {
+      "coca": {
+        "available": true,
+        "commit": "f5f145068da0ad8b5d26e8c9d3b065d36dd71d31",
+        "branch": "iotj-rework",
+        "dirty": true
+      }
+    },
+    "python": "3.9.6",
+    "platform": "macOS-15.1.1-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.0.2",
+      "torch": "2.7.1",
+      "pulp": "2.9.0",
+      "scipy": "1.13.1",
+      "pandas": "2.2.3",
+      "xgboost": "2.1.2"
+    }
+  },
+  "reuse_mode": "aoi_window",
+  "key_mode": "coca",
+  "verify_before_serve": false,
+  "verifications": 0,
+  "verification_failures": 0,
+  "verification_ms_total": 0.0,
+  "distinct_keys_resident": 140,
+  "distinct_keys_seen": 145,
+  "validity_model": "oracle",
+  "valid_cache_hits": 4744,
+  "stale_cache_hits": 4885,
+  "semantic_cache_hits": 0,
+  "semantic_correct_hits": 0,
+  "valid_hit_rate": 0.2933465248577789,
+  "stale_reuse_rate": 0.5073216325682833,
+  "hit_error_rate": 0.5073216325682833,
+  "semantic_precision": 0.0,
+  "semantic_error_rate": 0.43202824800083084,
+  "error_breakdown": {
+    "wrong_intent": 0,
+    "wrong_place": 3986,
+    "wrong_subject": 174,
+    "stale": 725,
+    "unknown": 0
+  },
+  "rejected_stale": 3715,
+  "rejected_intent": 0,
+  "per_intent": {
+    "traffic_analysis": {
+      "misses": 1082,
+      "hits": 1294,
+      "stale_hits": 738,
+      "stale": 29,
+      "wrong_place": 709,
+      "valid_hits": 556
+    },
+    "hazard_detection": {
+      "misses": 1165,
+      "hits": 256,
+      "valid_hits": 220,
+      "stale_hits": 36,
+      "wrong_place": 36
+    },
+    "route_optimization": {
+      "misses": 519,
+      "hits": 1747,
+      "stale_hits": 1634,
+      "wrong_place": 1351,
+      "stale": 283,
+      "valid_hits": 113
+    },
+    "sensor_processing": {
+      "misses": 1465,
+      "hits": 889,
+      "stale_hits": 870,
+      "wrong_place": 696,
+      "wrong_subject": 174,
+      "valid_hits": 19
+    },
+    "environment_perception": {
+      "misses": 803,
+      "hits": 1581,
+      "stale_hits": 1550,
+      "stale": 408,
+      "wrong_place": 1142,
+      "valid_hits": 31
+    },
+    "content_delivery": {
+      "misses": 572,
+      "hits": 3526,
+      "valid_hits": 3526
+    },
+    "parking_search": {
+      "misses": 937,
+      "hits": 336,
+      "valid_hits": 279,
+      "stale_hits": 57,
+      "stale": 5,
+      "wrong_place": 52
+    }
+  },
+  "energy_joules": 14048.9,
+  "seed": 27,
+  "reuse_threshold": 0.65,
+  "decay_rates": null,
+  "freshness_threshold": null,
+  "intent_from_text": null,
+  "tolerance_scale": 1.0
+}

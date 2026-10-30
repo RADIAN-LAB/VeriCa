@@ -1,0 +1,425 @@
+{
+  "b1_lru": {
+    "n": 27,
+    "valid_hit_rate_exponential": {
+      "mean": 0.5962164840842339,
+      "std": 0.012725008843086368
+    },
+    "valid_hit_rate_oracle": {
+      "mean": 0.3758562354454157,
+      "std": 0.005495484017019951
+    },
+    "bias": {
+      "mean": 0.2203602486388182,
+      "std": 0.014805561571055269,
+      "min": 0.19228287520970444,
+      "max": 0.2582556632306648
+    },
+    "frozen_mismatched_seeds": [
+      26
+    ],
+    "per_seed": {
+      "4": {
+        "hit_rate": 0.8361955951756685,
+        "valid_hit_rate_exponential": 0.5849501835343471,
+        "valid_hit_rate_oracle": 0.38430781331934977,
+        "frozen_evaluation_hit_rate": 0.8361955951756685,
+        "frozen_matches": true
+      },
+      "5": {
+        "hit_rate": 0.8374050632911393,
+        "valid_hit_rate_exponential": 0.6107594936708861,
+        "valid_hit_rate_oracle": 0.38411392405063294,
+        "frozen_evaluation_hit_rate": 0.8374050632911393,
+        "frozen_matches": true
+      },
+      "6": {
+        "hit_rate": 0.8348303393213573,
+        "valid_hit_rate_exponential": 0.6026696606786427,
+        "valid_hit_rate_oracle": 0.3625249500998004,
+        "frozen_evaluation_hit_rate": 0.8348303393213573,
+        "frozen_matches": true
+      },
+      "7": {
+        "hit_rate": 0.8299484306360222,
+        "valid_hit_rate_exponential": 0.6059081937989431,
+        "valid_hit_rate_oracle": 0.3754377029349971,
+        "frozen_evaluation_hit_rate": 0.8299484306360222,
+        "frozen_matches": true
+      },
+      "8": {
+        "hit_rate": 0.8329738645013955,
+        "valid_hit_rate_exponential": 0.5841157066734332,
+        "valid_hit_rate_oracle": 0.3747145394569906,
+        "frozen_evaluation_hit_rate": 0.8329738645013955,
+        "frozen_matches": true
+      },
+      "9": {
+        "hit_rate": 0.8395458845789971,
+        "valid_hit_rate_exponential": 0.6034058656575213,
+        "valid_hit_rate_oracle": 0.3759066540523494,
+        "frozen_evaluation_hit_rate": 0.8395458845789971,
+        "frozen_matches": true
+      },
+      "10": {
+        "hit_rate": 0.821566670824498,
+        "valid_hit_rate_exponential": 0.5908694025196457,
+        "valid_hit_rate_oracle": 0.37358114007733567,
+        "frozen_evaluation_hit_rate": 0.821566670824498,
+        "frozen_matches": true
+      },
+      "11": {
+        "hit_rate": 0.8355538637228778,
+        "valid_hit_rate_exponential": 0.5977033371399568,
+        "valid_hit_rate_oracle": 0.37469864230427613,
+        "frozen_evaluation_hit_rate": 0.8355538637228778,
+        "frozen_matches": true
+      },
+      "12": {
+        "hit_rate": 0.838014854827819,
+        "valid_hit_rate_exponential": 0.5789331532748143,
+        "valid_hit_rate_oracle": 0.3787305874409183,
+        "frozen_evaluation_hit_rate": 0.838014854827819,
+        "frozen_matches": true
+      },
+      "13": {
+        "hit_rate": 0.8384998784342329,
+        "valid_hit_rate_exponential": 0.6019328956965718,
+        "valid_hit_rate_oracle": 0.37235594456601023,
+        "frozen_evaluation_hit_rate": 0.8384998784342329,
+        "frozen_matches": true
+      },
+      "14": {
+        "hit_rate": 0.8360968994637243,
+        "valid_hit_rate_exponential": 0.6106762004561425,
+        "valid_hit_rate_oracle": 0.38470073352647477,
+        "frozen_evaluation_hit_rate": 0.8360968994637243,
+        "frozen_matches": true
+      },
+      "15": {
+        "hit_rate": 0.8333123900477507,
+        "valid_hit_rate_exponential": 0.5863282231716511,
+        "valid_hit_rate_oracle": 0.3804347826086957,
+        "frozen_evaluation_hit_rate": 0.8333123900477507,
+        "frozen_matches": true
+      },
+      "16": {
+        "hit_rate": 0.836224,
+        "valid_hit_rate_exponential": 0.613888,
+        "valid_hit_rate_oracle": 0.375168,
+        "frozen_evaluation_hit_rate": 0.836224,
+        "frozen_matches": true
+      },
+      "17": {
+        "hit_rate": 0.8328384063350656,
+        "valid_hit_rate_exponential": 0.6125958921059144,
+        "valid_hit_rate_oracle": 0.3773818361791636,
+        "frozen_evaluation_hit_rate": 0.8328384063350656,
+        "frozen_matches": true
+      },
+      "18": {
+        "hit_rate": 0.8235631086499905,
+        "valid_hit_rate_exponential": 0.5927057475654001,
+        "valid_hit_rate_oracle": 0.3668767105849405,
+        "frozen_evaluation_hit_rate": 0.8235631086499905,
+        "frozen_matches": true
+      },
+      "19": {
+        "hit_rate": 0.831394975261839,
+        "valid_hit_rate_exponential": 0.5983422219366447,
+        "valid_hit_rate_oracle": 0.36843796183255156,
+        "frozen_evaluation_hit_rate": 0.831394975261839,
+        "frozen_matches": true
+      },
+      "20": {
+        "hit_rate": 0.833960866613172,
+        "valid_hit_rate_exponential": 0.6245910746250232,
+        "valid_hit_rate_oracle": 0.3663354113943584,
+        "frozen_evaluation_hit_rate": 0.833960866613172,
+        "frozen_matches": true
+      },
+      "21": {
+        "hit_rate": 0.8367175375064666,
+        "valid_hit_rate_exponential": 0.5879461976202793,
+        "valid_hit_rate_oracle": 0.3771339886187274,
+        "frozen_evaluation_hit_rate": 0.8367175375064666,
+        "frozen_matches": true
+      },
+      "22": {
+        "hit_rate": 0.8312765014872476,
+        "valid_hit_rate_exponential": 0.593696601480919,
+        "valid_hit_rate_oracle": 0.3803556736915385,
+        "frozen_evaluation_hit_rate": 0.8312765014872476,
+        "frozen_matches": true
+      },
+      "23": {
+        "hit_rate": 0.828407062090855,
+        "valid_hit_rate_exponential": 0.5778615354096409,
+        "valid_hit_rate_oracle": 0.3775705878463268,
+        "frozen_evaluation_hit_rate": 0.828407062090855,
+        "frozen_matches": true
+      },
+      "24": {
+        "hit_rate": 0.829971181556196,
+        "valid_hit_rate_exponential": 0.5973277443018077,
+        "valid_hit_rate_oracle": 0.37274037201991095,
+        "frozen_evaluation_hit_rate": 0.829971181556196,
+        "frozen_matches": true
+      },
+      "25": {
+        "hit_rate": 0.8314042951762896,
+        "valid_hit_rate_exponential": 0.5894159363082893,
+        "valid_hit_rate_oracle": 0.38021007560045494,
+        "frozen_evaluation_hit_rate": 0.8314042951762896,
+        "frozen_matches": true
+      },
+      "26": {
+        "hit_rate": 0.8318492708736611,
+        "valid_hit_rate_exponential": 0.5709123757904245,
+        "valid_hit_rate_oracle": 0.3786295005807201,
+        "frozen_evaluation_hit_rate": 0.7497741644083108,
+        "frozen_matches": false
+      },
+      "27": {
+        "hit_rate": 0.8291491466732624,
+        "valid_hit_rate_exponential": 0.6056764778629731,
+        "valid_hit_rate_oracle": 0.37515458817709624,
+        "frozen_evaluation_hit_rate": 0.8291491466732624,
+        "frozen_matches": true
+      },
+      "28": {
+        "hit_rate": 0.8233344166395841,
+        "valid_hit_rate_exponential": 0.5849853753656159,
+        "valid_hit_rate_oracle": 0.3753006174845629,
+        "frozen_evaluation_hit_rate": 0.8233344166395841,
+        "frozen_matches": true
+      },
+      "29": {
+        "hit_rate": 0.8326760905175029,
+        "valid_hit_rate_exponential": 0.6034095734999697,
+        "valid_hit_rate_oracle": 0.38227264454286236,
+        "frozen_evaluation_hit_rate": 0.8326760905175029,
+        "frozen_matches": true
+      },
+      "30": {
+        "hit_rate": 0.8221764061593969,
+        "valid_hit_rate_exponential": 0.5862380001288576,
+        "valid_hit_rate_oracle": 0.37304297403517817,
+        "frozen_evaluation_hit_rate": 0.8221764061593969,
+        "frozen_matches": true
+      }
+    }
+  },
+  "b4_aoi_assumed": {
+    "n": 27,
+    "valid_hit_rate_exponential": {
+      "mean": 0.5464737298336594,
+      "std": 0.006758971586751778
+    },
+    "valid_hit_rate_oracle": {
+      "mean": 0.28919873705867694,
+      "std": 0.005804983963095766
+    },
+    "bias": {
+      "mean": 0.25727499277498245,
+      "std": 0.006078733273406935,
+      "min": 0.2453219770292941,
+      "max": 0.27195852107894575
+    },
+    "frozen_mismatched_seeds": [
+      25,
+      26
+    ],
+    "per_seed": {
+      "4": {
+        "hit_rate": 0.591767173571054,
+        "valid_hit_rate_exponential": 0.5438515993707393,
+        "valid_hit_rate_oracle": 0.2894598846355532,
+        "frozen_evaluation_hit_rate": 0.591767173571054,
+        "frozen_matches": true
+      },
+      "5": {
+        "hit_rate": 0.6012658227848101,
+        "valid_hit_rate_exponential": 0.5547468354430379,
+        "valid_hit_rate_oracle": 0.3030379746835443,
+        "frozen_evaluation_hit_rate": 0.6012658227848101,
+        "frozen_matches": true
+      },
+      "6": {
+        "hit_rate": 0.5960578842315369,
+        "valid_hit_rate_exponential": 0.5447854291417166,
+        "valid_hit_rate_oracle": 0.2838073852295409,
+        "frozen_evaluation_hit_rate": 0.5960578842315369,
+        "frozen_matches": true
+      },
+      "7": {
+        "hit_rate": 0.5935570127968421,
+        "valid_hit_rate_exponential": 0.545998599350608,
+        "valid_hit_rate_oracle": 0.29082574648246007,
+        "frozen_evaluation_hit_rate": 0.5935570127968421,
+        "frozen_matches": true
+      },
+      "8": {
+        "hit_rate": 0.6001649327581832,
+        "valid_hit_rate_exponential": 0.5475767571682314,
+        "valid_hit_rate_oracle": 0.28679269221009895,
+        "frozen_evaluation_hit_rate": 0.6001649327581832,
+        "frozen_matches": true
+      },
+      "9": {
+        "hit_rate": 0.6067486597287922,
+        "valid_hit_rate_exponential": 0.5550930305897194,
+        "valid_hit_rate_oracle": 0.2958688111005992,
+        "frozen_evaluation_hit_rate": 0.6067486597287922,
+        "frozen_matches": true
+      },
+      "10": {
+        "hit_rate": 0.5926780591243608,
+        "valid_hit_rate_exponential": 0.5381065236372709,
+        "valid_hit_rate_oracle": 0.28539353873019835,
+        "frozen_evaluation_hit_rate": 0.5926780591243608,
+        "frozen_matches": true
+      },
+      "11": {
+        "hit_rate": 0.6035401598781881,
+        "valid_hit_rate_exponential": 0.5564014718944297,
+        "valid_hit_rate_oracle": 0.2967263037685573,
+        "frozen_evaluation_hit_rate": 0.6035401598781881,
+        "frozen_matches": true
+      },
+      "12": {
+        "hit_rate": 0.5941255908170155,
+        "valid_hit_rate_exponential": 0.5390276839972992,
+        "valid_hit_rate_oracle": 0.2835246455097907,
+        "frozen_evaluation_hit_rate": 0.5941255908170155,
+        "frozen_matches": true
+      },
+      "13": {
+        "hit_rate": 0.6016289812788719,
+        "valid_hit_rate_exponential": 0.5570751276440554,
+        "valid_hit_rate_oracle": 0.2912715779236567,
+        "frozen_evaluation_hit_rate": 0.6016289812788719,
+        "frozen_matches": true
+      },
+      "14": {
+        "hit_rate": 0.6050052394748197,
+        "valid_hit_rate_exponential": 0.5555076126487086,
+        "valid_hit_rate_oracle": 0.2977870923996795,
+        "frozen_evaluation_hit_rate": 0.6050052394748197,
+        "frozen_matches": true
+      },
+      "15": {
+        "hit_rate": 0.5931138477004272,
+        "valid_hit_rate_exponential": 0.5456773058557427,
+        "valid_hit_rate_oracle": 0.2863784870570495,
+        "frozen_evaluation_hit_rate": 0.5931138477004272,
+        "frozen_matches": true
+      },
+      "16": {
+        "hit_rate": 0.59456,
+        "valid_hit_rate_exponential": 0.546816,
+        "valid_hit_rate_oracle": 0.28768,
+        "frozen_evaluation_hit_rate": 0.59456,
+        "frozen_matches": true
+      },
+      "17": {
+        "hit_rate": 0.6046770601336303,
+        "valid_hit_rate_exponential": 0.5524003959415986,
+        "valid_hit_rate_oracle": 0.29429596634496413,
+        "frozen_evaluation_hit_rate": 0.6046770601336303,
+        "frozen_matches": true
+      },
+      "18": {
+        "hit_rate": 0.5851950862453058,
+        "valid_hit_rate_exponential": 0.5424225065240914,
+        "valid_hit_rate_oracle": 0.27840366622111895,
+        "frozen_evaluation_hit_rate": 0.5851950862453058,
+        "frozen_matches": true
+      },
+      "19": {
+        "hit_rate": 0.5940371393690163,
+        "valid_hit_rate_exponential": 0.5452033669600976,
+        "valid_hit_rate_oracle": 0.27738867827539676,
+        "frozen_evaluation_hit_rate": 0.5940371393690163,
+        "frozen_matches": true
+      },
+      "20": {
+        "hit_rate": 0.603049194494167,
+        "valid_hit_rate_exponential": 0.5579285229306833,
+        "valid_hit_rate_oracle": 0.28597000185173754,
+        "frozen_evaluation_hit_rate": 0.603049194494167,
+        "frozen_matches": true
+      },
+      "21": {
+        "hit_rate": 0.5930548370408691,
+        "valid_hit_rate_exponential": 0.5459130884635282,
+        "valid_hit_rate_oracle": 0.28446714950853597,
+        "frozen_evaluation_hit_rate": 0.5930548370408691,
+        "frozen_matches": true
+      },
+      "22": {
+        "hit_rate": 0.5932535915448389,
+        "valid_hit_rate_exponential": 0.5471172710587937,
+        "valid_hit_rate_oracle": 0.29687994430732234,
+        "frozen_evaluation_hit_rate": 0.5932535915448389,
+        "frozen_matches": true
+      },
+      "23": {
+        "hit_rate": 0.5889043179263374,
+        "valid_hit_rate_exponential": 0.5399722277325928,
+        "valid_hit_rate_oracle": 0.2869800965416915,
+        "frozen_evaluation_hit_rate": 0.5889043179263374,
+        "frozen_matches": true
+      },
+      "24": {
+        "hit_rate": 0.5949043751637412,
+        "valid_hit_rate_exponential": 0.5445375949698716,
+        "valid_hit_rate_oracle": 0.2896253602305475,
+        "frozen_evaluation_hit_rate": 0.5949043751637412,
+        "frozen_matches": true
+      },
+      "25": {
+        "hit_rate": 0.586539104837091,
+        "valid_hit_rate_exponential": 0.5373653575968422,
+        "valid_hit_rate_oracle": 0.28681340737271693,
+        "frozen_evaluation_hit_rate": 0.5508128721482571,
+        "frozen_matches": false
+      },
+      "26": {
+        "hit_rate": 0.5859465737514518,
+        "valid_hit_rate_exponential": 0.5346496322106078,
+        "valid_hit_rate_oracle": 0.2893276551813137,
+        "frozen_evaluation_hit_rate": 0.49838688863079106,
+        "frozen_matches": false
+      },
+      "27": {
+        "hit_rate": 0.5954118229037844,
+        "valid_hit_rate_exponential": 0.544892406628741,
+        "valid_hit_rate_oracle": 0.2933465248577789,
+        "frozen_evaluation_hit_rate": 0.5954118229037844,
+        "frozen_matches": true
+      },
+      "28": {
+        "hit_rate": 0.5884952876178096,
+        "valid_hit_rate_exponential": 0.540006499837504,
+        "valid_hit_rate_oracle": 0.28774780630484237,
+        "frozen_evaluation_hit_rate": 0.5884952876178096,
+        "frozen_matches": true
+      },
+      "29": {
+        "hit_rate": 0.5998301280106777,
+        "valid_hit_rate_exponential": 0.553479342352727,
+        "valid_hit_rate_oracle": 0.2911484559849542,
+        "frozen_evaluation_hit_rate": 0.5998301280106777,
+        "frozen_matches": true
+      },
+      "30": {
+        "hit_rate": 0.5834031312415437,
+        "valid_hit_rate_exponential": 0.5382385155595645,
+        "valid_hit_rate_oracle": 0.2874170478706269,
+        "frozen_evaluation_hit_rate": 0.5834031312415437,
+        "frozen_matches": true
+      }
+    }
+  }
+}

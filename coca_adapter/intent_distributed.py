@@ -155,6 +155,13 @@ class IntentAwareDistributedCacheManager(DistributedCacheManager):
         if key_mode not in KEY_MODES:
             raise ValueError(f"key_mode must be one of {sorted(KEY_MODES)}")
         super().__init__(rsu_ids, cache_capacity, default_ttl, eviction_policy)
+        # CacheManager expires entries after default_ttl *wall-clock* seconds,
+        # so hit rates would depend on how fast the process runs (machine
+        # load). All staleness semantics here are in simulated time — the
+        # coca-mode age gate below keeps using self.default_ttl — so the
+        # wall-clock expiry must never fire.
+        for cache in self.rsu_caches.values():
+            cache.default_ttl = math.inf
         self.reuse_mode = reuse_mode
         self.key_mode = key_mode
         self.verify_before_serve = verify_before_serve

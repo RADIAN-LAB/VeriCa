@@ -21,3 +21,9 @@ experiments/figures/*.pdf
 
 # Result JSONs are deliberately NOT ignored: they are the paper's evidence and
 # each one carries its own provenance block.
+
+# LaTeX build by-products
+paper/*.log
+paper/*.blg
+paper/*.aux
+paper/*.out
