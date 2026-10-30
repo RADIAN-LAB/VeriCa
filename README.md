@@ -80,6 +80,7 @@ python3 scripts/make_figures.py
 
 Additional studies: `run_tolerance_sweep.py` (±50% referee tolerances),
 `run_circularity_ablation.py` (self-consistent vs. referee judging),
+`run_freshness_gate_ablation.py` (predictive gate on top of verification),
 `measure_scope_decorrelation.py` (spatial validity scales),
 `train_intent_classifier.py` (natural-language intent recovery).
 
