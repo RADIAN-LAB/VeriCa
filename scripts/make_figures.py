@@ -357,6 +357,123 @@ def fig_decay_rates(fitted_path: Path, out: Path) -> None:
     plt.close(fig)
 
 
+def style_line(ax, xlabel: str, ylabel: str) -> None:
+    """``style`` for line charts: the value axis is y, so the grid is too."""
+    style(ax, xlabel)
+    ax.xaxis.grid(False)
+    ax.yaxis.grid(True, color=GRID, linewidth=0.8)
+    ax.set_ylabel(ylabel, color=INK_SOFT, fontsize=9)
+
+
+def end_label(ax, x: float, y: float, text: str, dy: float = 0.0) -> None:
+    ax.annotate(text, (x, y), xytext=(6, dy), textcoords="offset points",
+                va="center", ha="left", color=INK, fontsize=8.5)
+
+
+TOLERANCE_ARMS = [
+    ("p_proposed", "VeriCa", ORANGE, "o"),
+    ("b5_foggycache", "FoggyCache reuse", BLUE, "s"),
+    ("b1_lru", "LRU", AQUA, "^"),
+]
+
+
+def fig_tolerance(sweep_path: Path, out: Path) -> None:
+    """Verified usable hits as every referee tolerance is scaled together."""
+    with sweep_path.open() as handle:
+        per_scale = json.load(handle)["per_scale"]
+    scales = sorted(per_scale, key=float)
+    xs = [float(s) for s in scales]
+
+    fig, ax = plt.subplots(figsize=(8.4, 4.2))
+    for arm, name, color, marker in TOLERANCE_ARMS:
+        ys = [per_scale[s][arm]["verified_usable"] for s in scales]
+        ax.plot(xs, ys, color=color, linewidth=2, marker=marker, markersize=7,
+                markeredgecolor=SURFACE, markeredgewidth=1.5, label=name)
+        # The lowest series is labelled below its line so the value never
+        # sits on the series above it.
+        dy = -13 if arm == TOLERANCE_ARMS[-1][0] else 9
+        for x, y in zip(xs, ys):
+            if x in (xs[0], xs[-1]):
+                ax.annotate(f"{y:.1f}", (x, y), xytext=(0, dy),
+                            textcoords="offset points", ha="center",
+                            color=INK_SOFT, fontsize=8)
+        end_label(ax, xs[-1], ys[-1], name)
+    ax.axvline(1.0, color=INK_SOFT, linewidth=0.8, linestyle=(0, (3, 3)))
+    ax.annotate("tolerances used in the paper", (1.0, 96), xytext=(4, 0),
+                textcoords="offset points", color=INK_SOFT, fontsize=8)
+    ax.set_xticks(xs)
+    ax.set_xticklabels([f"{x:.2f}×" for x in xs])
+    ax.set_xlim(xs[0] - 0.08, xs[-1] + 0.42)
+    ax.set_ylim(0, 100)
+    style_line(ax, "tolerance scale (stricter ← → looser)",
+               "usable hits (% of requests)")
+    ax.legend(frameon=False, fontsize=9, ncol=3, labelcolor=INK_SOFT,
+              loc="lower left", bbox_to_anchor=(0, 1.01))
+    fig.tight_layout()
+    fig.savefig(out, dpi=200)
+    fig.savefig(out.with_suffix(".pdf"))
+    plt.close(fig)
+
+
+SPATIAL_FEATURES = [
+    ("mean_speed", "mean speed", BLUE, "o"),
+    ("edge_speeds", "lane speeds", ORANGE, "s"),
+    ("stopped_set", "stopped set", AQUA, "^"),
+    ("density", "vehicle count", YELLOW, "D"),
+    ("occupancy", "occupancy grid", MAGENTA, "v"),
+]
+
+
+def _bin_mid(label: str) -> float:
+    lo, hi = label.split("-")
+    return (float(lo) + float(hi)) / 2
+
+
+def fig_spatial(decorrelation_path: Path, out: Path) -> None:
+    """How far each answer feature stays valid when the request is displaced."""
+    with decorrelation_path.open() as handle:
+        data = json.load(handle)
+
+    fig, (ax_n, ax_c) = plt.subplots(
+        1, 2, figsize=(8.4, 4.8), sharey=True,
+        gridspec_kw={"width_ratios": [1, 2.2]})
+
+    curve = data["neighbourhood"]["curve"]
+    xs = [_bin_mid(b) for b in curve]
+    ys = [curve[b]["p_agree"] for b in curve]
+    # Neutral ink: this panel's single series is not one of the right panel's
+    # features, so it must not borrow one of their colours.
+    ax_n.plot(xs, ys, color=INK_SOFT, linewidth=2, marker="o", markersize=6,
+              markeredgecolor=SURFACE, markeredgewidth=1.5)
+    ax_n.axvline(50, color=INK_SOFT, linewidth=0.8, linestyle=(0, (3, 3)))
+    ax_n.annotate("50 m neighbour\nradius", (50, 0.62), xytext=(5, 0),
+                  textcoords="offset points", color=INK_SOFT, fontsize=8)
+    ax_n.set_xlim(0, 300)
+    ax_n.set_ylim(0, 1.05)
+    ax_n.set_title("Vehicle neighbourhood", color=INK, fontsize=10, loc="left")
+    style_line(ax_n, "displacement (m)", "probability the answer still agrees")
+
+    for key, name, color, marker in SPATIAL_FEATURES:
+        curve = data["region_features"][key]["curve"]
+        xs = [_bin_mid(b) for b in curve]
+        ys = [curve[b]["p_agree"] for b in curve]
+        ax_c.plot(xs, ys, color=color, linewidth=2, marker=marker,
+                  markersize=6, markevery=2, markeredgecolor=SURFACE,
+                  markeredgewidth=1.5, label=name)
+    ax_c.axvline(500, color=INK_SOFT, linewidth=0.8, linestyle=(0, (3, 3)))
+    ax_c.annotate("cell radius", (500, 1.0), xytext=(5, 0),
+                  textcoords="offset points", color=INK_SOFT, fontsize=8)
+    ax_c.set_xlim(0, 1700)
+    ax_c.set_title("Cell-level observables", color=INK, fontsize=10, loc="left")
+    style_line(ax_c, "displacement of the 500 m question region (m)", "")
+    ax_c.legend(frameon=False, fontsize=8.5, ncol=3, labelcolor=INK_SOFT,
+                loc="upper left", bbox_to_anchor=(0, -0.17))
+    fig.tight_layout()
+    fig.savefig(out, dpi=200)
+    fig.savefig(out.with_suffix(".pdf"))
+    plt.close(fig)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--evaluation", type=Path,
@@ -367,6 +484,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--clairvoyant", type=Path,
                         default=ROOT / "experiments" / "baselines" / "runs"
                         / "clairvoyant.json")
+    parser.add_argument("--tolerance-sweep", type=Path,
+                        default=ROOT / "experiments" / "sensitivity_tolerance"
+                        / "tolerance_sensitivity.json")
+    parser.add_argument("--decorrelation", type=Path,
+                        default=ROOT / "experiments" / "scope_decorrelation"
+                        / "decorrelation.json")
     parser.add_argument("--out-dir", type=Path,
                         default=ROOT / "experiments" / "figures")
     return parser.parse_args()
@@ -393,6 +516,10 @@ def main() -> int:
     fig_latency(runs, args.out_dir / "fig_latency.png")
     if args.fitted_rates.exists():
         fig_decay_rates(args.fitted_rates, args.out_dir / "fig_decay_rates.png")
+    if args.tolerance_sweep.exists():
+        fig_tolerance(args.tolerance_sweep, args.out_dir / "fig_tolerance.png")
+    if args.decorrelation.exists():
+        fig_spatial(args.decorrelation, args.out_dir / "fig_spatial.png")
 
     n = len(next(iter(runs.values()))["published"])
     print(f"Figures written to {args.out_dir} (n≈{n} seeds per arm)")
