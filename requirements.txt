@@ -1,5 +1,5 @@
 # Pinned to the versions the reported results were produced with. Must stay
-# consistent with ../sdn-vanet-optimizer/requirements.txt, since this project
+# consistent with ../CoCa/requirements.txt, since this project
 # imports that one at runtime (see coca_path.py).
 
 torch==2.7.1

@@ -8,12 +8,12 @@ freshness model's decay rates.
 
 Usage:
     python3 scripts/build_oracle.py \
-        --fcd ../sdn-vanet-optimizer/experiments/sumo/output/fcd_trace.xml \
+        --fcd ../CoCa/experiments/sumo/output/fcd_trace.xml \
         --output experiments/oracle/seed_01.pkl
 
     # every mobility realisation at once
     python3 scripts/build_oracle.py --mobility-dir \
-        ../sdn-vanet-optimizer/experiments/sumo/mobility --jobs 4
+        ../CoCa/experiments/sumo/mobility --jobs 4
 """
 from __future__ import annotations
 

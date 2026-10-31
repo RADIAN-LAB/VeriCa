@@ -14,7 +14,9 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-DEFAULT_COCA_ROOT = PROJECT_ROOT.parent / "sdn-vanet-optimizer"
+# The public repository is RADIAN-LAB/CoCa; older checkouts use its former name.
+_SIBLINGS = [PROJECT_ROOT.parent / name for name in ("CoCa", "sdn-vanet-optimizer")]
+DEFAULT_COCA_ROOT = next((p for p in _SIBLINGS if p.exists()), _SIBLINGS[0])
 COCA_ROOT = Path(os.environ.get("COCA_ROOT", DEFAULT_COCA_ROOT)).expanduser().resolve()
 
 
@@ -23,7 +25,7 @@ def bootstrap_coca() -> Path:
     if not (COCA_ROOT / "cache" / "distributed_manager.py").exists():
         raise FileNotFoundError(
             f"CoCa implementation not found at {COCA_ROOT}. "
-            "Set COCA_ROOT to the sdn-vanet-optimizer directory."
+            "Clone RADIAN-LAB/CoCa next to this repository or set COCA_ROOT."
         )
     root = str(COCA_ROOT)
     if root not in sys.path:

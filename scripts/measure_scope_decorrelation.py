@@ -24,7 +24,7 @@ Two probes, both on the calibration seeds (01-03) only, per the protocol:
 
 Usage:
     python3 scripts/measure_scope_decorrelation.py \
-        --mobility-dir ../sdn-vanet-optimizer/experiments/sumo/mobility \
+        --mobility-dir ../CoCa/experiments/sumo/mobility \
         --out experiments/scope_decorrelation/decorrelation.json
 """
 from __future__ import annotations
@@ -110,8 +110,7 @@ def occupancy_flip_agrees(a: FrozenSet, b: FrozenSet) -> bool:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--mobility-dir", type=Path,
-                    default=Path(__file__).resolve().parents[2]
-                    / "sdn-vanet-optimizer" / "experiments" / "sumo" / "mobility")
+                    default=coca_path.COCA_ROOT / "experiments" / "sumo" / "mobility")
     ap.add_argument("--out", type=Path,
                     default=Path(__file__).resolve().parents[1]
                     / "experiments" / "scope_decorrelation" / "decorrelation.json")

@@ -32,17 +32,17 @@ tests/           pytest suite
 ## Setup
 
 VeriCa runs on top of the CoCa SD-VANET simulator
-([RADIAN-LAB/sdn-vanet-optimizer](https://github.com/RADIAN-LAB/sdn-vanet-optimizer)).
+([RADIAN-LAB/CoCa](https://github.com/RADIAN-LAB/CoCa)).
 Clone both repositories side by side:
 
 ```bash
-git clone https://github.com/RADIAN-LAB/sdn-vanet-optimizer.git
+git clone https://github.com/RADIAN-LAB/CoCa.git
 git clone https://github.com/RADIAN-LAB/VeriCa.git
 cd VeriCa
 pip install -r requirements.txt
 ```
 
-If the two are not siblings, set `COCA_ROOT=/path/to/sdn-vanet-optimizer`.
+If the two are not siblings, set `COCA_ROOT=/path/to/CoCa`.
 SUMO is required to regenerate mobility traces.
 
 ## Reproducing the results
@@ -52,11 +52,11 @@ seeds 4–30 are the evaluation split (n = 27).
 
 ```bash
 # 1. Mobility realisations (in the CoCa repository)
-python3 ../sdn-vanet-optimizer/scripts/build_mobility.py --seeds 30
+python3 ../CoCa/scripts/build_mobility.py --seeds 30
 
 # 2. Validity referee: per-cell, per-second road state from mobility alone
 python3 scripts/build_oracle.py \
-    --mobility-dir ../sdn-vanet-optimizer/experiments/sumo/mobility --jobs 4
+    --mobility-dir ../CoCa/experiments/sumo/mobility --jobs 4
 
 # 3. Calibration on seeds 1-3: lifetimes and AoI windows
 python3 scripts/fit_decay_rates.py --oracle experiments/oracle/seed_0{1,2,3}.pkl
